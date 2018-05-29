@@ -29,16 +29,20 @@
               {% csrf_token %}
               <div class="row mrg10">
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                  <input class="brd-rd5" type="text" placeholder="Username" id = "id__username">
+                  <p>username</p>
+                  {{forms.username}}
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                  <input class="brd-rd5" type="email" placeholder="Email" id = "id__email">
+                  <p>Email</p>
+                  {{forms.email}}
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                  <input class="brd-rd5" type="password" placeholder="Password" id = "id__password1">
+                  <p>Password</p>
+                  {{forms.password1}}
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                  <input class="brd-rd5" type="password" placeholder="Confirm Password" id = "id__password2">
+                  <p>Confirm Password</p>
+                  {{forms.password2}}
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
                   <button class="green-bg brd-rd5" type="submit">Login Now</button>
