@@ -7,7 +7,8 @@ from .views import *
 
 urlpatterns = [
     # admin templaates url
-    path('dashboard/', Dashboard.as_view(), name ='dashboard')
+    path('dashboard/', Dashboard.as_view(), name ='dashboard'),
+    path('singin', singin_views, name = 'singin_views'),
 ]
 
 if settings.DEBUG:
