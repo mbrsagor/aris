@@ -7,8 +7,10 @@ from .views import *
 
 urlpatterns = [
     # admin templaates url
-    path('dashboard/', Dashboard.as_view(), name ='dashboard'),
-    path('singin', singin_views, name = 'singin_views'),
+    path('dashboard/', dashboard_views, name ='dashboard'),
+    path('singin/', singin_views, name = 'singin_views'),
+    path('singup/', singup_views, name = 'singup_views'),
+    path('singout/', singout_view, name = 'singout_view'),
 ]
 
 if settings.DEBUG:
