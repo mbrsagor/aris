@@ -3,8 +3,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+from .views import *
 
+urlpatterns = [
+    # admin templaates url
+    path('dashboard/', Dashboard.as_view(), name ='dashboard')
 ]
 
 if settings.DEBUG:
