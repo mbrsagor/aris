@@ -1,0 +1,111 @@
+.tm-btn,
+.tm-btn.tm-btn-black span:before,
+.preloader-wave:before,
+.preloader-wave:after,
+.scrollup,
+.nav-link:before,
+.nav-link:after,
+.site-header-3.small-height .nav-link:before,
+.site-header-3.small-height .nav-link:after,
+.animation-version,
+.about-slider .owl-dots .owl-dot.active span,
+.service-section .nav-link .active-bar:before,
+.service-section .nav-link span:after,
+.cta .cta-bar,
+.cta .cta-bar:before,
+.cta .cta-bar:after,
+.pricing-hover-wrap > div:hover .pricing-head,
+.tagcloud a:hover,
+.post .owl-dots .owl-dot.active span,
+.p-bar-percentage,
+.groth-bar,
+.section-divider .left,
+.section-divider .right,
+.section-divider span,
+.section-divider span:before,
+.section-divider span:after,
+.service-section .nav-link .active-bar:before,
+.company-groth-2.company-groth .fun-fact:before,
+.animation-overlay,
+.preloader-wave:before,
+.preloader-wave:after,
+.preloader-wave {
+	background-color: #219cd6;
+}
+a:hover,
+a:focus,
+a:active,
+.primary-nav .menu-item > a:hover,
+.primary-nav-list .current-menu-ancestor .current-menu-ancestor.current-menu-parent > a,
+.primary-nav-list .current-menu-ancestor.current-menu-parent .current-menu-item > a,
+.primary-nav .menu-item > .nav-link.active,
+.site-header.site-header-3.small-height .primary-nav .menu-item > .nav-link.active,
+.site-header-3.small-height .primary-nav .primary-nav-list > .menu-item > a:hover,
+.service-section .nav-link.active i,
+.service-section .nav-link.active span,
+.member-social-btn a:hover,
+.single-price.special-price .price b,
+.single-price.special-price .price span,
+.home-blog-thumb a:before,
+a.post-thumbnail:before,
+.home-entry-content h3 a:hover,
+.single-testimonial blockquote i,
+.single-testimonial blockquote small span,
+.contact-info ul li a:hover,
+.social-btn a:hover,
+.subscription-label,
+.entry-title a:hover,
+.byline a:hover,
+.comment-author a.nm:hover,
+.comment-author .nm a:hover,
+.comment-metadata a:hover,
+.comment-reply-link:hover,
+.comment-reply-link:focus,
+.widget ul li a:hover,
+.widget ul li:hover:before,
+.widget.widget_recent_entries ul a:hover h2,
+.search-btn:hover + label:before,
+.read-more-btn,
+.primary-nav-list .menu-item > .nav-link.active,
+.portfolio-filter ul li.active a,
+.contact-info ul li i,
+.breadcrumb li a:hover  {
+	color: #219cd6;
+}
+blockquote,
+.tm-btn:before,
+.tm-btn .sp-btn:before,
+.subscribe-form input:focus,
+.comment-form textarea:focus,
+.comment-form input:focus,
+.tagcloud a:hover,
+.search-field:focus,
+.post .owl-dots .owl-dot span {
+	border-color: #219cd6;
+}
+.company-groth .fun-fact:before {
+    background-color: rgba(33, 156, 214, 0.6);
+}
+.service-section .nav-link.active .active-bar:after {
+    background: rgba(33, 156, 214, 0.5);
+    box-shadow: 0 0 0 4px rgba(33, 156, 214, 0.5);
+}
+.service-section .nav-link span:after {
+    box-shadow: 0 0 0 4px rgba(33, 156, 214, 0.6);
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #219cd6, 0 0 20px #219cd6, 0 0 30px #219cd6;
+    }
+    to {
+        text-shadow: 0 0 0px #000, 0 0 0px #000, 0 0 0px #000;
+    }
+}
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #219cd6, 0 0 20px #219cd6, 0 0 30px #219cd6;
+    }
+    to {
+        text-shadow: 0 0 0px #000, 0 0 0px #000, 0 0 0px #000;
+    }
+}
