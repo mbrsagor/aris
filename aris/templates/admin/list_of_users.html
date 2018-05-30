@@ -1,0 +1,29 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || Dashboard {% endblock %}
+{% block body %}
+<h2>Total List of Users</h2> <br/>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Member Type</th>
+            <th>Contact Number</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for user in profile_obj %}
+        <tr>
+            <th scope="row">{{user.username}}</th>
+            <td>{{user.email}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.username}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

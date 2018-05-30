@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegister
-
+from .models import *
 
 
 # Dashboard views
@@ -50,3 +50,16 @@ def singup_views(request):
 def singout_view(request):
     logout(request)
     return redirect(singin_views)
+
+
+
+# Total list of users
+def total_users(request):
+    profile_obj = Profile.objects.all()
+    forms = UserRegister()
+    context = {
+        'forms': forms,
+        'profile_obj' : profile_obj
+    }
+    template_name = 'admin/list_of_users.html'
+    return render(request, template_name, context)
