@@ -1,0 +1,49 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Add New Item {% endblock %}
+
+{% block body %}
+<div class="addItem">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-6">
+        <label>Product Name</label>
+        {{forms.name}}
+      </div>
+      <div class="col-lg-3">
+        <div class="form-group">
+        <label for="sel1">Category</label>
+        {{forms.category}}
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <label>Model No</label>
+        {{forms.model}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label>Price</label>
+        {{forms.price}}
+      </div>
+      <div class="col-lg-3">
+        <label>Discount Price</label>
+        {{forms.discount_price}}
+      </div>
+      <div class="col-lg-3">
+        <label>Item Image</label>
+        <input class="form-control" type="file" />
+      </div>
+    </div>
+    <div class="row">
+      <label>Description</label>
+      <div class="col-lg-12">
+        {{forms.description}}
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" name="button">Publish</button>
+  </form>
+</div>
+{% endblock %}

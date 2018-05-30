@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegister
+from .forms import UserRegister, AddItem
 from .models import *
 
 
@@ -62,4 +62,23 @@ def total_users(request):
         'profile_obj' : profile_obj
     }
     template_name = 'admin/list_of_users.html'
+    return render(request, template_name, context)
+
+
+
+
+
+# Product
+def add_new_item(request):
+    forms = AddItem()
+    if request.method == 'POST':
+        forms = AddItem(request.POST, request.FILES)
+        if forms.is_valid():
+            instance = forms.save(commit = False)
+            instance.save()
+            return redirect(add_new_item)
+    context = {
+        'forms' : forms
+    }
+    template_name = 'admin/add_project.html'
     return render(request, template_name, context)

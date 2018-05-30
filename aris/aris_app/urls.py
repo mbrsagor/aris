@@ -11,7 +11,8 @@ urlpatterns = [
     path('singin/', singin_views, name = 'singin_views'),
     path('singup/', singup_views, name = 'singup_views'),
     path('singout/', singout_view, name = 'singout_view'),
-    path('users', total_users, name = 'total_users'),
+    path('users/', total_users, name = 'total_users'),
+    path('add-item/', add_new_item, name = 'add_new_item'),
 ]
 
 if settings.DEBUG:
