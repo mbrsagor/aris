@@ -114,3 +114,13 @@ def updateItem_views(request, id):
     }
     template_name = 'admin/add_project.html'
     return render(request, template_name, context)
+
+
+
+
+# delete items
+def itemDelete_views(request, id):
+
+    delete_item = get_object_or_404(Product, id = id)
+    delete_item.delete()
+    return redirect(showProject_views)

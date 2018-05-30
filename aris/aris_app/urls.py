@@ -15,6 +15,7 @@ urlpatterns = [
     path('add-item/', add_new_item, name = 'add_new_item'),
     path('show-project/', showProject_views, name = 'showProject_views'),
     path('update-item/<int:id>/', updateItem_views, name = 'updateItem_views'),
+    path('delete-item/<int:id>/', itemDelete_views, name = 'itemDelete_views'),
 ]
 
 if settings.DEBUG:
