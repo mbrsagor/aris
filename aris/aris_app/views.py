@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegister, AddItem
@@ -66,7 +66,7 @@ def total_users(request):
 
 
 
-# Product
+# Product/Item
 def add_new_item(request):
     forms = AddItem()
     if request.method == 'POST':
@@ -92,4 +92,25 @@ def showProject_views(request):
         'show_item' : showProduct_obj
     }
     template_name = 'admin/products.html'
+    return render(request, template_name, context)
+
+
+
+
+
+# Update Item
+def updateItem_views(request, id):
+    update_item = get_object_or_404(Product, id = id)
+    if request.method == 'POST':
+        forms = AddItem(request.POST, request.FILES, instance = update_item)
+        if forms.is_valid():
+            forms.save()
+            return redirect(showProject_views)
+    else:
+        forms = AddItem(instance = update_item)
+    context = {
+        'forms' : forms,
+        'update_item' : update_item
+    }
+    template_name = 'admin/add_project.html'
     return render(request, template_name, context)
