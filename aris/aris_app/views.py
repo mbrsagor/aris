@@ -66,8 +66,6 @@ def total_users(request):
 
 
 
-
-
 # Product
 def add_new_item(request):
     forms = AddItem()
@@ -81,4 +79,17 @@ def add_new_item(request):
         'forms' : forms
     }
     template_name = 'admin/add_project.html'
+    return render(request, template_name, context)
+
+
+
+
+# Show project admin
+def showProject_views(request):
+
+    showProduct_obj = Product.objects.all()
+    context = {
+        'show_item' : showProduct_obj
+    }
+    template_name = 'admin/products.html'
     return render(request, template_name, context)

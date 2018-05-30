@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="addItem">
-  <form method="POST">
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row">
       <div class="col-lg-6">
@@ -34,7 +34,7 @@
       </div>
       <div class="col-lg-3">
         <label>Item Image</label>
-        <input class="form-control" type="file" />
+        {{forms.image}}
       </div>
     </div>
     <div class="row">

@@ -13,6 +13,7 @@ urlpatterns = [
     path('singout/', singout_view, name = 'singout_view'),
     path('users/', total_users, name = 'total_users'),
     path('add-item/', add_new_item, name = 'add_new_item'),
+    path('show-project/', showProject_views, name = 'showProject_views'),
 ]
 
 if settings.DEBUG:

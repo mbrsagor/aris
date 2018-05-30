@@ -42,7 +42,7 @@ class Category(models.Model):
 
 # Products
 class Product(models.Model):
-    name = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 150)
     image = models.ImageField(upload_to = 'project_category', blank= True, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     price = models.IntegerField()
