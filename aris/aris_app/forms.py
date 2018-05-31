@@ -32,3 +32,15 @@ class AddItem(forms.ModelForm):
             'model': TextInput(attrs={'class':'form-control'}),
             'description': Textarea(attrs={'class':'form-control'}),
         }
+
+
+
+# Blood Donor
+class BloodDonor_Form(forms.ModelForm):
+    class Meta:
+        model = BloodDonor
+        fields = '__all__'
+        widgets = {
+            'bolood_type' : Select(attrs = {'class': 'form-control'}),
+            'dononer_address' : Textarea(attrs = {'class': 'form-control'}),
+        }

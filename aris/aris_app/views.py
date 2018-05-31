@@ -1,22 +1,37 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegister, AddItem
+from .forms import UserRegister, AddItem, BloodDonor_Form
 from .models import *
 
 
 
 
 # homepage
-class Homepage_views(View):
+def homepage_views(request):
 
-    def get(self, request):
-        template_name = 'front-end/index.html'
-        return render(request, template_name)
+    # blood donoet forms
+    forms = BloodDonor_Form()
+    if request.method == 'POST':
+        forms = BloodDonor_Form(request.POST or None)
+        if forms.is_valid():
+            forms.save()
+            return redirect(homepage_views)
+    context = {
+        'forms' : forms
+    }
+    template_name = 'front-end/index.html'
+    return render(request, template_name, context)
+
+
 
 # Dashboard views
 def dashboard_views(request):
 
+    product_count = Product.objects.count()
+    context = {
+        'product_count' : product_count
+    }
     template_name = 'admin/dashboard.html'
     return render(request, template_name)
 

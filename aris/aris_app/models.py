@@ -54,3 +54,30 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+
+# Blood Type
+class BloodType(models.Model):
+    name = models.CharField(max_length = 15)
+
+    def __str__(self):
+        return self.name
+
+
+
+
+# Blood donors
+class BloodDonor(models.Model):
+    dononer_name = models.CharField(max_length = 30)
+    dononer_desctric = models.CharField(max_length = 20)
+    dononer_uplozilla = models.CharField(max_length = 20)
+    dononer_village = models.CharField(max_length = 20)
+    dononer_address = models.TextField()
+    donoer_contact = models.IntegerField()
+    bolood_type = models.ForeignKey(BloodType, on_delete = models.CASCADE)
+
+
+    def __str__(self):
+        return self.dononer_name

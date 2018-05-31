@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
-    path('', Homepage_views.as_view(), name = 'homepage_views'),
+    path('', homepage_views, name = 'homepage_views'),
     # admin templaates url
     path('dashboard/', dashboard_views, name ='dashboard'),
     path('singin/', singin_views, name = 'singin_views'),

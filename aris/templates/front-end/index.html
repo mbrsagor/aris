@@ -590,44 +590,41 @@
 				<div class="row">
 					<div class="col-lg-4">
 	          <div class="tm-form-field">
-	            <input type="text" id="name" name="name" required="">
+	            {{forms.dononer_name}}
 	            <span class="bar"></span>
 	            <label>Full Name</label>
 	          </div>
 	          <div class="tm-form-field">
-		            <input type="number" id="subject" name="subject" required="">
+		            {{forms.donoer_contact}}
 		            <span class="bar"></span>
 		            <label>Contact Number</label>
 	        	</div>
 						<div class="tm-form-field">
-								<select class="form-control" name="">
-									<option value="">A+</option>
-									<option value="">B+</option>
-									<option value="">+O</option>
-									<option value="">-O</option>
-								</select>
+								{{forms.bolood_type}}
 						</div>
 	        </div>
 					<div class="col-lg-4">
 	          <div class="tm-form-field">
-	            <input type="text" id="name" name="name" required="">
+	            {{forms.dononer_desctric}}
 	            <span class="bar"></span>
 	            <label>District</label>
 	          </div>
 	          <div class="tm-form-field">
-	              <input type="text" id="email" name="email" required="">
+	              {{forms.dononer_uplozilla}}
 	              <span class="bar"></span>
 	              <label>Uplozilla</label>
 	          </div>
 	          <div class="tm-form-field">
-		            <input type="text" id="subject" name="subject" required="">
+		            {{forms.dononer_village}}
 		            <span class="bar"></span>
 		            <label>Village</label>
 	        	</div>
 	        </div>
 					<div class="col-lg-4">
 						<div class="tm-form-field">
-							<textarea cols="30" rows="30"></textarea>
+							{{forms.dononer_address}}
+							<span class="bar"></span>
+							<label>Address</label>
 						</div>
 						<button class="cont-submit btn-contact submit-btn tm-btn" type="submit">
 	              <span>Donoet Now</span>
