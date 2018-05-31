@@ -82,3 +82,17 @@ class BloodDonor(models.Model):
 
     def __str__(self):
         return self.dononer_name
+
+
+# About page Section
+class AboutUs(models.Model):
+    section_title = models.CharField(max_length = 20)
+    section_desc = models.CharField(max_length = 50)
+    aboutCompanyTitle = models.CharField(max_length = 40)
+    about_text = models.TextField()
+    about_image1 = models.ImageField(upload_to = 'about-us')
+    about_image2 = models.ImageField(upload_to = 'about-us')
+
+
+    def __str__(self):
+        return self.section_title
