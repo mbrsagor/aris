@@ -25,10 +25,18 @@
             <div class="prd-bx">
               <img class="brd-rd5" src="/media/{{item.image}}" alt="" />
               <div class="prd-inf">
-                <h4>
-                  <a href="#" title="">{{item.name}}</a>
-                </h4>
+                <h4>  {{item.name}}  </h4>
                 <span class="price">$ {{item.price}}</span>
+                <div class="items_update">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <h4><a href="{% url 'updateItem_views' item.id %}">Update</a></h4>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                      <h4><a href="{% url 'itemDelete_views' item.id %}">Delete</a></h4>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -384,6 +384,10 @@ textarea {resize: none;}
 .grn-bg {background-color: #4caf50;}
 /*===== Scroll Bar Styling =====*/
 
+.items_update {
+  margin-top: 45px;
+}
+
 /*===== Cross Browser Compatibility =====*/
 a,
 input,
