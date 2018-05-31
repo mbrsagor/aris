@@ -15,9 +15,9 @@
         <h1>The Accociation Of Removeing Ignorance From Society</h1>
         <h2>10 years of experience helping businesses to find comprehensive solutions.</h2>
         <div class="but-group">
-          <a href="#price" class="tm-btn"><span>Login</span></a>
-          <a href="#price" class="tm-btn tm-btn-black"><span>Bload Donoer</span></a>
-          <a href="#price" class="tm-btn tm-btn-whaite"><span>Bload Donoer</span></a>
+					<a href="#bload" class="tm-btn tm-btn-whaite"><span>Bload Donoer</span></a>
+          <a href="#" class="tm-btn tm-btn-black"><span>Register</span></a>
+          <a href="#contact" class="tm-btn"><span>Send Message</span></a>
         </div>
       </div>
   </section>
@@ -573,8 +573,8 @@
   </section>
   <!-- End Pricing Table -->
 
-	<!-- Start Pricing Table -->
-  <section class="bload-donoer section" id="price">
+	<!-- Start Bload Donoer -->
+  <section class="bload-donoer section" id="bload">
     <div class="container">
       <div class="section-head text-center">
         <h2>Bload Donoer</h2>
@@ -585,62 +585,61 @@
         </div>
         <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
       </div>
-      <div class="row flex pricing-hover-wrap">
-        <div class="col-lg-4">
-          <div class="single-price">
-            <h2 class="pricing-head"><span>PERSONAL</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-times cross"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-times cross"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$19</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-        <div class="col-lg-4">
-          <div class="single-price special-price">
-            <h2 class="pricing-head"><span>PROFESSIONAL</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-times cross"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$29</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-        <div class="col-lg-4">
-          <div class="single-price">
-            <h2 class="pricing-head"><span>CORPORATE</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-check"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$45</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-      </div>
+			<form method="POST">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-lg-4">
+	          <div class="tm-form-field">
+	            <input type="text" id="name" name="name" required="">
+	            <span class="bar"></span>
+	            <label>Full Name</label>
+	          </div>
+	          <div class="tm-form-field">
+		            <input type="number" id="subject" name="subject" required="">
+		            <span class="bar"></span>
+		            <label>Contact Number</label>
+	        	</div>
+						<div class="tm-form-field">
+								<select class="form-control" name="">
+									<option value="">A+</option>
+									<option value="">B+</option>
+									<option value="">+O</option>
+									<option value="">-O</option>
+								</select>
+						</div>
+	        </div>
+					<div class="col-lg-4">
+	          <div class="tm-form-field">
+	            <input type="text" id="name" name="name" required="">
+	            <span class="bar"></span>
+	            <label>District</label>
+	          </div>
+	          <div class="tm-form-field">
+	              <input type="text" id="email" name="email" required="">
+	              <span class="bar"></span>
+	              <label>Uplozilla</label>
+	          </div>
+	          <div class="tm-form-field">
+		            <input type="text" id="subject" name="subject" required="">
+		            <span class="bar"></span>
+		            <label>Village</label>
+	        	</div>
+	        </div>
+					<div class="col-lg-4">
+						<div class="tm-form-field">
+							<textarea cols="30" rows="30"></textarea>
+						</div>
+						<button class="cont-submit btn-contact submit-btn tm-btn" type="submit">
+	              <span>Donoet Now</span>
+	              <i class="sp-btn"></i>
+	            </button>
+					</div>
+	      </div>
+			</form>
+
     </div>
   </section>
-  <!-- End Pricing Table -->
+  <!-- End Bload Donoer -->
 
   <!-- Start News Section -->
   <section class="home-blog section" id="blog">
