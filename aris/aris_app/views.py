@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegister, AddItem, BloodDonor_Form
 from .models import *
 
+# Message Framework
+from django.contrib import messages
+
 
 
 
@@ -47,7 +50,10 @@ def singin_views(request):
 
         if auth is not None:
             login(request ,auth)
+            messages.add_message(request, messages.INFO, 'Login success')
             return redirect(dashboard_views)
+        else:
+            messages.add_message(request, messages.INFO, "Username and Password doesn't Match")
 
     template_name = 'admin/login.html'
     return render(request, template_name)
@@ -98,6 +104,7 @@ def add_new_item(request):
         if forms.is_valid():
             instance = forms.save(commit = False)
             instance.save()
+            messages.add_message(request, messages.INFO, "Item Added Successfully")
             return redirect(add_new_item)
     context = {
         'forms' : forms
@@ -170,3 +177,8 @@ def bloodDonorRemove(request, id):
     remove_donor = get_object_or_404(BloodDonor, id = id)
     remove_donor.delete()
     return redirect(bloodDonorList_views)
+
+
+
+
+# Update donor views

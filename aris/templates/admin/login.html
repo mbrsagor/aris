@@ -25,6 +25,13 @@
               <h4>ARIS login</h4>
               <span>The Accociation Of Removeing Ignorance From Society(ARIS)</span>
             </div>
+            {% if messages %}
+            <div style="color:#f00" class="messages">
+                {% for message in messages %}
+                <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
             <form method="POST">
               {% csrf_token %}
               <div class="row mrg10">
