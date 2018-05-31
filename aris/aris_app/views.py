@@ -161,3 +161,12 @@ def bloodDonorList_views(request):
     }
     template_name = 'admin/blood_donor.html'
     return render(request, template_name, context)
+
+
+
+# blood donor remove views
+def bloodDonorRemove(request, id):
+
+    remove_donor = get_object_or_404(BloodDonor, id = id)
+    remove_donor.delete()
+    return redirect(bloodDonorList_views)

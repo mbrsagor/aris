@@ -18,6 +18,7 @@
           <th>Blood Village</th>
           <th>Date & Time</th>
           <th>Address</th>
+          <th>Delete</th>
       </tr>
   </thead>
   <tbody>
@@ -26,13 +27,14 @@
       <tr>
           <th scope="row">{{blood_donor.dononer_name}}</th>
           <td>{{blood_donor.dononer_age}}</td>
-          <td>{{blood_donor.donoer_contact}}</td>
+          <td>0{{blood_donor.donoer_contact}}</td>
           <td>{{blood_donor.dononer_desctric}}</td>
           <td>{{blood_donor.dononer_uplozilla}}</td>
           <td>{{blood_donor.bolood_type}}</td>
           <td>{{blood_donor.dononer_village}}</td>
           <td>{{blood_donor.create_at}}</td>
           <td>{{blood_donor.dononer_address}}</td>
+          <td><a href="{% url 'bloodDonorRemove' blood_donor.id %}">Delete</a></td>
       </tr>
       {% endfor %}
       {% endif %}
