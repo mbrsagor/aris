@@ -67,7 +67,6 @@ class BloodType(models.Model):
 
 
 
-
 # Blood donors
 class BloodDonor(models.Model):
     dononer_name = models.CharField(max_length = 30)
@@ -75,8 +74,10 @@ class BloodDonor(models.Model):
     dononer_uplozilla = models.CharField(max_length = 20)
     dononer_village = models.CharField(max_length = 20)
     dononer_address = models.TextField()
+    dononer_age = models.IntegerField()
     donoer_contact = models.IntegerField()
     bolood_type = models.ForeignKey(BloodType, on_delete = models.CASCADE)
+    create_at = models.DateTimeField( auto_now = True)
 
 
     def __str__(self):

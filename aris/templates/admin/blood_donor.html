@@ -1,0 +1,42 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || Blood donner list {% endblock %}
+{% block body %}
+
+<h2>Blood donors list</h2>
+
+<table class="table table-bordered table-inverse">
+  <thead>
+      <tr>
+          <th>Dononer Name</th>
+          <th>Dononer age</th>
+          <th>Dononer Contact Number</th>
+          <th>Dononer Desctric</th>
+          <th>Upozilla</th>
+          <th>Blood Group</th>
+          <th>Blood Village</th>
+          <th>Date & Time</th>
+          <th>Address</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% if blood_donor_obj %}
+    {% for blood_donor in blood_donor_obj %}
+      <tr>
+          <th scope="row">{{blood_donor.dononer_name}}</th>
+          <td>{{blood_donor.dononer_age}}</td>
+          <td>{{blood_donor.donoer_contact}}</td>
+          <td>{{blood_donor.dononer_desctric}}</td>
+          <td>{{blood_donor.dononer_uplozilla}}</td>
+          <td>{{blood_donor.bolood_type}}</td>
+          <td>{{blood_donor.dononer_village}}</td>
+          <td>{{blood_donor.create_at}}</td>
+          <td>{{blood_donor.dononer_address}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}

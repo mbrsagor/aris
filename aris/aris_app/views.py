@@ -148,3 +148,16 @@ def itemDelete_views(request, id):
     delete_item = get_object_or_404(Product, id = id)
     delete_item.delete()
     return redirect(showProject_views)
+
+
+
+
+# blood donor views
+def bloodDonorList_views(request):
+
+    blood_donor_obj = BloodDonor.objects.all()
+    context = {
+        'blood_donor_obj' : blood_donor_obj
+    }
+    template_name = 'admin/blood_donor.html'
+    return render(request, template_name, context)

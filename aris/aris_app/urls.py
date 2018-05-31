@@ -17,6 +17,7 @@ urlpatterns = [
     path('show-project/', showProject_views, name = 'showProject_views'),
     path('update-item/<int:id>/', updateItem_views, name = 'updateItem_views'),
     path('delete-item/<int:id>/', itemDelete_views, name = 'itemDelete_views'),
+    path('blood-doner/', bloodDonorList_views, name = 'bloodDonorList_views'),
 ]
 
 if settings.DEBUG:
