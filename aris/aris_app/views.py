@@ -5,6 +5,15 @@ from .forms import UserRegister, AddItem
 from .models import *
 
 
+
+
+# homepage
+class Homepage_views(View):
+
+    def get(self, request):
+        template_name = 'front-end/index.html'
+        return render(request, template_name)
+
 # Dashboard views
 def dashboard_views(request):
 

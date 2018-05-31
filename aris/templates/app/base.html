@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="ThemeMarch">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+	<!-- Page Title -->
+	<title>{% block title %} {% endblock %}</title>
+    <!-- Favicon Icon -->
+  <link rel="icon" href="{% static 'assets/img/favicon.png' %}">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/plugins.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+  <link id="theme" rel="stylesheet" href="{% static 'assets/css/color/color-1.css' %}">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/vendor/backward/html5shiv.js"></script>
+  <script type="text/javascript" src="assets/vendor/backward/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body data-spy="scroll" data-target=".primary-nav">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-wave"></div>
+    <div class="preloader-wave"></div>
+    <div class="preloader-wave"></div>
+    <div class="preloader-wave"></div>
+    <div class="preloader-wave"></div>
+  </div>
+  <!-- Preloader -->
+  <!-- Start Site Header -->
+  <header class="site-header site-header-3">
+    <div class="header-wrap">
+      <div class="container">
+        <div class="site-branding">
+          <!-- For Image Logo -->
+          <a href="index.html" class="custom-logo-link">
+            <img src="assets/img/logo.png" alt="" class="custom-logo">
+          </a>
+          <!-- For Site Title -->
+          <!-- <span class="site-title">
+          <a href="index.html">Stray</a>
+          </span> -->
+        </div>
+        <nav class="primary-nav">
+          <ul class="primary-nav-list">
+            <li class="menu-item menu-item-has-children current-menu-ancestor current-menu-parent"><a href="#home" class="nav-link">HOME</a>
+              <ul>
+                <li class="menu-item"><a href="index.html">FULL SCREEN SLIDER VERSION</a></li>
+                <li class="menu-item"><a href="2-fade-slider.html">FADE SLIDER VERSION</a></li>
+                <li class="menu-item"><a href="3-video-version.html">FULL SCREEN VIDEO VERSION</a></li>
+                <li class="menu-item"><a href="4-parallax-version.html">PARALLAX IMAGE VERSION</a></li>
+                <li class="menu-item"><a href="5-ripple-version.html">RIPPLE VERSION</a></li>
+                <li class="menu-item"><a href="6-particle-version.html">PARTICLE VERSION</a></li>
+                <li class="menu-item current-menu-item"><a href="7-animation-version.html">ANIMATION VERSION 1</a></li>
+                <li class="menu-item"><a href="8-animation-version-2.html">ANIMATION VERSION 2</a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="#about" class="nav-link">ABOUT</a></li>
+            <li class="menu-item"><a href="#service" class="nav-link">SERVICE</a></li>
+            <li class="menu-item"><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+            <li class="menu-item"><a href="#team" class="nav-link">TEAM</a></li>
+            <li class="menu-item"><a href="#price" class="nav-link">PRICE</a></li>
+            <li class="menu-item menu-item-has-children"><a href="#blog" class="nav-link">BLOG</a>
+              <ul>
+                <li class="menu-item"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                <li class="menu-item"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                <li class="menu-item"><a href="blog-full-width.html">Blog Full Width</a></li>
+                <li class="menu-item"><a href="box-blog-right-sidebar.html">Box Blog Right Sidebar</a></li>
+                <li class="menu-item"><a href="box-blog-left-sidebar.html">Box Blog Left Sidebar</a></li>
+                <li class="menu-item"><a href="box-blog-full-width.html">Box Blog Full Width</a></li>
+                <li class="menu-item"><a href="blog-details-right-sidebar.html">Single Blog Image Post</a></li>
+                <li class="menu-item"><a href="blog-details-full-width.html">Single Blog Slider Post</a></li>
+                <li class="menu-item"><a href="blog-details-left-sidebar.html">Single Blog Video Post</a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="#contact" class="nav-link">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div><!-- .header-wrap -->
+  </header>
+  <!-- End Site Header -->
+  {% block body %}
+
+  {% endblock %}
+
+    <!-- Start Site Footer -->
+    <footer class="site-footer">
+      <div class="top-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="footer-widget">
+                <div class="footer-about-widget">
+                  <img src="assets/img/logo.png" alt="">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod incididunt ametfh consec tetur dolore magna aliqua. Ut enim ad minim veniam.</p>
+                </div>
+              </div><!-- .footer-widget -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="footer-widget">
+                <h2 class="footer-widget-title">Recent Posts</h2>
+                <ul class="footer-recent-post-widget">
+                  <li>
+                    <h2><a href="">Just another amazing blog post</a></h2>
+                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
+                  </li>
+                  <li>
+                    <h2><a href="">Just another amazing blog post</a></h2>
+                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
+                  </li>
+                  <li>
+                    <h2><a href="">Just another amazing blog post</a></h2>
+                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
+                  </li>
+                </ul>
+              </div><!-- .footer-widget -->
+            </div><!-- .col -->
+            <div class="col-md-4">
+              <div class="footer-widget">
+                <h2 class="footer-widget-title">Instragram</h2>
+                <div class="instagram-widget">
+                  <a href=""><img src="{% static 'assets/img/instagram-img-01.jpg' %}" alt=""></a>
+                  <a href=""><img src="{% static 'assets/img/instagram-img-02.jpg' %}" alt=""></a>
+                  <a href=""><img src="{% static 'assets/img/instagram-img-03.jpg' %}" alt=""></a>
+                  <a href=""><img src="{% static 'assets/img/instagram-img-04.jpg' %}" alt=""></a>
+                  <a href=""><img src="{% static 'assets/img/instagram-img-05.jpg' %}" alt=""></a>
+                  <a href=""><img src="{% static 'assets/img/instagram-img-06.jpg' %}" alt=""></a>
+                </div>
+              </div><!-- .footer-widget -->
+            </div><!-- .col -->
+          </div>
+        </div>
+      </div>
+      <div class="bottom-footer text-center">
+        <div class="container">
+          <div class="copy-right">Copyright © 2018 Stray. All Rights Reserved. Designed by thememarch</div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Site Footer -->
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBgwgIuDRkO7HlxvpWN-vPePnGVWss5r5g"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+  </html>

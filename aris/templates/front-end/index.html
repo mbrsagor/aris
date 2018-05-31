@@ -1,104 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-	<!-- Meta Tags -->
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="ThemeMarch">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-	<!-- Page Title -->
-	<title>ARIS | Homepage</title>
-    <!-- Favicon Icon -->
-  <link rel="icon" href="assets/img/favicon.png">
-	<!-- Stylesheets -->
-	<link rel="stylesheet" type="text/css" href="assets/css/plugins.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link id="theme" rel="stylesheet" href="assets/css/color/color-1.css">
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="assets/vendor/backward/html5shiv.js"></script>
-  <script type="text/javascript" src="assets/vendor/backward/respond.min.js"></script>
-  <![endif]-->
-</head>
 
-<body data-spy="scroll" data-target=".primary-nav">
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="preloader-wave"></div>
-    <div class="preloader-wave"></div>
-    <div class="preloader-wave"></div>
-    <div class="preloader-wave"></div>
-    <div class="preloader-wave"></div>
-  </div>
-  <!-- Preloader -->
-  <!-- Start Site Header -->
-  <header class="site-header site-header-3">
-    <div class="header-wrap">
-      <div class="container">
-        <div class="site-branding">
-          <!-- For Image Logo -->
-          <a href="index.html" class="custom-logo-link">
-            <img src="assets/img/logo.png" alt="" class="custom-logo">
-          </a>
-          <!-- For Site Title -->
-          <!-- <span class="site-title">
-          <a href="index.html">Stray</a>
-          </span> -->
-        </div>
-        <nav class="primary-nav">
-          <ul class="primary-nav-list">
-            <li class="menu-item menu-item-has-children current-menu-ancestor current-menu-parent"><a href="#home" class="nav-link">HOME</a>
-              <ul>
-                <li class="menu-item"><a href="index.html">FULL SCREEN SLIDER VERSION</a></li>
-                <li class="menu-item"><a href="2-fade-slider.html">FADE SLIDER VERSION</a></li>
-                <li class="menu-item"><a href="3-video-version.html">FULL SCREEN VIDEO VERSION</a></li>
-                <li class="menu-item"><a href="4-parallax-version.html">PARALLAX IMAGE VERSION</a></li>
-                <li class="menu-item"><a href="5-ripple-version.html">RIPPLE VERSION</a></li>
-                <li class="menu-item"><a href="6-particle-version.html">PARTICLE VERSION</a></li>
-                <li class="menu-item current-menu-item"><a href="7-animation-version.html">ANIMATION VERSION 1</a></li>
-                <li class="menu-item"><a href="8-animation-version-2.html">ANIMATION VERSION 2</a></li>
-              </ul>
-            </li>
-            <li class="menu-item"><a href="#about" class="nav-link">ABOUT</a></li>
-            <li class="menu-item"><a href="#service" class="nav-link">SERVICE</a></li>
-            <li class="menu-item"><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
-            <li class="menu-item"><a href="#team" class="nav-link">TEAM</a></li>
-            <li class="menu-item"><a href="#price" class="nav-link">PRICE</a></li>
-            <li class="menu-item menu-item-has-children"><a href="#blog" class="nav-link">BLOG</a>
-              <ul>
-                <li class="menu-item"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                <li class="menu-item"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                <li class="menu-item"><a href="blog-full-width.html">Blog Full Width</a></li>
-                <li class="menu-item"><a href="box-blog-right-sidebar.html">Box Blog Right Sidebar</a></li>
-                <li class="menu-item"><a href="box-blog-left-sidebar.html">Box Blog Left Sidebar</a></li>
-                <li class="menu-item"><a href="box-blog-full-width.html">Box Blog Full Width</a></li>
-                <li class="menu-item"><a href="blog-details-right-sidebar.html">Single Blog Image Post</a></li>
-                <li class="menu-item"><a href="blog-details-full-width.html">Single Blog Slider Post</a></li>
-                <li class="menu-item"><a href="blog-details-left-sidebar.html">Single Blog Video Post</a></li>
-              </ul>
-            </li>
-            <li class="menu-item"><a href="#contact" class="nav-link">CONTACT</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div><!-- .header-wrap -->
-  </header>
-  <!-- End Site Header -->
+{% block title %} ARIS || Homepage {% endblock %}
+
+{% block body %}
   <!-- Start animation-version -->
   <section class="animation-version" id="home">
-    <img src="assets/img/animation-bg-2.jpg" alt="" class="animation-bg">
+    <img src="{% static 'assets/img/animation-bg-2.jpg' %}" alt="" class="animation-bg">
     <div class="animation-overlay"></div>
     <div class="stray-wave"></div>
     <div class="stray-wave stray-wave-2"></div>
       <div class="slider-text">
-        <h1>We Are Best Creative Business Agency</h1>
+        <h1>The Accociation Of Removeing Ignorance From Society</h1>
         <h2>10 years of experience helping businesses to find comprehensive solutions.</h2>
         <div class="but-group">
-          <a href="#price" class="tm-btn"><span>Purchase Now</span></a>
-          <a href="#price" class="tm-btn tm-btn-black"><span>Learn More</span></a>
+          <a href="#price" class="tm-btn"><span>Login</span></a>
+          <a href="#price" class="tm-btn tm-btn-black"><span>Bload Donoer</span></a>
+          <a href="#price" class="tm-btn tm-btn-whaite"><span>Bload Donoer</span></a>
         </div>
       </div>
   </section>
@@ -128,7 +47,7 @@
           <div class="col-lg-4">
               <!-- For Vimeo Video -->
               <div class="about-video js-video-button" data-video-id='63636954' data-channel="vimeo">
-                  <img src="assets/img/about-video-bg.jpg" alt="">
+                  <img src="{% static 'assets/img/about-video-bg.jpg' %}" alt="">
                   <i class="video-icon icofont icofont-play-alt-3"></i>
               </div>
               <!-- For Youtube Video -->
@@ -137,9 +56,9 @@
                   <i class="video-icon"></i>
               </div> -->
               <div class="about-slider owl-carousel">
-                <img src="assets/img/about-slider-01.jpg" alt="" class="about-single-slid">
-                <img src="assets/img/about-slider-02.jpg" alt="" class="about-single-slid">
-                <img src="assets/img/about-slider-03.jpg" alt="" class="about-single-slid">
+                <img src="{% static 'assets/img/about-slider-01.jpg' %}" alt="" class="about-single-slid">
+                <img src="{% static 'assets/img/about-slider-02.jpg' %}" alt="" class="about-single-slid">
+                <img src="{% static 'assets/img/about-slider-03.jpg' %}" alt="" class="about-single-slid">
               </div>
           </div><!-- .col -->
       </div>
@@ -151,7 +70,7 @@
 
   <!-- Start Company Groth Section -->
   <section class="company-groth section overlay-with-img gray-bg">
-    <img src="assets/img/fun-fact.jpg" alt="" class="bg-img">
+    <img src="{% static 'assets/img/fun-fact.jpg' %}" alt="" class="bg-img">
     <div class="company-groth">
       <div class="container">
         <div class="row">
@@ -309,7 +228,7 @@
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="assets/img/service/digital-marketing.png" alt=""></div>
+                <div class="service-img"><img src="{% static 'assets/img/service/digital-marketing.png' %}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
@@ -323,7 +242,7 @@
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="assets/img/service/web-development.png" alt=""></div>
+                <div class="service-img"><img src="{% static 'assets/img/service/web-development.png' %}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
@@ -337,7 +256,7 @@
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="assets/img/service/consultancy.png" alt=""></div>
+                <div class="service-img"><img src="{% static 'assets/img/service/consultancy.png' %}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
@@ -351,7 +270,7 @@
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="assets/img/service/cloud-services.png" alt=""></div>
+                <div class="service-img"><img src="{% static 'assets/img/service/cloud-services.png' %}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
@@ -365,7 +284,7 @@
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="assets/img/service/support-service.png" alt=""></div>
+                <div class="service-img"><img src="{% static 'assets/img/service/support-service.png' %}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
@@ -379,7 +298,7 @@
 
   <!-- Start Call To Action -->
   <section class="cta section overlay-with-img">
-    <img src="assets/img/call-to-action-bg.jpg" alt="" class="bg-img">
+    <img src="{% static 'assets/img/call-to-action-bg.jpg' %}" alt="" class="bg-img">
     <div class="fun-overlay"></div>
     <div class="container">
       <div class="cta-text">
@@ -419,8 +338,8 @@
     <div class="portfolio zoom-gallery gutter-less">
       <div class="grid-sizer"></div>
       <div class="portfolio-item item-3">
-        <a href="assets/img/portfolio/port-01-lg.jpg" class="item-inner">
-          <img src="assets/img/portfolio/port-01.jpg" alt="">
+        <a href="{% static 'assets/img/portfolio/port-01-lg.jpg' %}" class="item-inner">
+          <img src="{% static 'assets/img/portfolio/port-01.jpg' %}" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
           </div>
@@ -428,8 +347,8 @@
         </a>
       </div><!-- .portfolio-item -->
       <div class="portfolio-item port-50 item-2 item-4">
-        <a href="assets/img/portfolio/port-02-lg.jpg" class="item-inner">
-          <img src="assets/img/portfolio/port-02.jpg" alt="">
+        <a href="{% static 'assets/img/portfolio/port-02-lg.jpg' %}" class="item-inner">
+          <img src="{% static 'assets/img/portfolio/port-02.jpg' %}" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
           </div>
@@ -437,8 +356,8 @@
         </a>
       </div><!-- .portfolio-item -->
       <div class="portfolio-item item-1">
-        <a href="assets/img/portfolio/port-03-lg.jpg" class="item-inner">
-          <img src="assets/img/portfolio/port-03.jpg" alt="">
+        <a href="{% static 'assets/img/portfolio/port-03-lg.jpg' %}" class="item-inner">
+          <img src="{% static 'assets/img/portfolio/port-03.jpg' %}" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
           </div>
@@ -446,7 +365,7 @@
         </a>
       </div><!-- .portfolio-item -->
       <div class="portfolio-item item-3">
-        <a href="assets/img/portfolio/port-04-lg.jpg" class="item-inner">
+        <a href="{% static 'assets/img/portfolio/port-04-lg.jpg' %}" class="item-inner">
           <img src="assets/img/portfolio/port-04.jpg" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
@@ -455,8 +374,8 @@
         </a>
       </div><!-- .portfolio-item -->
       <div class="portfolio-item  item-1">
-        <a href="assets/img/portfolio/port-05-lg.jpg" class="item-inner">
-          <img src="assets/img/portfolio/port-05.jpg" alt="">
+        <a href="{% static 'assets/img/portfolio/port-05-lg.jpg' %}" class="item-inner">
+          <img src="{% static 'assets/img/portfolio/port-05.jpg' %}" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
           </div>
@@ -485,7 +404,7 @@
         <div class="member-overlay"></div>
         <div class="member-gradient"></div>
         <div class="member-img">
-          <img src="assets/img/member-01.png" alt="">
+          <img src="{% static 'assets/img/member-01.png' %}" alt="">
         </div><!-- .member-img -->
         <div class="member-hover">
           <div class="member-meta">
@@ -505,7 +424,7 @@
         <div class="member-overlay"></div>
         <div class="member-gradient"></div>
         <div class="member-img">
-          <img src="assets/img/member-02.png" alt="">
+          <img src="{% static 'assets/img/member-02.png' %}" alt="">
         </div><!-- .member-img -->
         <div class="member-hover">
           <div class="member-meta">
@@ -525,7 +444,7 @@
         <div class="member-overlay"></div>
         <div class="member-gradient"></div>
         <div class="member-img">
-          <img src="assets/img/member-03.png" alt="">
+          <img src="{% static 'assets/img/member-03.png' %}" alt="">
         </div><!-- .member-img -->
         <div class="member-hover">
           <div class="member-meta">
@@ -545,7 +464,7 @@
         <div class="member-overlay"></div>
         <div class="member-gradient"></div>
         <div class="member-img">
-          <img src="assets/img/member-04.png" alt="">
+          <img src="{% static 'assets/img/member-04.png' %}" alt="">
         </div><!-- .member-img -->
         <div class="member-hover">
           <div class="member-meta">
@@ -565,7 +484,7 @@
         <div class="member-overlay"></div>
         <div class="member-gradient"></div>
         <div class="member-img">
-          <img src="assets/img/member-05.png" alt="">
+          <img src="{% static 'assets/img/member-05.png' %}" alt="">
         </div><!-- .member-img -->
         <div class="member-hover">
           <div class="member-meta">
@@ -654,6 +573,75 @@
   </section>
   <!-- End Pricing Table -->
 
+	<!-- Start Pricing Table -->
+  <section class="bload-donoer section" id="price">
+    <div class="container">
+      <div class="section-head text-center">
+        <h2>Bload Donoer</h2>
+        <div class="section-divider">
+          <div class="left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+          <span></span>
+          <div class="right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
+      </div>
+      <div class="row flex pricing-hover-wrap">
+        <div class="col-lg-4">
+          <div class="single-price">
+            <h2 class="pricing-head"><span>PERSONAL</span></h2>
+            <ul class="pricing-feature">
+              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
+              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
+              <li><i class="fa fa-check"></i>Webmail Access</li>
+              <li><i class="fa fa-times cross"></i>Deluxe Spam Fitler</li>
+              <li><i class="fa fa-times cross"></i>SSL Security</li>
+            </ul>
+            <div class="price">
+              <b>$19</b>
+              <span>per month</span>
+            </div>
+            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
+          </div><!-- .single-price -->
+        </div><!-- .col -->
+        <div class="col-lg-4">
+          <div class="single-price special-price">
+            <h2 class="pricing-head"><span>PROFESSIONAL</span></h2>
+            <ul class="pricing-feature">
+              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
+              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
+              <li><i class="fa fa-check"></i>Webmail Access</li>
+              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
+              <li><i class="fa fa-times cross"></i>SSL Security</li>
+            </ul>
+            <div class="price">
+              <b>$29</b>
+              <span>per month</span>
+            </div>
+            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
+          </div><!-- .single-price -->
+        </div><!-- .col -->
+        <div class="col-lg-4">
+          <div class="single-price">
+            <h2 class="pricing-head"><span>CORPORATE</span></h2>
+            <ul class="pricing-feature">
+              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
+              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
+              <li><i class="fa fa-check"></i>Webmail Access</li>
+              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
+              <li><i class="fa fa-check"></i>SSL Security</li>
+            </ul>
+            <div class="price">
+              <b>$45</b>
+              <span>per month</span>
+            </div>
+            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
+          </div><!-- .single-price -->
+        </div><!-- .col -->
+      </div>
+    </div>
+  </section>
+  <!-- End Pricing Table -->
+
   <!-- Start News Section -->
   <section class="home-blog section" id="blog">
     <div class="container">
@@ -670,7 +658,7 @@
         <div class="col-lg-4">
           <div class="home-single-blog">
             <div class="home-blog-thumb">
-              <a href="blog-details-full-width.html"><img src="assets/img/blog-01.jpg" alt="blog-01"></a>
+              <a href="blog-details-full-width.html"><img src="{% static 'assets/img/blog-01.jpg' %}" alt="blog-01"></a>
             </div>
             <div class="home-entry-content">
               <div class="height-70"></div>
@@ -688,7 +676,7 @@
         <div class="col-lg-4">
           <div class="home-single-blog">
             <div class="home-blog-thumb">
-              <a href="blog-details-full-width.html"><img src="assets/img/blog-02.jpg" alt="blog-01"></a>
+              <a href="blog-details-full-width.html"><img src="{% static 'assets/img/blog-02.jpg' %}" alt="blog-01"></a>
             </div>
             <div class="home-entry-content">
               <div class="height-70"></div>
@@ -706,7 +694,7 @@
         <div class="col-lg-4">
           <div class="home-single-blog">
             <div class="home-blog-thumb">
-              <a href="blog-details-right-sidebar.html"><img src="assets/img/blog-03.jpg" alt="blog-01"></a>
+              <a href="blog-details-right-sidebar.html"><img src="{% static 'assets/img/blog-03.jpg' %}" alt="blog-01"></a>
             </div>
             <div class="home-entry-content">
               <div class="height-70"></div>
@@ -728,13 +716,13 @@
 
   <!-- Start Testimonial Section -->
   <div class="testimonial-wrap section overlay-with-img">
-    <img src="assets/img/testimonial-bg.jpg" alt="" class="bg-img">
+    <img src="{% static 'assets/img/testimonial-bg.jpg' %}" alt="" class="bg-img">
     <div class="overlay"></div>
     <div class="container">
       <div class="testimonial-outer">
         <div class="testimonial-1 owl-carousel">
           <div class="single-testimonial">
-            <img src="assets/img/client-img-01.jpg" alt="" class="client-img">
+            <img src="{% static 'assets/img/client-img-01.jpg' %}" alt="" class="client-img">
             <blockquote>
               <i class="icofont icofont-quote-left"></i>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -742,7 +730,7 @@
             </blockquote>
           </div><!-- .single-testimonial -->
           <div class="single-testimonial">
-            <img src="assets/img/client-img-02.jpg" alt="" class="client-img">
+            <img src="{% static 'assets/img/client-img-02.jpg' %}" alt="" class="client-img">
             <blockquote>
               <i class="icofont icofont-quote-left"></i>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -750,7 +738,7 @@
             </blockquote>
           </div><!-- .single-testimonial -->
           <div class="single-testimonial">
-            <img src="assets/img/client-img-03.jpg" alt="" class="client-img">
+            <img src="{% static 'assets/img/client-img-03.jpg' %}" alt="" class="client-img">
             <blockquote>
               <i class="icofont icofont-quote-left"></i>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -856,34 +844,34 @@
       </div>
       <div class="client-logoes">
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-08.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-08.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-09.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-09.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-10.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-10.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-11.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-11.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-12.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-12.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-13.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-13.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-14.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-14.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-15.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-15.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-16.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-16.png' %}" alt="">
         </div>
         <div class="client-logo">
-          <img src="assets/img/client-logo/client-logo-17.png" alt="">
+          <img src="{% static 'assets/img/client-logo/client-logo-17.png' %}" alt="">
         </div>
       </div>
     </div>
@@ -913,68 +901,4 @@
     </div>
   </section>
   <!-- End Subscribe Section -->
-
-  <!-- Start Site Footer -->
-  <footer class="site-footer">
-    <div class="top-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="footer-widget">
-              <div class="footer-about-widget">
-                <img src="assets/img/logo.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod incididunt ametfh consec tetur dolore magna aliqua. Ut enim ad minim veniam.</p>
-              </div>
-            </div><!-- .footer-widget -->
-          </div><!-- .col -->
-          <div class="col-md-4">
-            <div class="footer-widget">
-              <h2 class="footer-widget-title">Recent Posts</h2>
-              <ul class="footer-recent-post-widget">
-                <li>
-                  <h2><a href="">Just another amazing blog post</a></h2>
-                  <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                </li>
-                <li>
-                  <h2><a href="">Just another amazing blog post</a></h2>
-                  <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                </li>
-                <li>
-                  <h2><a href="">Just another amazing blog post</a></h2>
-                  <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                </li>
-              </ul>
-            </div><!-- .footer-widget -->
-          </div><!-- .col -->
-          <div class="col-md-4">
-            <div class="footer-widget">
-              <h2 class="footer-widget-title">Instragram</h2>
-              <div class="instagram-widget">
-                <a href=""><img src="assets/img/instagram-img-01.jpg" alt=""></a>
-                <a href=""><img src="assets/img/instagram-img-02.jpg" alt=""></a>
-                <a href=""><img src="assets/img/instagram-img-03.jpg" alt=""></a>
-                <a href=""><img src="assets/img/instagram-img-04.jpg" alt=""></a>
-                <a href=""><img src="assets/img/instagram-img-05.jpg" alt=""></a>
-                <a href=""><img src="assets/img/instagram-img-06.jpg" alt=""></a>
-              </div>
-            </div><!-- .footer-widget -->
-          </div><!-- .col -->
-        </div>
-      </div>
-    </div>
-    <div class="bottom-footer text-center">
-      <div class="container">
-        <div class="copy-right">Copyright © 2018 Stray. All Rights Reserved. Designed by thememarch</div>
-      </div>
-    </div>
-  </footer>
-  <!-- End Site Footer -->
-
-  <!-- Scripts -->
-  <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
-  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBgwgIuDRkO7HlxvpWN-vPePnGVWss5r5g"></script>
-  <script src="assets/js/plugins.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+{% endblock %}
