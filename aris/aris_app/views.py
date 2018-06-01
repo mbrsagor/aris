@@ -13,6 +13,9 @@ def homepage_views(request):
     # about us section
     aboutus_obj = AboutUs.objects.all()
 
+    # service section
+    service_sec_obj = Service.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -23,6 +26,7 @@ def homepage_views(request):
     context = {
         'forms' : forms,
         'aboutus_obj' : aboutus_obj,
+        'service_sec_obj' : service_sec_obj,
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -227,7 +231,7 @@ def serverSection_views(request):
             instance = form.save(commit = False)
             instance.save()
             messages.add_message(request, messages.INFO, "Service update Successfully")
-            return redirect(dashboard_views)
+            return redirect(serverSection_views)
         else:
             messages.add_message(request, messages.INFO, "Service update failed")
     context = {
