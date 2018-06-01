@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegister, AddItem, BloodDonor_Form, AboutUs_Form
+from .forms import UserRegister, AddItem, BloodDonor_Form, AboutUs_Form, Service_Form
 from .models import *
-
 # Message Framework
 from django.contrib import messages
-
-
 
 
 # homepage
@@ -217,4 +214,25 @@ def updateAbout_views(request, id):
         'updateAbout_obj' : updateAbout_obj
     }
     template_name = 'admin/about.html'
+    return render(request, template_name, context)
+
+
+# server page section
+def serverSection_views(request):
+
+    form = Service_Form()
+    if request.method == 'POST':
+        form = Service_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Service update Successfully")
+            return redirect(dashboard_views)
+        else:
+            messages.add_message(request, messages.INFO, "Service update failed")
+    context = {
+        'form' : form
+    }
+
+    template_name = 'admin/service.html'
     return render(request, template_name, context)

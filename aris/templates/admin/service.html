@@ -4,48 +4,50 @@
 {% block titel %} Update Service {% endblock %}
 
 {% block body %}
-<div class="addItem">
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="row">
-      <div class="col-lg-6">
-        <label>Service title name</label>
-        {{form.section_serviece_title}}
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>Service section page</h4>
+        <span>You may change or update your service section form here</span>
       </div>
-      <div class="col-lg-3">
-        <div class="form-group">
-        <label for="sel1">Service Section Short Description</label>
-        {{form.section_serviece_desc}}
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-5 col-sm-6 col-lg-4">
+            <p>Service Title</p>
+            {{form.service_title}}
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-4">
+            <p>Service Heading</p>
+            {{form.service_heading}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-4">
+            <p>Service Icon</p>
+            {{form.service_icon}}
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <p>Service Description</p>
+            {{form.service_text}}
+          </div>
+          <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="file-upload-box">
+              <strong>File Input:</strong>
+              <div class="file-box">
+                <label class="fileContainer">
+                  <span class="blue-bg brd-rd5">Browse</span>
+                  {{form.service_image}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-3">
-        <label>Service Tilte</label>
-        {{form.service_title}}
-      </div>
+      </form>
     </div>
-    <div class="row">
-      <div class="col-lg-3">
-        <label>Service Icon</label>
-        {{form.service_icon}}
-      </div>
-      <div class="col-lg-3">
-        <label>Service Heading</label>
-        {{form.service_heading}}
-      </div>
-      <div class="col-lg-3">
-        <label>Service Image</label>
-        {{form.service_image}}
-      </div>
-    </div>
-    <div class="row">
-      <label>Description</label>
-      <div class="col-lg-12">
-        {{form.service_text}}
-      </div>
-    </div>
-    <button class="btn btn-success" type="submit" name="button">Publish</button>
-  </form>
-</div>
+
 
 {% if messages %}
 <div class="messages text-right">

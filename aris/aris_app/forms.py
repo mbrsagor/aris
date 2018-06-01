@@ -67,8 +67,6 @@ class Service_Form(forms.ModelForm):
         model = Service
         fields = '__all__'
         widgets = {
-            'section_serviece_title': TextInput(attrs = {'class' : 'brd-rd30'}),
-            'section_serviece_desc': TextInput(attrs = {'class' : 'brd-rd30'}),
             'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
             'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
             'service_icon': TextInput(attrs = {'class' : 'brd-rd30'}),

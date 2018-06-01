@@ -101,13 +101,11 @@ class AboutUs(models.Model):
 
 # Service page section
 class Service(models.Model):
-    section_serviece_title = models.CharField(max_length = 20)
-    section_serviece_desc = models.CharField(max_length = 50)
-    service_title = models.CharField(max_length = 10)
-    service_icon = models.CharField(max_length = 10)
-    service_heading = models.CharField(max_length = 10)
+    service_title = models.CharField(max_length = 35)
+    service_icon = models.CharField(max_length = 20)
+    service_heading = models.CharField(max_length = 25)
     service_image = models.ImageField(upload_to = 'service')
     service_text = models.TextField()
 
     def __str__(self):
-        return self.section_serviece_title
+        return self.service_title
