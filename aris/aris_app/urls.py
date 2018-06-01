@@ -19,7 +19,7 @@ urlpatterns = [
     path('blood-doner/', bloodDonorList_views, name = 'bloodDonorList_views'),
     path('doner-remove/<int:id>/', bloodDonorRemove, name = 'bloodDonorRemove'),
     path('about/', aboutus_views, name ='aboutUsViews'),
-    path('update-about/<int:id>/', updateAbout_views, name = 'updateAbout_views'),
+    path('dashboard/update-about/<int:id>/', updateAbout_views, name = 'updateAbout_views'),
 
 ]
 

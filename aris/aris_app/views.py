@@ -203,17 +203,18 @@ def aboutus_views(request):
 # Update or edit about us page
 def updateAbout_views(request, id):
 
-    update_about = get_object_or_404(id = id)
+    updateAbout_obj = get_object_or_404(AboutUs, id = id)
     if request.method == 'POST':
-        form = AboutUs_Form(request.POST or None, request.FILES, instance = update_about)
+        form = AboutUs_Form(request.POST, request.FILES, instance = updateAbout_obj)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.INFO, "About page has been updated")
-            return required(dashboard_views)
+            messages.add_message(request, messages.INFO, "About page update Successfully")
+            return redirect(aboutus_views)
     else:
-        form = AboutUs_Form(instance = update_about)
+        form = AboutUs_Form(instance = updateAbout_obj)
     context = {
-        'form' : form
+        'form' : form,
+        'updateAbout_obj' : updateAbout_obj
     }
     template_name = 'admin/about.html'
     return render(request, template_name, context)

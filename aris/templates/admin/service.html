@@ -1,0 +1,58 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Update Service {% endblock %}
+
+{% block body %}
+<div class="addItem">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-6">
+        <label>Service title name</label>
+        {{form.section_serviece_title}}
+      </div>
+      <div class="col-lg-3">
+        <div class="form-group">
+        <label for="sel1">Service Section Short Description</label>
+        {{form.section_serviece_desc}}
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <label>Service Tilte</label>
+        {{form.service_title}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label>Service Icon</label>
+        {{form.service_icon}}
+      </div>
+      <div class="col-lg-3">
+        <label>Service Heading</label>
+        {{form.service_heading}}
+      </div>
+      <div class="col-lg-3">
+        <label>Service Image</label>
+        {{form.service_image}}
+      </div>
+    </div>
+    <div class="row">
+      <label>Description</label>
+      <div class="col-lg-12">
+        {{form.service_text}}
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" name="button">Publish</button>
+  </form>
+</div>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

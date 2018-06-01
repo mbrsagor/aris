@@ -57,3 +57,19 @@ class AboutUs_Form(forms.ModelForm):
             'section_desc': TextInput(attrs = {'class': 'brd-rd30'}),
             'aboutCompanyTitle': TextInput(attrs = {'class': 'brd-rd30'}),
         }
+
+
+
+
+# Service Section form
+class Service_Form(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = '__all__'
+        widgets = {
+            'section_serviece_title': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'section_serviece_desc': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'service_icon': TextInput(attrs = {'class' : 'brd-rd30'}),
+        }
