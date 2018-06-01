@@ -1,0 +1,72 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} About-us Page {% endblock %}
+
+{% block body %}
+
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>About us page</h4>
+        <span>You may change or update your about us page form here</span>
+      </div>
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-4 col-sm-6 col-lg-4">
+            <p>Page Title</p>
+            {{form.section_title}}
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-4">
+            <p>Page short description</p>
+            {{form.section_desc}}
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-4">
+            <p>About Company Title</p>
+            {{form.aboutCompanyTitle}}
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <p>About Company Text</p>
+            {{form.about_text}}
+          </div>
+          <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="file-upload-box">
+              <strong>File Input:</strong>
+              <div class="file-box">
+                <label class="fileContainer">
+                  <span class="blue-bg brd-rd5">Browse</span>
+                  {{form.about_image1}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="file-upload-box">
+              <strong>File Input:</strong>
+              <div class="file-box">
+                <label class="fileContainer">
+                  <span class="blue-bg brd-rd5">Browse</span>
+                  {{form.about_image2}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

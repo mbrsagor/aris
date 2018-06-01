@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegister, AddItem, BloodDonor_Form
+from .forms import UserRegister, AddItem, BloodDonor_Form, AboutUs_Form
 from .models import *
 
 # Message Framework
@@ -114,7 +114,6 @@ def add_new_item(request):
 
 
 
-
 # Show project admin
 def showProject_views(request):
 
@@ -127,8 +126,6 @@ def showProject_views(request):
 
 
 
-
-
 # Update Item
 def updateItem_views(request, id):
     update_item = get_object_or_404(Product, id = id)
@@ -136,6 +133,7 @@ def updateItem_views(request, id):
         forms = AddItem(request.POST, request.FILES, instance = update_item)
         if forms.is_valid():
             forms.save()
+            messages.add_message(request, messages.INFO, "Item updated Successfully")
             return redirect(showProject_views)
     else:
         forms = AddItem(instance = update_item)
@@ -148,14 +146,12 @@ def updateItem_views(request, id):
 
 
 
-
 # delete items
 def itemDelete_views(request, id):
 
     delete_item = get_object_or_404(Product, id = id)
     delete_item.delete()
     return redirect(showProject_views)
-
 
 
 
@@ -180,5 +176,18 @@ def bloodDonorRemove(request, id):
 
 
 
+# About us page
+def aboutus_views(request):
 
-# Update donor views
+    form = AboutUs_Form()
+    if request.method == 'POST':
+        form = AboutUs_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "About page save Successfully")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/about.html'
+    return render(request, template_name, context)

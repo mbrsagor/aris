@@ -44,3 +44,16 @@ class BloodDonor_Form(forms.ModelForm):
             'bolood_type' : Select(attrs = {'class': 'form-control'}),
             'dononer_address' : Textarea(attrs = {'class': 'form-control'}),
         }
+
+
+
+# About-Us Form
+class AboutUs_Form(forms.ModelForm):
+    class Meta:
+        model = AboutUs
+        fields = '__all__'
+        widgets = {
+            'section_title': TextInput(attrs = {'class': 'brd-rd30'}),
+            'section_desc': TextInput(attrs = {'class': 'brd-rd30'}),
+            'aboutCompanyTitle': TextInput(attrs = {'class': 'brd-rd30'}),
+        }
