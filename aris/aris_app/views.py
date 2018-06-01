@@ -13,6 +13,9 @@ from django.contrib import messages
 # homepage
 def homepage_views(request):
 
+    # about us section
+    aboutus_obj = AboutUs.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -21,7 +24,8 @@ def homepage_views(request):
             forms.save()
             return redirect(homepage_views)
     context = {
-        'forms' : forms
+        'forms' : forms,
+        'aboutus_obj' : aboutus_obj,
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -186,6 +190,28 @@ def aboutus_views(request):
             instance = form.save(commit = False)
             instance.save()
             messages.add_message(request, messages.INFO, "About page save Successfully")
+        else:
+            messages.add_message(request, messages.INFO, "About page save Failed")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/about.html'
+    return render(request, template_name, context)
+
+
+
+# Update or edit about us page
+def updateAbout_views(request, id):
+
+    update_about = get_object_or_404(id = id)
+    if request.method == 'POST':
+        form = AboutUs_Form(request.POST or None, request.FILES, instance = update_about)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "About page has been updated")
+            return required(dashboard_views)
+    else:
+        form = AboutUs_Form(instance = update_about)
     context = {
         'form' : form
     }

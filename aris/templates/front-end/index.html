@@ -1,9 +1,10 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
-
+<!-- title -->
 {% block title %} ARIS || Homepage {% endblock %}
 
+<!-- Content -->
 {% block body %}
   <!-- Start animation-version -->
   <section class="animation-version" id="home">
@@ -26,42 +27,37 @@
   <!-- Start About Us Section -->
   <section class="about-us section" id="about">
     <div class="container">
+      {% if aboutus_obj %}
+      {% for about in aboutus_obj %}
       <div class="section-head text-center">
-        <h2>ABOUT US</h2>
+        <h2>{{about.section_title}}</h2>
         <div class="section-divider">
           <div class="left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
           <span></span>
           <div class="right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
         </div>
-        <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
+        <p>{{about.section_desc}}</p>
       </div>
       <div class="row">
           <div class="col-lg-8">
               <div class="about-company">
-                  <h3>Welcome to our company</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed do eiusmod ncididunt ametfh consectetur.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod ncididunt ametfh consectetur dolore magna aliqua. Ut enim ad minim veniam dolor sitame magnaelit ate consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
+                  <h3>{{about.aboutCompanyTitle}}</h3>
+                  <p>{{about.about_text}}</p>
               </div>
           </div><!-- .col -->
           <div class="col-lg-4">
               <!-- For Vimeo Video -->
               <div class="about-video js-video-button" data-video-id='63636954' data-channel="vimeo">
-                  <img src="{% static 'assets/img/about-video-bg.jpg' %}" alt="">
+                  <img src="/media/{{about.about_image1}}" alt="">
                   <i class="video-icon icofont icofont-play-alt-3"></i>
               </div>
-              <!-- For Youtube Video -->
-              <!-- <div class="about-video js-video-button" data-video-id='nImFZRtGeAQ'>
-                  <img src="assets/img/about-video-bg.jpg" alt="">
-                  <i class="video-icon"></i>
-              </div> -->
               <div class="about-slider owl-carousel">
-                <img src="{% static 'assets/img/about-slider-01.jpg' %}" alt="" class="about-single-slid">
-                <img src="{% static 'assets/img/about-slider-02.jpg' %}" alt="" class="about-single-slid">
-                <img src="{% static 'assets/img/about-slider-03.jpg' %}" alt="" class="about-single-slid">
+                <img src="/media/{{about.about_image2}}" alt="">
               </div>
           </div><!-- .col -->
       </div>
+      {% endfor %}
+      {% endif %}
     </div>
   </section>
   <!-- End About Us Section -->

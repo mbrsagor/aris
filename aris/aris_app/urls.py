@@ -1,11 +1,10 @@
 from django.urls import path
-
 from django.conf import settings
 from django.conf.urls.static import static
-
 from .views import *
 
 urlpatterns = [
+
     path('', homepage_views, name = 'homepage_views'),
     # admin templaates url
     path('dashboard/', dashboard_views, name ='dashboard'),
@@ -19,7 +18,8 @@ urlpatterns = [
     path('delete-item/<int:id>/', itemDelete_views, name = 'itemDelete_views'),
     path('blood-doner/', bloodDonorList_views, name = 'bloodDonorList_views'),
     path('doner-remove/<int:id>/', bloodDonorRemove, name = 'bloodDonorRemove'),
-    path('about/', aboutus_views, name ='AboutUsViews'),
+    path('about/', aboutus_views, name ='aboutUsViews'),
+    path('update-about/<int:id>/', updateAbout_views, name = 'updateAbout_views'),
 
 ]
 
