@@ -13,17 +13,25 @@
       <form class="form-wrp" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row mrg20">
-          <div class="col-md-5 col-sm-6 col-lg-4">
+          <div class="col-md-5 col-sm-6 col-lg-5">
             <p>Service Title</p>
             {{form.service_title}}
           </div>
-          <div class="col-md-4 col-sm-6 col-lg-4">
+          <div class="col-md-3 col-sm-6 col-lg-3">
             <p>Service Heading</p>
             {{form.service_heading}}
           </div>
-          <div class="col-md-3 col-sm-6 col-lg-4">
+          <div class="col-md-2 col-sm-6 col-lg-2">
             <p>Service Icon</p>
             {{form.service_icon}}
+          </div>
+          <div class="col-md-1 col-sm-6 col-lg-1">
+            <p>First ID</p>
+            {{form.tab_first_id}}
+          </div>
+          <div class="col-md-1 col-sm-6 col-lg-1">
+            <p>Second ID</p>
+            {{form.tab_second_id}}
           </div>
           <div class="col-md-12 col-sm-12 col-lg-12">
             <p>Service Description</p>

@@ -180,110 +180,37 @@
         <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
       </div>
       <div class="services">
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs active" role="tablist">
+          {% if service_sec_obj %}
+          {% for service in service_sec_obj %}
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#one">
-              <i class="icofont icofont-architecture-alt"></i><span>Digital Marketing</span>
+            <a class="nav-link" data-toggle="tab" href="#{{service.tab_first_id}}">
+              <i class="{{service.service_icon}}"></i><span>{{service.service_title}}</span>
               <div class="active-bar"></div>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#two">
-              <i class="icofont icofont-laptop-alt"></i><span>Web Development</span>
-              <div class="active-bar"></div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#three">
-              <i class="icofont icofont-idea"></i><span>Consultancy</span>
-              <div class="active-bar"></div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#four">
-              <i class="icofont icofont-woman-bird"></i><span>Cloud Services</span>
-              <div class="active-bar"></div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#five">
-              <i class="icofont icofont-support"></i><span>Support Servides</span>
-              <div class="active-bar"></div>
-            </a>
-          </li>
+          {% endfor %}
+          {% endif %}
         </ul><!-- .nav-tabs -->
         <!-- Tab panes -->
         <div class="tab-content">
-          <div id="one" class="container tab-pane fade">
+          {% if service_sec_obj %}
+          {% for services in service_sec_obj %}
+          <div id="{{services.tab_second_id}}" class="container tab-pane fade">
             <div class="row">
               <div class="col-lg-5">
                 <div class="service-text">
-                  <h3>Key Feature of Business</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
+                  <h3>{{services.service_heading}}</h3>
+                  <p>{{services.service_text}}</p>
                 </div>
               </div><!-- .col -->
               <div class="col-lg-7">
-                <div class="service-img"><img src="{% static 'assets/img/service/digital-marketing.png' %}" alt=""></div>
+                <div class="service-img"><img src="/media/{{services.service_image}}" alt=""></div>
               </div><!-- .col -->
             </div><!-- .row -->
           </div><!-- .tab-pane -->
-          <div id="two" class="container tab-pane fade">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="service-text">
-                  <h3>Web Design and Development</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
-                </div>
-              </div><!-- .col -->
-              <div class="col-lg-7">
-                <div class="service-img"><img src="{% static 'assets/img/service/web-development.png' %}" alt=""></div>
-              </div><!-- .col -->
-            </div><!-- .row -->
-          </div><!-- .tab-pane -->
-          <div id="three" class="container tab-pane fade show active">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="service-text">
-                  <h3>Business depends on plan</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
-                </div>
-              </div><!-- .col -->
-              <div class="col-lg-7">
-                <div class="service-img"><img src="{% static 'assets/img/service/consultancy.png' %}" alt=""></div>
-              </div><!-- .col -->
-            </div><!-- .row -->
-          </div><!-- .tab-pane -->
-          <div id="four" class="container tab-pane fade">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="service-text">
-                  <h3>Cloud Services and Mountains</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
-                </div>
-              </div><!-- .col -->
-              <div class="col-lg-7">
-                <div class="service-img"><img src="{% static 'assets/img/service/cloud-services.png' %}" alt=""></div>
-              </div><!-- .col -->
-            </div><!-- .row -->
-          </div><!-- .tab-pane -->
-          <div id="five" class="container tab-pane fade">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="service-text">
-                  <h3>Business growth depends on service</h3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting. Ipsum has been the industry's standard dummy text ever since.</p>
-                  <a href="#price" class="tm-btn"><span>Read More</span></a>
-                </div>
-              </div><!-- .col -->
-              <div class="col-lg-7">
-                <div class="service-img"><img src="{% static 'assets/img/service/support-service.png' %}" alt=""></div>
-              </div><!-- .col -->
-            </div><!-- .row -->
-          </div><!-- .tab-pane -->
+          {% endfor %}
+          {% endif %}
         </div>
       </div>
     </div>

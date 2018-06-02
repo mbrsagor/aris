@@ -70,4 +70,6 @@ class Service_Form(forms.ModelForm):
             'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
             'service_title': TextInput(attrs = {'class' : 'brd-rd30'}),
             'service_icon': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'tab_first_id': TextInput(attrs = {'class' : 'brd-rd30'}),
+            'tab_second_id': TextInput(attrs = {'class' : 'brd-rd30'}),
         }

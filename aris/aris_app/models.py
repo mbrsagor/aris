@@ -43,7 +43,7 @@ class Category(models.Model):
 # Products
 class Product(models.Model):
     name = models.CharField(max_length = 150)
-    image = models.ImageField(upload_to = 'project_category', blank= True, null = True)
+    image = models.ImageField(upload_to = 'project', blank= True, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     price = models.IntegerField()
     discount_price = models.IntegerField(blank= True, null = True)
@@ -104,6 +104,8 @@ class Service(models.Model):
     service_title = models.CharField(max_length = 35)
     service_icon = models.CharField(max_length = 20)
     service_heading = models.CharField(max_length = 25)
+    tab_first_id = models.CharField(max_length = 10, blank = True, null = True, unique = True)
+    tab_second_id = models.CharField(max_length = 10, blank = True, null = True, unique = True)
     service_image = models.ImageField(upload_to = 'service')
     service_text = models.TextField()
 
