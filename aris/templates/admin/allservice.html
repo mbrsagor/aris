@@ -20,8 +20,8 @@
           <th>Blood Title</th>
           <th>Date & Time</th>
           <th>Update</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>Edit Service</th>
+          <th>Delete Service</th>
       </tr>
   </thead>
   <tbody>
@@ -32,7 +32,7 @@
           <td>{{service_obj.service_title}}</td>
           <td>{{service_obj.create_at}}</td>
           <td>{{service_obj.update_at}}</td>
-          <td><a href="">Edit</a></td>
+          <td><a href="{% url 'updateService_views' service_obj.id %}">Edit</a></td>
           <td><a href="{% url 'deleteService_views' service_obj.id %}">Delete</a></td>
       </tr>
       {% endfor %}

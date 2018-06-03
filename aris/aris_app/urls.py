@@ -23,6 +23,7 @@ urlpatterns = [
     path('add-service/', serverSection_views, name = 'serverSection_views'),
     path('dashboard/all-services/', allService_views, name = 'allService_views'),
     path('delete-services/<int:id>/', deleteService_views, name = 'deleteService_views'),
+    path('dashboard/updateservice/<int:id>/', updateService_views, name = 'updateService_views'),
 
 ]
 

@@ -262,3 +262,25 @@ def deleteService_views(request, id):
     delete_service_obj.delete()
     messages.add_message(request, messages.INFO, "Service Delete Successfully")
     return redirect(allService_views)
+
+
+
+# Update services
+def updateService_views(request, id):
+
+    update_service_obj = get_object_or_404(Service, id = id)
+    if request.method == 'POST':
+        form = Service_Form(request.POST or None, request.FILES, instance = update_service_obj)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Service update Successfully")
+        else:
+            messages.add_message(request, messages.INFO, "Service update failed")
+    else:
+        form = Service_Form(instance = update_service_obj)
+    context = {
+        'form' : form,
+        'update_service_obj' : update_service_obj,
+    }
+    template_name = 'admin/service.html'
+    return render(request, template_name, context)
