@@ -240,3 +240,25 @@ def serverSection_views(request):
 
     template_name = 'admin/service.html'
     return render(request, template_name, context)
+
+
+
+# All Services
+def allService_views(request):
+
+    all_service_obj = Service.objects.all()
+    context = {
+        'all_service_obj' :all_service_obj
+    }
+    template_name = 'admin/allservice.html'
+    return render(request, template_name, context)
+
+
+
+# Delete Services
+def deleteService_views(request, id):
+
+    delete_service_obj = get_object_or_404(Service, id = id)
+    delete_service_obj.delete()
+    messages.add_message(request, messages.INFO, "Service Delete Successfully")
+    return redirect(allService_views)

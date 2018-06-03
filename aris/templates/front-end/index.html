@@ -184,7 +184,7 @@
           {% if service_sec_obj %}
           {% for service in service_sec_obj %}
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#{{service.tab_first_id}}">
+            <a class="nav-link {{service.tab_second_id}}" data-toggle="tab" href="#{{service.tab_first_id}}">
               <i class="{{service.service_icon}}"></i><span>{{service.service_title}}</span>
               <div class="active-bar"></div>
             </a>
@@ -196,7 +196,7 @@
         <div class="tab-content">
           {% if service_sec_obj %}
           {% for services in service_sec_obj %}
-          <div id="{{services.tab_second_id}}" class="container tab-pane fade">
+          <div id="{{services.tab_first_id}}" class="container tab-pane fade">
             <div class="row">
               <div class="col-lg-5">
                 <div class="service-text">

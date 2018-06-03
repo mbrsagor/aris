@@ -21,6 +21,8 @@ urlpatterns = [
     path('about/', aboutus_views, name ='aboutUsViews'),
     path('dashboard/update-about/<int:id>/', updateAbout_views, name = 'updateAbout_views'),
     path('add-service/', serverSection_views, name = 'serverSection_views'),
+    path('dashboard/all-services/', allService_views, name = 'allService_views'),
+    path('delete-services/<int:id>/', deleteService_views, name = 'deleteService_views'),
 
 ]
 

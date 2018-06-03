@@ -1,0 +1,42 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || All Service {% endblock %}
+{% block body %}
+
+<h2>All Services list</h2>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<table class="table table-bordered table-inverse">
+  <thead>
+      <tr>
+          <th>Service Name</th>
+          <th>Blood Title</th>
+          <th>Date & Time</th>
+          <th>Update</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% if all_service_obj %}
+    {% for service_obj in all_service_obj %}
+      <tr>
+          <th scope="row">{{service_obj.service_heading}}</th>
+          <td>{{service_obj.service_title}}</td>
+          <td>{{service_obj.create_at}}</td>
+          <td>{{service_obj.update_at}}</td>
+          <td><a href="">Edit</a></td>
+          <td><a href="{% url 'deleteService_views' service_obj.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+  </tbody>
+</table>
+{% endblock %}

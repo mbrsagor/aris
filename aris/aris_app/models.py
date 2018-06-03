@@ -108,6 +108,8 @@ class Service(models.Model):
     tab_second_id = models.CharField(max_length = 10, blank = True, null = True, unique = True)
     service_image = models.ImageField(upload_to = 'service')
     service_text = models.TextField()
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.service_title
