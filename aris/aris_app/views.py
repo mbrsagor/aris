@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegister, AddItem, BloodDonor_Form, AboutUs_Form, Service_Form
+from .forms import *
 from .models import *
 # Message Framework
 from django.contrib import messages
@@ -16,6 +16,9 @@ def homepage_views(request):
     # service section
     service_sec_obj = Service.objects.all()
 
+    # Portfolio
+    portfolio_obj = Portfolio.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -27,6 +30,7 @@ def homepage_views(request):
         'forms' : forms,
         'aboutus_obj' : aboutus_obj,
         'service_sec_obj' : service_sec_obj,
+        'portfolio_obj' : portfolio_obj
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -284,3 +288,68 @@ def updateService_views(request, id):
     }
     template_name = 'admin/service.html'
     return render(request, template_name, context)
+
+
+
+# Portfolio views
+def portfolio_views(request):
+
+    form = Portfolio_Form()
+    if request.method == 'POST':
+        form = Portfolio_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Porftolio added Successfully")
+            return redirect(portfolio_views)
+        else:
+            messages.add_message(request, messages.INFO, "Porftolio added failed")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-portfolio.html'
+    return render(request, template_name, context)
+
+
+
+
+# All Portfolio List
+def allportfolio_views(request):
+
+    portfolio_list = Portfolio.objects.all()
+    context = {
+        'portfolio_list' : portfolio_list
+    }
+    template_name = 'admin/allportfolio.html'
+    return render(request, template_name, context)
+
+
+
+# Update portfolio
+def updatePportoflio(request, id):
+
+    update_portfolio = get_object_or_404(Portfolio, id = id)
+    if request.method == 'POST':
+        form = Portfolio_Form(request.POST or None, request.FILES,  instance = update_portfolio)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Porftolio updated Successfully")
+            return redirect(allportfolio_views)
+        else:
+            messages.add_message(request, messages.INFO, "Porftolio updated failed")
+    else:
+        form = Portfolio_Form(instance = update_portfolio)
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-portfolio.html'
+    return render(request, template_name, context)
+
+
+# Delete Portfolio
+def deletePortfolio(request, id):
+
+    delete_portfolio = get_object_or_404(Portfolio, id = id)
+    delete_portfolio.delete()
+    messages.add_message(request, messages.INFO, "Porftolio Delted Successfully")
+    return redirect(allportfolio_views)

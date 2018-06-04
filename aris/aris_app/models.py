@@ -113,3 +113,17 @@ class Service(models.Model):
 
     def __str__(self):
         return self.service_title
+
+
+# Portfoio page section
+class Portfolio(models.Model):
+    portfolio_title = models.CharField(max_length = 20)
+    portfolio_class = models.CharField(max_length = 10)
+    portfolio_data_filter = models.CharField(max_length = 10)
+    portfolio_image = models.ImageField(upload_to = 'portfolio')
+    portfolio_image2 = models.ImageField(upload_to = 'portfolio')
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+    
+    def __str__(self):
+        return self.portfolio_title

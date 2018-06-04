@@ -73,3 +73,17 @@ class Service_Form(forms.ModelForm):
             'tab_first_id': TextInput(attrs = {'class' : 'brd-rd30'}),
             'tab_second_id': TextInput(attrs = {'class' : 'brd-rd30'}),
         }
+
+
+
+
+# Portfolio Section form
+class Portfolio_Form(forms.ModelForm):
+    class Meta:
+        model = Portfolio
+        fields = '__all__'
+        widgets = {
+            'portfolio_title' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'portfolio_class' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'portfolio_data_filter' : TextInput(attrs = {'class' : 'brd-rd30'}),
+        }

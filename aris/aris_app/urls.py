@@ -24,6 +24,10 @@ urlpatterns = [
     path('dashboard/all-services/', allService_views, name = 'allService_views'),
     path('delete-services/<int:id>/', deleteService_views, name = 'deleteService_views'),
     path('dashboard/updateservice/<int:id>/', updateService_views, name = 'updateService_views'),
+    path('add-portfolio/', portfolio_views, name = 'portfolio_views'),
+    path('all-portfolio/', allportfolio_views, name = 'allportfolio_views'),
+    path('dashboard/update-portfolio/<int:id>/', updatePportoflio, name = 'updatePportoflio'),
+    path('dashboard/delete-portfolio/<int:id>/', deletePortfolio, name = 'deletePortfolio'),
 
 ]
 

@@ -1,0 +1,40 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || All Portfolio {% endblock %}
+{% block body %}
+
+<h2>All Services list</h2>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<table class="table table-bordered table-inverse">
+  <thead>
+      <tr>
+          <th>Portfolio Name</th>
+          <th>Date & Time</th>
+          <th>Update Time</th>
+          <th>Edit Service</th>
+          <th>Delete Service</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% if portfolio_list %}
+    {% for portfolio in portfolio_list %}
+      <tr>
+          <th scope="row">{{portfolio.portfolio_title}}</th>
+          <td>{{portfolio.create_at}}</td>
+          <td>{{portfolio.update_at}}</td>
+          <td><a href="{% url 'updatePportoflio' portfolio.id %}">Edit</a></td>
+          <td><a href="{% url 'deletePortfolio' portfolio.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+  </tbody>
+</table>
+{% endblock %}

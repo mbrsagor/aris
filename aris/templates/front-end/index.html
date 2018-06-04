@@ -252,59 +252,28 @@
     </div>
     <div class="portfolio-filter text-center">
       <ul>
-        <li class="active"><a href="#" data-filter="*">ALL</a></li>
-        <li><a href="#" data-filter=".item-1">Art & Design</a></li>
-        <li><a href="#" data-filter=".item-2">Creative Services</a></li>
-        <li><a href="#" data-filter=".item-3">Online Store</a></li>
+        {% if portfolio_obj %}
+        {% for portfolio in portfolio_obj %}
+        <li class="{{portfolio.portfolio_class}}"><a href="#" data-filter="{{portfolio.portfolio_data_filter}}">{{portfolio.portfolio_title}}</a></li>
+        {% endfor %}
+        {% endif %}
       </ul>
     </div><!-- .portfolio-filter-area -->
     <div class="portfolio zoom-gallery gutter-less">
       <div class="grid-sizer"></div>
+      {% if portfolio_obj %}
+      {% for portfolio in portfolio_obj %}
       <div class="portfolio-item item-3">
-        <a href="{% static 'assets/img/portfolio/port-01-lg.jpg' %}" class="item-inner">
-          <img src="{% static 'assets/img/portfolio/port-01.jpg' %}" alt="">
+        <a href="/media/{{portfolio.portfolio_image}}" class="item-inner">
+          <img src="/media/{{portfolio.portfolio_image2}}" alt="">
           <div class="hover-text">
             <i class="icofont icofont-drag1"></i>
           </div>
           <div class="gradient"></div>
         </a>
       </div><!-- .portfolio-item -->
-      <div class="portfolio-item port-50 item-2 item-4">
-        <a href="{% static 'assets/img/portfolio/port-02-lg.jpg' %}" class="item-inner">
-          <img src="{% static 'assets/img/portfolio/port-02.jpg' %}" alt="">
-          <div class="hover-text">
-            <i class="icofont icofont-drag1"></i>
-          </div>
-          <div class="gradient"></div>
-        </a>
-      </div><!-- .portfolio-item -->
-      <div class="portfolio-item item-1">
-        <a href="{% static 'assets/img/portfolio/port-03-lg.jpg' %}" class="item-inner">
-          <img src="{% static 'assets/img/portfolio/port-03.jpg' %}" alt="">
-          <div class="hover-text">
-            <i class="icofont icofont-drag1"></i>
-          </div>
-          <div class="gradient"></div>
-        </a>
-      </div><!-- .portfolio-item -->
-      <div class="portfolio-item item-3">
-        <a href="{% static 'assets/img/portfolio/port-04-lg.jpg' %}" class="item-inner">
-          <img src="assets/img/portfolio/port-04.jpg" alt="">
-          <div class="hover-text">
-            <i class="icofont icofont-drag1"></i>
-          </div>
-          <div class="gradient"></div>
-        </a>
-      </div><!-- .portfolio-item -->
-      <div class="portfolio-item  item-1">
-        <a href="{% static 'assets/img/portfolio/port-05-lg.jpg' %}" class="item-inner">
-          <img src="{% static 'assets/img/portfolio/port-05.jpg' %}" alt="">
-          <div class="hover-text">
-            <i class="icofont icofont-drag1"></i>
-          </div>
-          <div class="gradient"></div>
-        </a>
-      </div><!-- .portfolio-item -->
+      {% endfor %}
+      {% endif %}
     </div><!-- .portfolio -->
   </section>
   <!-- End Project Section -->

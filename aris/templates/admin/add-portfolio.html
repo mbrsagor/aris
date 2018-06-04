@@ -1,0 +1,71 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Add New Portfolio {% endblock %}
+
+{% block body %}
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>Portfolio section page</h4>
+        <span>You may change or update your portfolio section form here</span>
+      </div>
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <p>Portfolio Title</p>
+            {{form.portfolio_title}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Portfolio Class</p>
+            {{form.portfolio_class}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Portfolio Data-Filter</p>
+            {{form.portfolio_data_filter}}
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-12 col-lg-6">
+              <div class="file-upload-box">
+                <strong>File Input:</strong>
+                <div class="file-box">
+                  <label class="fileContainer">
+                    <span class="blue-bg brd-rd5">Browse</span>
+                    {{form.portfolio_image}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-6 text-right">
+              <div class="file-upload-box">
+                <strong>File Input:</strong>
+                <div class="file-box">
+                  <label class="fileContainer">
+                    <span class="blue-bg brd-rd5">Browse</span>
+                    {{form.portfolio_image2}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}
