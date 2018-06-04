@@ -33,7 +33,7 @@
           <td>{{member.create_at}}</td>
           <td>{{member.update_at}}</td>
           <td><a href="{% url 'updateTeamMember' member.id %}">Edit</a></td>
-          <td><a href="">Delete</a></td>
+          <td><a href="{% url 'deleteMember_views'  member.id %}">Delete</a></td>
       </tr>
       {% endfor %}
       {% endif %}

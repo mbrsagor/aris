@@ -31,6 +31,7 @@ urlpatterns = [
     path('add-member/', teamMember_views, name = 'teamMember_views'),
     path('all-member/', listOfAllMemeber_views, name = 'listOfAllMemeber_views'),
     path('dashboard/update-memeber/<int:id>/', updateTeamMember, name = 'updateTeamMember'),
+    path('deshboard/member-delete/<int:id>/', deleteMember_views, name = 'deleteMember_views'),
 
 ]
 

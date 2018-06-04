@@ -413,3 +413,12 @@ def updateTeamMember(request, id):
     }
     template_name = 'admin/add-temmeber.html'
     return render(request, template_name, context)
+
+
+# Delete Member
+def deleteMember_views(request, id):
+
+    deleteMember_obj = get_object_or_404(Team, id = id)
+    deleteMember_obj.delete()
+    messages.add_message(request, messages.INFO, "Member deleted successfully")
+    return redirect(listOfAllMemeber_views)
