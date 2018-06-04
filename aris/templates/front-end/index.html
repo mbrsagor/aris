@@ -314,75 +314,6 @@
   </section>
   <!-- End Team Section -->
 
-  <!-- Start Pricing Table -->
-  <section class="pricing-table section" id="price">
-    <div class="container">
-      <div class="section-head text-center">
-        <h2>PRICE TABLE</h2>
-        <div class="section-divider">
-          <div class="left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-          <span></span>
-          <div class="right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
-      </div>
-      <div class="row flex pricing-hover-wrap">
-        <div class="col-lg-4">
-          <div class="single-price">
-            <h2 class="pricing-head"><span>PERSONAL</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-times cross"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-times cross"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$19</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-        <div class="col-lg-4">
-          <div class="single-price special-price">
-            <h2 class="pricing-head"><span>PROFESSIONAL</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-times cross"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$29</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-        <div class="col-lg-4">
-          <div class="single-price">
-            <h2 class="pricing-head"><span>CORPORATE</span></h2>
-            <ul class="pricing-feature">
-              <li><i class="fa fa-check"></i>Premium Web Hosting</li>
-              <li><i class="fa fa-check"></i>IMAP or POP Service</li>
-              <li><i class="fa fa-check"></i>Webmail Access</li>
-              <li><i class="fa fa-check"></i>Deluxe Spam Fitler</li>
-              <li><i class="fa fa-check"></i>SSL Security</li>
-            </ul>
-            <div class="price">
-              <b>$45</b>
-              <span>per month</span>
-            </div>
-            <a href="" class="tm-btn tm-btn-black"><span>START THE PLAN</span></a>
-          </div><!-- .single-price -->
-        </div><!-- .col -->
-      </div>
-    </div>
-  </section>
-  <!-- End Pricing Table -->
-
 	<!-- Start Bload Donoer -->
   <section class="bload-donoer section" id="bload">
     <div class="container">
@@ -532,30 +463,19 @@
     <div class="container">
       <div class="testimonial-outer">
         <div class="testimonial-1 owl-carousel">
+
+          {% if testimonail_obj %}
+          {% for testimonial in testimonail_obj %}
           <div class="single-testimonial">
-            <img src="{% static 'assets/img/client-img-01.jpg' %}" alt="" class="client-img">
+            <img src="/media/{{ testimonial.testimonial_user_pic }}" alt="" class="client-img">
             <blockquote>
               <i class="icofont icofont-quote-left"></i>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-              <small>Lalin Smith <span>CEO</span></small>
+              {{ testimonial.description }}
+              <small>{{ testimonial.name }} <span>{{ testimonial.designation }}</span></small>
             </blockquote>
           </div><!-- .single-testimonial -->
-          <div class="single-testimonial">
-            <img src="{% static 'assets/img/client-img-02.jpg' %}" alt="" class="client-img">
-            <blockquote>
-              <i class="icofont icofont-quote-left"></i>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-              <small>Richard Coleman <span>Social worker</span></small>
-            </blockquote>
-          </div><!-- .single-testimonial -->
-          <div class="single-testimonial">
-            <img src="{% static 'assets/img/client-img-03.jpg' %}" alt="" class="client-img">
-            <blockquote>
-              <i class="icofont icofont-quote-left"></i>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-              <small>Danial Pul <span>Web Developer</span></small>
-            </blockquote>
-          </div><!-- .single-testimonial -->
+          {% endfor %}
+          {% endif %}
         </div>
       </div><!-- .testimonial-outer -->
     </div>

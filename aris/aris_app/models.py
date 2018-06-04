@@ -139,3 +139,17 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+# Testimonial page section
+class Testimonial(models.Model):
+    name = models.CharField(max_length = 20)
+    designation = models.CharField(max_length = 40)
+    testimonial_user_pic = models.ImageField(upload_to = 'testimonial')
+    description = models.TextField()
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name

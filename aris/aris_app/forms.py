@@ -100,3 +100,17 @@ class TeamMember_Form(forms.ModelForm):
             'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'designation' : TextInput(attrs = {'class' : 'brd-rd30'}),
         }
+
+
+
+
+# Testimonial section form
+class Testimonial_Form(forms.ModelForm):
+    class Meta:
+        model = Testimonial
+        fields = '__all__'
+        widgets = {
+            'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'designation' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'description' : Textarea(attrs = {'class' : 'brd-rd30'})
+        }

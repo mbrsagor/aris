@@ -22,6 +22,9 @@ def homepage_views(request):
     # Team Member
     all_member_obj = Team.objects.all()
 
+    # Testimonial
+    testimonail_obj = Testimonial.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -35,6 +38,7 @@ def homepage_views(request):
         'service_sec_obj' : service_sec_obj,
         'portfolio_obj' : portfolio_obj,
         'all_member_obj' : all_member_obj,
+        'testimonail_obj' : testimonail_obj
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -422,3 +426,71 @@ def deleteMember_views(request, id):
     deleteMember_obj.delete()
     messages.add_message(request, messages.INFO, "Member deleted successfully")
     return redirect(listOfAllMemeber_views)
+
+
+
+
+# Testimonial page section
+def testimonial_views(request):
+
+    form = Testimonial_Form()
+    if request.method == 'POST':
+        form = Testimonial_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Testimonial added successfully")
+            return redirect(testimonial_views)
+        else:
+            messages.add_message(request, messages.INFO, "Testimonial added failed")
+    context = {
+        'form' : form,
+    }
+    template_name = 'admin/add-testimonial.html'
+    return render(request, template_name, context)
+
+
+
+
+# All testimonial
+def allTestimonial_views(request):
+
+    all_testmonial_obj = Testimonial.objects.all()
+    context = {
+        'all_testmonial_obj' : all_testmonial_obj
+    }
+    template_name = 'admin/alltestimonial.html'
+    return render(request, template_name, context)
+
+
+
+# Delete testmonial
+def testmonialDelete_views(request, id):
+
+    delete_testmonial = get_object_or_404(Testimonial, id=id)
+    delete_testmonial.delete()
+    messages.add_message(request, messages.INFO, "Testimonial deleted successfully")
+    return redirect(allTestimonial_views)
+
+
+
+# Update testmonial
+def updateTestmonial_views(request, id):
+
+    update_testimonial = get_object_or_404(Testimonial, id=id)
+    if request.method == 'POST':
+        form = Testimonial_Form(request.POST or None, request.FILES, instance = update_testimonial)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Testimonial updated successfully")
+            return redirect(allTestimonial_views)
+        else:
+            messages.add_message(request, messages.INFO, "Testimonial updated failed")
+    else:
+        form = Testimonial_Form(instance = update_testimonial)
+
+    context = {
+        'form' : form,
+    }
+    template_name = 'admin/add-testimonial.html'
+    return render(request, template_name, context)
