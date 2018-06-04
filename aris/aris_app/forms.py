@@ -87,3 +87,16 @@ class Portfolio_Form(forms.ModelForm):
             'portfolio_class' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'portfolio_data_filter' : TextInput(attrs = {'class' : 'brd-rd30'}),
         }
+
+
+
+
+# Team Member section form
+class TeamMember_Form(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = '__all__'
+        widgets = {
+            'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'designation' : TextInput(attrs = {'class' : 'brd-rd30'}),
+        }

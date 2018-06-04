@@ -124,6 +124,18 @@ class Portfolio(models.Model):
     portfolio_image2 = models.ImageField(upload_to = 'portfolio')
     create_at = models.DateTimeField( auto_now = True)
     update_at = models.DateTimeField(auto_now_add = True)
-    
+
     def __str__(self):
         return self.portfolio_title
+
+
+# TEAM page section
+class Team(models.Model):
+    name = models.CharField(max_length = 30)
+    designation = models.CharField(max_length = 40)
+    profile_pic = models.ImageField(upload_to = 'team')
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name

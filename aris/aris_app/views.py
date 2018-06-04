@@ -19,6 +19,9 @@ def homepage_views(request):
     # Portfolio
     portfolio_obj = Portfolio.objects.all()
 
+    # Team Member
+    all_member_obj = Team.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -30,7 +33,8 @@ def homepage_views(request):
         'forms' : forms,
         'aboutus_obj' : aboutus_obj,
         'service_sec_obj' : service_sec_obj,
-        'portfolio_obj' : portfolio_obj
+        'portfolio_obj' : portfolio_obj,
+        'all_member_obj' : all_member_obj,
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -353,3 +357,59 @@ def deletePortfolio(request, id):
     delete_portfolio.delete()
     messages.add_message(request, messages.INFO, "Porftolio Delted Successfully")
     return redirect(allportfolio_views)
+
+
+
+# Team Member section
+def teamMember_views(request):
+
+    form = TeamMember_Form()
+    if request.method == 'POST':
+        form = TeamMember_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Team member added Successfully")
+            return redirect(teamMember_views)
+        else:
+            messages.add_message(request, messages.INFO, "Team memeber added failed")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-temmeber.html'
+    return render(request, template_name, context)
+
+
+
+# all Memeber list
+def listOfAllMemeber_views(request):
+
+    all_member_obj = Team.objects.all()
+    context = {
+        'all_member_obj' : all_member_obj
+    }
+    template_name = 'admin/allmember.html'
+    return render(request, template_name, context)
+
+
+
+# update Team Member views
+def updateTeamMember(request, id):
+
+    update_member = get_object_or_404(Team, id = id)
+    if request.method == 'POST':
+        form = TeamMember_Form(request.POST or None, request.FILES, instance = update_member)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Team member updated Successfully")
+            return redirect(listOfAllMemeber_views)
+        else:
+            messages.add_message(request, messages.INFO, "Team member updated failed")
+    else:
+        form = TeamMember_Form(instance = update_member)
+    context = {
+        'form' : form,
+        'update_member' : update_member
+    }
+    template_name = 'admin/add-temmeber.html'
+    return render(request, template_name, context)

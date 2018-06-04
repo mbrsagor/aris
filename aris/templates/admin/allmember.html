@@ -1,0 +1,42 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || All Memeber List {% endblock %}
+{% block body %}
+
+<h2>All Member list</h2>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<table class="table table-bordered table-inverse">
+  <thead>
+      <tr>
+          <th>Member Name</th>
+          <th>Member Designation</th>
+          <th>Date & Time</th>
+          <th>Update Time</th>
+          <th>Edit Team</th>
+          <th>Delete Team</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% if all_member_obj %}
+    {% for member in all_member_obj %}
+      <tr>
+          <th scope="row">{{member.name}}</th>
+          <th scope="row">{{member.designation}}</th>
+          <td>{{member.create_at}}</td>
+          <td>{{member.update_at}}</td>
+          <td><a href="{% url 'updateTeamMember' member.id %}">Edit</a></td>
+          <td><a href="">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+  </tbody>
+</table>
+{% endblock %}

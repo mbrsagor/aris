@@ -28,6 +28,9 @@ urlpatterns = [
     path('all-portfolio/', allportfolio_views, name = 'allportfolio_views'),
     path('dashboard/update-portfolio/<int:id>/', updatePportoflio, name = 'updatePportoflio'),
     path('dashboard/delete-portfolio/<int:id>/', deletePortfolio, name = 'deletePortfolio'),
+    path('add-member/', teamMember_views, name = 'teamMember_views'),
+    path('all-member/', listOfAllMemeber_views, name = 'listOfAllMemeber_views'),
+    path('dashboard/update-memeber/<int:id>/', updateTeamMember, name = 'updateTeamMember'),
 
 ]
 
