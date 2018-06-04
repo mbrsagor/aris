@@ -165,3 +165,29 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+# Blog category
+class BlogCategory(models.Model):
+    name = models.CharField(max_length = 25)
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name
+
+
+
+# Blog page section
+class Blog(models.Model):
+    title = models.CharField(max_length = 100)
+    category = models.ForeignKey(BlogCategory, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    image = models.ImageField(upload_to = 'blog')
+    description = models.TextField()
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.title
