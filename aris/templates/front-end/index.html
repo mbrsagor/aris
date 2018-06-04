@@ -565,7 +565,7 @@
   <div class="client-logo-wrap section">
     <div class="container">
       <div class="section-head text-center">
-        <h2>Our Clients</h2>
+        <h2>Our Brand</h2>
         <div class="section-divider">
           <div class="left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
           <span></span>
@@ -574,36 +574,13 @@
         <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem</p>
       </div>
       <div class="client-logoes">
+        {% if brand_obj %}
+        {% for brand in brand_obj %}
         <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-08.png' %}" alt="">
+          <img src="/media/{{brand.testimonial_logo}}" alt="">
         </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-09.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-10.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-11.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-12.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-13.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-14.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-15.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-16.png' %}" alt="">
-        </div>
-        <div class="client-logo">
-          <img src="{% static 'assets/img/client-logo/client-logo-17.png' %}" alt="">
-        </div>
+        {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>

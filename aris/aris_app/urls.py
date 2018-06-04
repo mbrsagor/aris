@@ -36,6 +36,7 @@ urlpatterns = [
     path('all-testimonial/', allTestimonial_views, name = 'allTestimonial_views'),
     path('dashboard/delete-testmonial/<int:id>/', testmonialDelete_views, name = 'testmonialDelete_views'),
     path('dashboard/update-testmonial/<int:id>/', updateTestmonial_views, name = 'updateTestmonial_views'),
+    path('add-brand/', brand_views, name = 'brand_views'),
 
 ]
 

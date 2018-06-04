@@ -114,3 +114,14 @@ class Testimonial_Form(forms.ModelForm):
             'designation' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'description' : Textarea(attrs = {'class' : 'brd-rd30'})
         }
+
+
+
+# Brand section form
+class Brand_Form(forms.ModelForm):
+    class Meta:
+        model = Brand
+        fields = ['title']
+        widgets = {
+            'title' : TextInput(attrs = {'class' : 'brd-rd30'})
+        }

@@ -153,3 +153,15 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+# Testimonial page section
+class Brand(models.Model):
+    title = models.CharField(max_length = 20)
+    testimonial_logo= models.ImageField(upload_to = 'brand')
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.title
