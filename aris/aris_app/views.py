@@ -695,7 +695,7 @@ def updateInstragram(request, id):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.INFO, "photo updated successfully")
-            return redirect(instragram_views)
+            return redirect(allInstragram_views)
         else:
             messages.add_message(request, messages.INFO, "photo updated failed")
     else:
@@ -714,3 +714,15 @@ def deleteInstragram_views(request, id):
     instagram_delete.delete()
     messages.add_message(request, messages.INFO, "photo deleted successfully")
     return redirect(instragram_views)
+
+
+
+# All Instragram
+def allInstragram_views(request):
+
+    all_instragaram = Instragram.objects.all()
+    context = {
+        'all_instragaram' : all_instragaram
+    }
+    template_name = 'admin/allinstragaram.html'
+    return render(request, template_name, context)
