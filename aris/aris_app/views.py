@@ -522,3 +522,71 @@ def brand_views(request):
     }
     template_name = 'admin/add-brand.html'
     return render(request, template_name, context)
+
+
+
+
+# Add Blog Post Category views
+def PostCategory_views(request):
+
+    form = BlogCategory_Form()
+    if request.method == 'POST':
+        form = BlogCategory_Form(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Category added successfully")
+            return redirect(PostCategory_views)
+        else:
+            messages.add_message(request, messages.INFO, "Brand added failed")
+    context = {
+        'form' : form,
+    }
+    template_name = 'admin/add-category.html'
+    return render(request, template_name, context)
+
+
+
+
+# List of Category
+def allCategory_views(request):
+
+    blog_category = BlogCategory.objects.all()
+    context ={
+        'blog_category' : blog_category
+    }
+    template_name = 'admin/allcategory.html'
+    return render(request, template_name, context)
+
+
+
+# Update Category views
+def updateCategory_veiws(request, id):
+
+    updateBlog_category = get_object_or_404(BlogCategory, id = id)
+    if request.method == 'POST':
+        form = BlogCategory_Form(request.POST or None, instance = updateBlog_category)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Category updated successfully")
+            return redirect(allCategory_views)
+        else:
+            messages.add_message(request, messages.INFO, "Category updated failed")
+    else:
+        form = BlogCategory_Form(instance = updateBlog_category)
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-category.html'
+    return render(request, template_name, context)
+
+
+
+
+# Delete Cateogry
+def deleteCategory_veiws(request, id):
+
+    deleteBlog_category = get_object_or_404(BlogCategory, id = id)
+    deleteBlog_category.delete()
+    messages.add_message(request, messages.INFO, "Category deleted successfully")
+    return redirect(allCategory_views)

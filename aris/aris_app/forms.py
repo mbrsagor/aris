@@ -125,3 +125,14 @@ class Brand_Form(forms.ModelForm):
         widgets = {
             'title' : TextInput(attrs = {'class' : 'brd-rd30'})
         }
+
+
+
+# Add Blog Post Category
+class BlogCategory_Form(forms.ModelForm):
+    class Meta:
+        model = BlogCategory
+        fields = ['name']
+        widgets = {
+            'name' : TextInput(attrs = {'class' : 'brd-rd30'})
+        }

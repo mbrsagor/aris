@@ -1,0 +1,37 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Add Category {% endblock %}
+
+{% block body %}
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>Add Category section page</h4>
+        <span>You may add your post category form here</span>
+      </div>
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-12 col-sm-6 col-lg-12">
+            <p>Category Name</p>
+            {{form.name}}
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

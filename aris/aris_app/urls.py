@@ -37,6 +37,10 @@ urlpatterns = [
     path('dashboard/delete-testmonial/<int:id>/', testmonialDelete_views, name = 'testmonialDelete_views'),
     path('dashboard/update-testmonial/<int:id>/', updateTestmonial_views, name = 'updateTestmonial_views'),
     path('add-brand/', brand_views, name = 'brand_views'),
+    path('add-category/', PostCategory_views, name = 'PostCategory_views'),
+    path('all-category/', allCategory_views, name = 'allCategory_views'),
+    path('dashboard/update-cat/<int:id>/', updateCategory_veiws, name = 'updateCategory_veiws'),
+    path('dashboard/delete-cat/<int:id>/', deleteCategory_veiws, name = 'deleteCategory_veiws'),
 
 ]
 

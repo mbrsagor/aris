@@ -341,14 +341,14 @@
                 <li class="has-drp">
                     <a href="#" title="">
                         <i class="ion-fireball"></i>
-                        <span>Icons</span>
+                        <span>Post</span>
                     </a>
                     <ul class="sb-drp">
                         <li>
-                            <a href="font-awesome-icons.html" title="">Font Awesome Icons</a>
+                            <a href="{% url 'PostCategory_views' %}" title="Add New Category">Add Category</a>
                         </li>
                         <li>
-                            <a href="themify-icons.html" title="">Themify Icons</a>
+                            <a href="{% url 'allCategory_views' %}" title="List of Category">All Category</a>
                         </li>
                         <li>
                             <a href="ionicons.html" title="">Ionicons</a>
@@ -429,9 +429,6 @@
                         </li>
                         <li>
                             <a href="{% url 'brand_views' %}" title="Add New Brand">Add Brand</a>
-                        </li>
-                        <li>
-                            <a href="" title="">Contact</a>
                         </li>
                     </ul>
                 </li>
