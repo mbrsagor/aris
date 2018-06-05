@@ -70,52 +70,9 @@
 
     <!-- Start Site Footer -->
     <footer class="site-footer">
-      <div class="top-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="footer-widget">
-                <div class="footer-about-widget">
-                  <img src="assets/img/logo.png" alt="">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod incididunt ametfh consec tetur dolore magna aliqua. Ut enim ad minim veniam.</p>
-                </div>
-              </div><!-- .footer-widget -->
-            </div><!-- .col -->
-            <div class="col-md-4">
-              <div class="footer-widget">
-                <h2 class="footer-widget-title">Recent Posts</h2>
-                <ul class="footer-recent-post-widget">
-                  <li>
-                    <h2><a href="">Just another amazing blog post</a></h2>
-                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                  </li>
-                  <li>
-                    <h2><a href="">Just another amazing blog post</a></h2>
-                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                  </li>
-                  <li>
-                    <h2><a href="">Just another amazing blog post</a></h2>
-                    <span><i class="fa fa-calendar"></i> February 05 2018</span>
-                  </li>
-                </ul>
-              </div><!-- .footer-widget -->
-            </div><!-- .col -->
-            <div class="col-md-4">
-              <div class="footer-widget">
-                <h2 class="footer-widget-title">Instragram</h2>
-                <div class="instagram-widget">
-                  <a href=""><img src="{% static 'assets/img/instagram-img-01.jpg' %}" alt=""></a>
-                  <a href=""><img src="{% static 'assets/img/instagram-img-02.jpg' %}" alt=""></a>
-                  <a href=""><img src="{% static 'assets/img/instagram-img-03.jpg' %}" alt=""></a>
-                  <a href=""><img src="{% static 'assets/img/instagram-img-04.jpg' %}" alt=""></a>
-                  <a href=""><img src="{% static 'assets/img/instagram-img-05.jpg' %}" alt=""></a>
-                  <a href=""><img src="{% static 'assets/img/instagram-img-06.jpg' %}" alt=""></a>
-                </div>
-              </div><!-- .footer-widget -->
-            </div><!-- .col -->
-          </div>
-        </div>
-      </div>
+			{% block footer %}
+    
+			{% endblock %}
       <div class="bottom-footer text-center">
         <div class="container">
           <div class="copy-right">Copyright © 2018 Stray. All Rights Reserved. Develop by <a href="http://www.sourcecodesoft.com">SourceCodeSoft</a></div>

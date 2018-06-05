@@ -1,0 +1,41 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Add Instragram {% endblock %}
+
+{% block body %}
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>Add instragram footer</h4>
+        <span>You may add your instragram photo form here</span>
+      </div>
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Photo name(Opsonal)</p>
+            {{form.name}}
+          </div>
+          <div class="col-md-9 col-sm-6 col-lg-9">
+            <p>Instragram photo URL</p>
+            {{form.image_url}}
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

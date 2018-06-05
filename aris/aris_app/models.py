@@ -191,3 +191,15 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+# Instragram footer photo url
+class Instragram(models.Model):
+    name = models.CharField(max_length = 40, blank = True, null = True)
+    image_url = models.URLField(max_length=200)
+    create_at = models.DateTimeField( auto_now = True)
+    update_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name

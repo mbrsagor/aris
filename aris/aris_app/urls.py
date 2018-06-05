@@ -45,6 +45,7 @@ urlpatterns = [
     path('all-post', allwPost_views, name = 'allwPost_views'),
     path('dashboard/update-post/<int:id>/', updatePost_views, name = 'updatePost_views'),
     path('dashboard/delete-post/<int:id>/', deletePost_views, name = 'deletePost_views'),
+    path('instagram/', instragram_views, name = 'instragram_views'),
 
 
 ]

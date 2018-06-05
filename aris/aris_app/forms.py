@@ -149,3 +149,14 @@ class BlogPost_Form(forms.ModelForm):
             'author' : Select(attrs = {'class' : 'form-control'}),
             'description' : Textarea(attrs = {'class' : 'form-control'}),
         }
+
+
+# Footer Instragram
+class Instragram_Form(forms.ModelForm):
+    class Meta:
+        model = Instragram
+        fields = '__all__'
+        widgets = {
+            'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'image_url' : TextInput(attrs = {'class' : 'brd-rd30'})
+        }

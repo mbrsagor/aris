@@ -31,6 +31,9 @@ def homepage_views(request):
     # Blog Post
     blogPost_obj = Blog.objects.all()
 
+    # Instragram footer
+    instragram_obj = Instragram.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -47,6 +50,7 @@ def homepage_views(request):
         'testimonail_obj' : testimonail_obj,
         'brand_obj' : brand_obj,
         'blogPost_obj' : blogPost_obj,
+        'instragram_obj' : instragram_obj,
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -659,3 +663,54 @@ def deletePost_views(request, id):
     delete_post.delete()
     messages.add_message(request, messages.INFO, "Post deleted successfully")
     return redirect(allwPost_views)
+
+
+
+#  Instragram footer
+def instragram_views(request):
+
+    form = Instragram_Form()
+    if request.method == 'POST':
+        form = Instragram_Form(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "photo addded successfully")
+            return redirect(instragram_views)
+        else:
+            messages.add_message(request, messages.INFO, "photo addded failed")
+    context =  {
+        'form' : form
+    }
+    template_name = 'admin/add-instragram.html'
+    return render(request, template_name, context)
+
+
+# Update Instragram
+def updateInstragram(request, id):
+
+    instagram_update = get_object_or_404(Instragram, id = id)
+    if request.method == 'POST':
+        form = Instragram_Form(request.POST or None, instance = instagram_update)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "photo updated successfully")
+            return redirect(instragram_views)
+        else:
+            messages.add_message(request, messages.INFO, "photo updated failed")
+    else:
+        form = Instragram_Form(instance = instagram_update)
+    context = {
+        'form' : form,
+    }
+    template_name = 'admin/add-instragram.html'
+    return render(request, template_name, context)
+
+
+
+# delete Instragram
+def deleteInstragram_views(request, id):
+    instagram_delete = get_object_or_404(Instragram, id = id)
+    instagram_delete.delete()
+    messages.add_message(request, messages.INFO, "photo deleted successfully")
+    return redirect(instragram_views)
