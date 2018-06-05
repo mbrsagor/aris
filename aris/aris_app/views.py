@@ -28,6 +28,9 @@ def homepage_views(request):
     # Brand
     brand_obj = Brand.objects.all()
 
+    # Blog Post
+    blogPost_obj = Blog.objects.all()
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -43,6 +46,7 @@ def homepage_views(request):
         'all_member_obj' : all_member_obj,
         'testimonail_obj' : testimonail_obj,
         'brand_obj' : brand_obj,
+        'blogPost_obj' : blogPost_obj,
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -590,3 +594,68 @@ def deleteCategory_veiws(request, id):
     deleteBlog_category.delete()
     messages.add_message(request, messages.INFO, "Category deleted successfully")
     return redirect(allCategory_views)
+
+
+
+# Blog post views
+def blogPost_views(request):
+
+    form = BlogPost_Form()
+    if request.method == 'POST':
+        form = BlogPost_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Post puhblish successfully")
+            return redirect(blogPost_views)
+        else:
+            messages.add_message(request, messages.INFO, "Post puhblish failed")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-post.html'
+    return render(request, template_name, context)
+
+
+
+# Display blog post
+def allwPost_views(request):
+
+    allBlog_post = Blog.objects.all()
+    context = {
+        'allBlog_post' : allBlog_post
+    }
+    template_name = 'admin/allpost.html'
+    return render(request, template_name, context)
+
+
+
+# update blog post
+def updatePost_views(request, id):
+
+    update_post = get_object_or_404(Blog, id = id)
+    if request.method == 'POST':
+        form = BlogPost_Form(request.POST or None, request.FILES, instance = update_post)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Post updated successfully")
+            return redirect(allwPost_views)
+        else:
+            messages.add_message(request, messages.INFO, "Post updated failed")
+    else:
+        form = BlogPost_Form(instance = update_post)
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-post.html'
+    return render(request, template_name, context)
+
+
+
+# Delete blog post
+def deletePost_views(request, id):
+
+    delete_post = get_object_or_404(Blog, id = id)
+    delete_post.delete()
+    messages.add_message(request, messages.INFO, "Post deleted successfully")
+    return redirect(allwPost_views)

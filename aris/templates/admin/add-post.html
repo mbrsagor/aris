@@ -1,0 +1,51 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Add New Post {% endblock %}
+
+{% block body %}
+<div class="addItem">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-12">
+        <label>Post title name</label>
+        {{form.title}}
+      </div>
+      <div class="col-lg-4">
+        <div class="form-group">
+        <label for="sel1">Post category</label>
+        {{form.category}}
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <label>Author name</label>
+        {{form.author}}
+      </div>
+      <div class="col-lg-4">
+        <div class="form-group">
+        <label for="sel1">Post Image</label> <br/>
+        {{form.image}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label>Description</label>
+      <div class="col-lg-12">
+        {{form.description}}
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" name="button">Publish</button>
+  </form>
+</div>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

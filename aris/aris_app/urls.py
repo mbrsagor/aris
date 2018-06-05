@@ -41,6 +41,11 @@ urlpatterns = [
     path('all-category/', allCategory_views, name = 'allCategory_views'),
     path('dashboard/update-cat/<int:id>/', updateCategory_veiws, name = 'updateCategory_veiws'),
     path('dashboard/delete-cat/<int:id>/', deleteCategory_veiws, name = 'deleteCategory_veiws'),
+    path('add-post', blogPost_views, name = 'blogPost_views'),
+    path('all-post', allwPost_views, name = 'allwPost_views'),
+    path('dashboard/update-post/<int:id>/', updatePost_views, name = 'updatePost_views'),
+    path('dashboard/delete-post/<int:id>/', deletePost_views, name = 'deletePost_views'),
+
 
 ]
 

@@ -1,0 +1,40 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} ARIS || All Post {% endblock %}
+{% block body %}
+
+<h2>All post list</h2>
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<table class="table table-bordered table-inverse">
+  <thead>
+      <tr>
+          <th>Category Name</th>
+          <th>Date & Time</th>
+          <th>Update</th>
+          <th>Edit post</th>
+          <th>Delete post</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% if allBlog_post %}
+    {% for post in allBlog_post %}
+      <tr>
+          <th scope="row">{{post.title}}</th>
+          <td>{{post.create_at}}</td>
+          <td>{{post.update_at}}</td>
+          <td><a href="{% url 'updatePost_views' post.id %}">Edit</a></td>
+          <td><a href="{% url 'deletePost_views' post.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+  </tbody>
+</table>
+{% endblock %}

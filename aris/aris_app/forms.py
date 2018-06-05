@@ -136,3 +136,16 @@ class BlogCategory_Form(forms.ModelForm):
         widgets = {
             'name' : TextInput(attrs = {'class' : 'brd-rd30'})
         }
+
+
+# Add Blog Post section
+class BlogPost_Form(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = '__all__'
+        widgets = {
+            'title' : TextInput(attrs = {'class' : 'form-control'}),
+            'category' : Select(attrs = {'class' : 'form-control'}),
+            'author' : Select(attrs = {'class' : 'form-control'}),
+            'description' : Textarea(attrs = {'class' : 'form-control'}),
+        }
