@@ -5,6 +5,9 @@ from .forms import *
 from .models import *
 # Message Framework
 from django.contrib import messages
+# Send Mail
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 # homepage
@@ -34,6 +37,24 @@ def homepage_views(request):
     # Instragram footer
     instragram_obj = Instragram.objects.all()
 
+    # Contact form
+    if request.method == 'GET':
+        form = Contact_Form()
+    else:
+        form = Contact_Form(request.POST)
+        if form.is_valid():
+            full_name = form.cleaned_data['full_name']
+            from_email = form.cleaned_data['from_email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            try:
+                send_mail(subject, "From: "+from_email+"\n Message: "+message, message, ['admin@sagor.me'])
+            except BadHeaderError:
+                return HttpResponse('Message Send Failed')
+            return redirect(homepage_views)
+
+
     # blood donoet forms
     forms = BloodDonor_Form()
     if request.method == 'POST':
@@ -51,6 +72,7 @@ def homepage_views(request):
         'brand_obj' : brand_obj,
         'blogPost_obj' : blogPost_obj,
         'instragram_obj' : instragram_obj,
+        'form' : form
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
@@ -509,7 +531,6 @@ def updateTestmonial_views(request, id):
 
 
 
-
 # Brand Section
 def brand_views(request):
 
@@ -684,6 +705,7 @@ def instragram_views(request):
     }
     template_name = 'admin/add-instragram.html'
     return render(request, template_name, context)
+
 
 
 # Update Instragram

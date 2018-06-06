@@ -491,27 +491,28 @@
         </div><!-- .col -->
       </div><!-- .row -->
       <div class="cf-msg"></div>
-      <form action="assets/php/mail.php" class="row contact-form" method="post"  id="cf">
+      <form class="row contact-form" method="POST">
+        {% csrf_token %}
         <div class="col-lg-6">
           <div class="tm-form-field">
-            <input type="text" id="name" name="name" required>
+            {{form.full_name}}
             <span class="bar"></span>
             <label>Full Name</label>
           </div>
           <div class="tm-form-field">
-              <input type="text" id="email" name="email" required>
+              {{form.from_email}}
               <span class="bar"></span>
               <label>Email Address</label>
           </div>
           <div class="tm-form-field">
-                <input type="text" id="subject" name="subject" required>
+              {{form.subject}}
                 <span class="bar"></span>
                 <label>Subject</label>
             </div>
         </div><!-- .col -->
         <div class="col-lg-6">
             <div class="tm-form-field">
-                <textarea cols="30" rows="10" id="msg" name="msg" required></textarea>
+                {{form.message}}
                 <span class="bar"></span>
                 <label>Your Message</label>
             </div>

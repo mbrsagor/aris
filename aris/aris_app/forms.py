@@ -160,3 +160,12 @@ class Instragram_Form(forms.ModelForm):
             'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'image_url' : TextInput(attrs = {'class' : 'brd-rd30'})
         }
+
+
+
+# Contact Form
+class Contact_Form(forms.Form):
+    full_name = forms.CharField(required = True)
+    from_email = forms.EmailField(required = True)
+    subject = forms.CharField(required = True)
+    message = forms.CharField(required = True, widget=forms.Textarea)
