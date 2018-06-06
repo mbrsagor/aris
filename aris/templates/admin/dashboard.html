@@ -48,7 +48,7 @@
                         <i class="ion-android-sad"></i>
                         <div class="stat-box-innr">
                             <span>
-                                <i class="counter">690</i>
+                                <i class="counter">{{ count_of_dononer }}</i>
                             </span>
                             <h5>Total blood donor</h5>
                         </div>
@@ -174,26 +174,7 @@
                 </div>
                 <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                     <div class="widget recently-activ-proj pad50-40">
-                        <div class="wdgt-opt">
-                            <span class="wdgt-opt-btn">
-                                <i class="ion-android-more-vertical"></i>
-                            </span>
-                            <div class="wdgt-opt-lst brd-rd5">
-                                <a class="delt-wdgt" href="#" title="">Delete</a>
-                                <a class="expnd-wdgt" href="#" title="">Expand</a>
-                                <a class="refrsh-wdgt" href="#" title="">Refresh</a>
-                            </div>
-                        </div>
-                        <div class="wdgt-ldr">
-                            <div class="ball-scale-multiple">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <h4 class="widget-title">Recently Active Projects
-                            <a class="add-proj brd-rd5" href="#" data-toggle="tooltip" title="Add Project">+</a>
-                        </h4>
+                        <h4 class="widget-title">Product list</h4>
                         <div class="table-wrap">
                             <table class="table style1">
                                 <thead>
@@ -284,36 +265,7 @@
                 </div>
                 <div class="col-md-12 grid-item col-sm-12 col-lg-12">
                     <div class="widget proj-order pad50-40">
-                        <div class="wdgt-opt">
-                            <span class="wdgt-opt-btn">
-                                <i class="ion-android-more-vertical"></i>
-                            </span>
-                            <div class="wdgt-opt-lst brd-rd5">
-                                <a class="delt-wdgt" href="#" title="">Delete</a>
-                                <a class="expnd-wdgt" href="#" title="">Expand</a>
-                                <a class="refrsh-wdgt" href="#" title="">Refresh</a>
-                            </div>
-                        </div>
-                        <div class="wdgt-ldr">
-                            <div class="ball-scale-multiple">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <h4 class="widget-title">Projects Orders</h4>
-                        <a class="add-proj brd-rd5" href="#" data-toggle="tooltip" title="Add Project">+</a>
-                        <div class="slct-bx">
-                            <i class="ion-android-funnel"> Sort By:</i>
-                            <span>
-                                <select>
-                                    <option>Date</option>
-                                    <option>Name</option>
-                                    <option>Category</option>
-                                    <option>Duration</option>
-                                </select>
-                            </span>
-                        </div>
+                        <h4 class="widget-title">List of blood donor</h4>
                         <div class="table-wrap">
                             <table class="table table-bordered style2">
                                 <thead>
@@ -321,81 +273,36 @@
                                         <th>#</th>
                                         <th>Date</th>
                                         <th>Name</th>
+                                        <th>Blood</th>
                                         <th>Phone No</th>
                                         <th>Address</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  {% if list_of_dononer %}
+                                  {% for donoet in list_of_dononer %}
                                     <tr>
                                         <td>
-                                            <span class="blue-bg indx">01</span>
+                                            <span class="blue-bg indx">{{ donoet.id }}</span>
                                         </td>
                                         <td>
-                                            <span class="date">10 June 2017</span>
+                                            <span class="date">{{ donoet.create_at }}</span>
                                         </td>
                                         <td>
-                                            <h4 class="name">Michael Baker</h4>
+                                            <h4 class="name">{{ donoet.dononer_name }}</h4>
                                         </td>
                                         <td>
-                                            <span class="ph#">076 9477 4896</span>
+                                            <h4 class="name">{{ donoet.bolood_type }}</h4>
                                         </td>
                                         <td>
-                                            <span class="addr">Some St. 77, LA</span>
+                                            <span class="ph#">{{ donoet.donoer_contact }}</span>
                                         </td>
                                         <td>
-                                            <div class="table-btns">
-                                                <a href="#" title="" class="green-bg-hover">Accept</a>
-                                                <a href="#" title="" class="blue-bg-hover">Reject</a>
-                                            </div>
+                                            <span class="addr">{{ donoet.dononer_address }}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="blue-bg indx">02</span>
-                                        </td>
-                                        <td>
-                                            <span class="date">15 June 2017</span>
-                                        </td>
-                                        <td>
-                                            <h4 class="name">Larisa Maskalyova</h4>
-                                        </td>
-                                        <td>
-                                            <span class="ph#">0500 034548</span>
-                                        </td>
-                                        <td>
-                                            <span class="addr">Another St. 456</span>
-                                        </td>
-                                        <td>
-                                            <div class="table-btns">
-                                                <a href="#" title="" class="green-bg-hover">Accept</a>
-                                                <a href="#" title="" class="blue-bg-hover">Reject</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="blue-bg indx">03</span>
-                                        </td>
-                                        <td>
-                                            <span class="date">19 June 2017</span>
-                                        </td>
-                                        <td>
-                                            <h4 class="name">Natasha Kim</h4>
-                                        </td>
-                                        <td>
-                                            <span class="ph#">(01315) 27698</span>
-                                        </td>
-                                        <td>
-                                            <span class="addr">294-318 Duis Ave</span>
-                                        </td>
-                                        <td>
-                                            <div class="table-btns">
-                                                <a href="#" title="" class="green-bg-hover">Accept</a>
-                                                <a href="#" title="" class="blue-bg-hover">Reject</a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
                                 </tbody>
                             </table>
                         </div>
@@ -531,38 +438,7 @@
                 </div>
                 <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                     <div class="widget pad50-40">
-                        <div class="wdgt-opt">
-                            <span class="wdgt-opt-btn">
-                                <i class="ion-android-more-vertical"></i>
-                            </span>
-                            <div class="wdgt-opt-lst brd-rd5">
-                                <a class="delt-wdgt" href="#" title="">Delete</a>
-                                <a class="expnd-wdgt" href="#" title="">Expand</a>
-                                <a class="refrsh-wdgt" href="#" title="">Refresh</a>
-                            </div>
-                        </div>
-                        <div class="wdgt-ldr">
-                            <div class="ball-scale-multiple">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <h4 class="widget-title">Activity
-                            <span class="green-bg badge">05 Messages</span>
-                        </h4>
-                        <div class="slct-bx">
-                            <i>Added:</i>
-                            <span>
-                                <select>
-                                    <option>Any Date</option>
-                                    <option>15-9-2017</option>
-                                    <option>12-8-2017</option>
-                                    <option>08-7-2017</option>
-                                    <option>10-6-2017</option>
-                                </select>
-                            </span>
-                        </div>
+                        <h4 class="widget-title">New user List</h4>
                         <div class="act-pst-lst">
                             <div class="act-pst">
                                 <img class="brd-rd50" src="{% static 'images/resource/acti-thmb1.jpg' %}" alt="" />

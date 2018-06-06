@@ -82,12 +82,20 @@ def homepage_views(request):
 # Dashboard views
 def dashboard_views(request):
 
+    # count of project
     product_count = Product.objects.count()
+    # count of bload dononer
+    count_of_dononer = BloodDonor.objects.count()
+    # Bload dononer
+    list_of_dononer = BloodDonor.objects.all()
+
     context = {
-        'product_count' : product_count
+        'product_count' : product_count,
+        'list_of_dononer' : list_of_dononer,
+        'count_of_dononer' : count_of_dononer,
     }
     template_name = 'admin/dashboard.html'
-    return render(request, template_name)
+    return render(request, template_name, context)
 
 
 
@@ -101,7 +109,6 @@ def singin_views(request):
 
         if auth is not None:
             login(request ,auth)
-            messages.add_message(request, messages.INFO, 'Login success')
             return redirect(dashboard_views)
         else:
             messages.add_message(request, messages.INFO, "Username and Password doesn't Match")
