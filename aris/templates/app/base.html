@@ -16,7 +16,6 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/plugins.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
-  <link id="theme" rel="stylesheet" href="{% static 'assets/css/color/color-1.css' %}">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script type="text/javascript" src="assets/vendor/backward/html5shiv.js"></script>
@@ -64,15 +63,18 @@
     </div><!-- .header-wrap -->
   </header>
   <!-- End Site Header -->
+	<!-- block main body start -->
   {% block body %}
 
   {% endblock %}
-
+	<!-- block main body end -->
     <!-- Start Site Footer -->
     <footer class="site-footer">
+			<!-- block footer start -->
 			{% block footer %}
-    
+
 			{% endblock %}
+			<!-- block footer end -->
       <div class="bottom-footer text-center">
         <div class="container">
           <div class="copy-right">Copyright © 2018 Stray. All Rights Reserved. Develop by <a href="http://www.sourcecodesoft.com">SourceCodeSoft</a></div>
@@ -84,7 +86,6 @@
     <!-- Scripts -->
     <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
     <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBgwgIuDRkO7HlxvpWN-vPePnGVWss5r5g"></script>
     <script src="{% static 'assets/js/plugins.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
   </body>
