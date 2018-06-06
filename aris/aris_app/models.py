@@ -77,7 +77,8 @@ class BloodDonor(models.Model):
     dononer_age = models.IntegerField()
     donoer_contact = models.IntegerField()
     bolood_type = models.ForeignKey(BloodType, on_delete = models.CASCADE)
-    create_at = models.TimeField( auto_now = True)
+    update_at = models.TimeField( auto_now = True)
+    create_at = models.DateTimeField( auto_now = True)
 
 
     def __str__(self):
