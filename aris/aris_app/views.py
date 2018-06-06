@@ -88,11 +88,14 @@ def dashboard_views(request):
     count_of_dononer = BloodDonor.objects.count()
     # Bload dononer
     list_of_dononer = BloodDonor.objects.all()
+    # latest products
+    latest_project = Product.objects.all()
 
     context = {
         'product_count' : product_count,
         'list_of_dononer' : list_of_dononer,
         'count_of_dononer' : count_of_dononer,
+        'latest_project' : latest_project,
     }
     template_name = 'admin/dashboard.html'
     return render(request, template_name, context)
