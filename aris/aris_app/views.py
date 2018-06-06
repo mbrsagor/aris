@@ -8,6 +8,8 @@ from django.contrib import messages
 # Send Mail
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+# Login decorators
+from django.contrib.auth.decorators import login_required
 
 
 # homepage
@@ -80,6 +82,7 @@ def homepage_views(request):
 
 
 # Dashboard views
+@login_required(login_url='singin_views')
 def dashboard_views(request):
 
     # count of project
@@ -145,6 +148,7 @@ def singout_view(request):
 
 
 # Total list of users
+@login_required(login_url='singin_views')
 def total_users(request):
     profile_obj = Profile.objects.all()
     forms = UserRegister()
@@ -158,6 +162,7 @@ def total_users(request):
 
 
 # Product/Item
+@login_required(login_url='singin_views')
 def add_new_item(request):
     forms = AddItem()
     if request.method == 'POST':
@@ -176,6 +181,7 @@ def add_new_item(request):
 
 
 # Show project admin
+@login_required(login_url='singin_views')
 def showProject_views(request):
 
     showProduct_obj = Product.objects.all()
@@ -188,6 +194,7 @@ def showProject_views(request):
 
 
 # Update Item
+@login_required(login_url='singin_views')
 def updateItem_views(request, id):
     update_item = get_object_or_404(Product, id = id)
     if request.method == 'POST':
@@ -208,6 +215,7 @@ def updateItem_views(request, id):
 
 
 # delete items
+@login_required(login_url='singin_views')
 def itemDelete_views(request, id):
 
     delete_item = get_object_or_404(Product, id = id)
@@ -217,6 +225,7 @@ def itemDelete_views(request, id):
 
 
 # blood donor views
+@login_required(login_url='singin_views')
 def bloodDonorList_views(request):
 
     blood_donor_obj = BloodDonor.objects.all()
@@ -229,6 +238,7 @@ def bloodDonorList_views(request):
 
 
 # blood donor remove views
+@login_required(login_url='singin_views')
 def bloodDonorRemove(request, id):
 
     remove_donor = get_object_or_404(BloodDonor, id = id)
@@ -238,6 +248,7 @@ def bloodDonorRemove(request, id):
 
 
 # About us page
+@login_required(login_url='singin_views')
 def aboutus_views(request):
 
     form = AboutUs_Form()
@@ -258,6 +269,7 @@ def aboutus_views(request):
 
 
 # Update or edit about us page
+@login_required(login_url='singin_views')
 def updateAbout_views(request, id):
 
     updateAbout_obj = get_object_or_404(AboutUs, id = id)
@@ -278,6 +290,7 @@ def updateAbout_views(request, id):
 
 
 # server page section
+@login_required(login_url='singin_views')
 def serverSection_views(request):
 
     form = Service_Form()
@@ -300,6 +313,7 @@ def serverSection_views(request):
 
 
 # All Services
+@login_required(login_url='singin_views')
 def allService_views(request):
 
     all_service_obj = Service.objects.all()
@@ -312,6 +326,7 @@ def allService_views(request):
 
 
 # Delete Services
+@login_required(login_url='singin_views')
 def deleteService_views(request, id):
 
     delete_service_obj = get_object_or_404(Service, id = id)
@@ -322,6 +337,7 @@ def deleteService_views(request, id):
 
 
 # Update services
+@login_required(login_url='singin_views')
 def updateService_views(request, id):
 
     update_service_obj = get_object_or_404(Service, id = id)
@@ -344,6 +360,7 @@ def updateService_views(request, id):
 
 
 # Portfolio views
+@login_required(login_url='singin_views')
 def portfolio_views(request):
 
     form = Portfolio_Form()
@@ -366,6 +383,7 @@ def portfolio_views(request):
 
 
 # All Portfolio List
+@login_required(login_url='singin_views')
 def allportfolio_views(request):
 
     portfolio_list = Portfolio.objects.all()
@@ -378,6 +396,7 @@ def allportfolio_views(request):
 
 
 # Update portfolio
+@login_required(login_url='singin_views')
 def updatePportoflio(request, id):
 
     update_portfolio = get_object_or_404(Portfolio, id = id)
@@ -399,6 +418,7 @@ def updatePportoflio(request, id):
 
 
 # Delete Portfolio
+@login_required(login_url='singin_views')
 def deletePortfolio(request, id):
 
     delete_portfolio = get_object_or_404(Portfolio, id = id)
@@ -409,6 +429,7 @@ def deletePortfolio(request, id):
 
 
 # Team Member section
+@login_required(login_url='singin_views')
 def teamMember_views(request):
 
     form = TeamMember_Form()
@@ -430,6 +451,7 @@ def teamMember_views(request):
 
 
 # all Memeber list
+@login_required(login_url='singin_views')
 def listOfAllMemeber_views(request):
 
     all_member_obj = Team.objects.all()
@@ -442,6 +464,7 @@ def listOfAllMemeber_views(request):
 
 
 # update Team Member views
+@login_required(login_url='singin_views')
 def updateTeamMember(request, id):
 
     update_member = get_object_or_404(Team, id = id)
@@ -464,6 +487,7 @@ def updateTeamMember(request, id):
 
 
 # Delete Member
+@login_required(login_url='singin_views')
 def deleteMember_views(request, id):
 
     deleteMember_obj = get_object_or_404(Team, id = id)
@@ -475,6 +499,7 @@ def deleteMember_views(request, id):
 
 
 # Testimonial page section
+@login_required(login_url='singin_views')
 def testimonial_views(request):
 
     form = Testimonial_Form()
@@ -497,6 +522,7 @@ def testimonial_views(request):
 
 
 # All testimonial
+@login_required(login_url='singin_views')
 def allTestimonial_views(request):
 
     all_testmonial_obj = Testimonial.objects.all()
@@ -509,6 +535,7 @@ def allTestimonial_views(request):
 
 
 # Delete testmonial
+@login_required(login_url='singin_views')
 def testmonialDelete_views(request, id):
 
     delete_testmonial = get_object_or_404(Testimonial, id=id)
@@ -519,6 +546,7 @@ def testmonialDelete_views(request, id):
 
 
 # Update testmonial
+@login_required(login_url='singin_views')
 def updateTestmonial_views(request, id):
 
     update_testimonial = get_object_or_404(Testimonial, id=id)
@@ -542,6 +570,7 @@ def updateTestmonial_views(request, id):
 
 
 # Brand Section
+@login_required(login_url='singin_views')
 def brand_views(request):
 
     form = Brand_Form()
@@ -566,6 +595,7 @@ def brand_views(request):
 
 
 # Add Blog Post Category views
+@login_required(login_url='singin_views')
 def PostCategory_views(request):
 
     form = BlogCategory_Form()
@@ -588,6 +618,7 @@ def PostCategory_views(request):
 
 
 # List of Category
+@login_required(login_url='singin_views')
 def allCategory_views(request):
 
     blog_category = BlogCategory.objects.all()
@@ -600,6 +631,7 @@ def allCategory_views(request):
 
 
 # Update Category views
+@login_required(login_url='singin_views')
 def updateCategory_veiws(request, id):
 
     updateBlog_category = get_object_or_404(BlogCategory, id = id)
@@ -623,6 +655,7 @@ def updateCategory_veiws(request, id):
 
 
 # Delete Cateogry
+@login_required(login_url='singin_views')
 def deleteCategory_veiws(request, id):
 
     deleteBlog_category = get_object_or_404(BlogCategory, id = id)
@@ -633,6 +666,7 @@ def deleteCategory_veiws(request, id):
 
 
 # Blog post views
+@login_required(login_url='singin_views')
 def blogPost_views(request):
 
     form = BlogPost_Form()
@@ -654,6 +688,7 @@ def blogPost_views(request):
 
 
 # Display blog post
+@login_required(login_url='singin_views')
 def allwPost_views(request):
 
     allBlog_post = Blog.objects.all()
@@ -666,6 +701,7 @@ def allwPost_views(request):
 
 
 # update blog post
+@login_required(login_url='singin_views')
 def updatePost_views(request, id):
 
     update_post = get_object_or_404(Blog, id = id)
@@ -688,6 +724,7 @@ def updatePost_views(request, id):
 
 
 # Delete blog post
+@login_required(login_url='singin_views')
 def deletePost_views(request, id):
 
     delete_post = get_object_or_404(Blog, id = id)
@@ -698,6 +735,7 @@ def deletePost_views(request, id):
 
 
 #  Instragram footer
+@login_required(login_url='singin_views')
 def instragram_views(request):
 
     form = Instragram_Form()
@@ -719,6 +757,7 @@ def instragram_views(request):
 
 
 # Update Instragram
+@login_required(login_url='singin_views')
 def updateInstragram(request, id):
 
     instagram_update = get_object_or_404(Instragram, id = id)
@@ -741,6 +780,7 @@ def updateInstragram(request, id):
 
 
 # delete Instragram
+@login_required(login_url='singin_views')
 def deleteInstragram_views(request, id):
     instagram_delete = get_object_or_404(Instragram, id = id)
     instagram_delete.delete()
@@ -750,6 +790,7 @@ def deleteInstragram_views(request, id):
 
 
 # All Instragram
+@login_required(login_url='singin_views')
 def allInstragram_views(request):
 
     all_instragaram = Instragram.objects.all()
