@@ -50,7 +50,6 @@ urlpatterns = [
     path('dashboard/delete-instagram/<int:id>/', deleteInstragram_views, name = 'deleteInstragram_views'),
     path('all-instagram', allInstragram_views, name = 'allInstragram_views')
 
-
 ]
 
 if settings.DEBUG:

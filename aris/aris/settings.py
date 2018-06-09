@@ -127,6 +127,6 @@ MESSAGE_TAGS = {
 # Mail using SMTP
 EMAIL_USE_TLS = True
 EMAIL_HOST ='smtp.gmail.com'
-EMAIL_HOST_USER = 'admin@sagor.me'
+EMAIL_HOST_USER = 'mbrsagor@gmail.com'
 EMAIL_HOST_PASSWORD = '**********'
 EMAIL_PORT = 587

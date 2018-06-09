@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from .forms import *
 from .models import *
 # Message Framework
@@ -8,7 +9,7 @@ from django.contrib import messages
 # Send Mail
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
-# Login decorators
+# Login decorator
 from django.contrib.auth.decorators import login_required
 
 
@@ -64,6 +65,7 @@ def homepage_views(request):
         if forms.is_valid():
             forms.save()
             return redirect(homepage_views)
+
     context = {
         'forms' : forms,
         'aboutus_obj' : aboutus_obj,
@@ -93,12 +95,15 @@ def dashboard_views(request):
     list_of_dononer = BloodDonor.objects.all()
     # latest products
     latest_project = Product.objects.all()
+    # Total users count
+    total_users = Profile.objects.count()
 
     context = {
         'product_count' : product_count,
         'list_of_dononer' : list_of_dononer,
         'count_of_dononer' : count_of_dononer,
         'latest_project' : latest_project,
+        'total_users' : total_users
     }
     template_name = 'admin/dashboard.html'
     return render(request, template_name, context)
@@ -130,6 +135,11 @@ def singup_views(request):
     forms = UserRegister(request.POST or None)
     if forms.is_valid():
         instance = forms.save(commit = False)
+        # Register usename validation
+        try:
+             User.objects.get(username=username)
+        except User.DoesNotExist:
+             messages.add_message(request, messages.INFO, "Username already exists")
         instance.save()
         return redirect(singin_views)
 
@@ -138,7 +148,6 @@ def singup_views(request):
     }
     template_name = 'admin/register.html'
     return render(request, template_name, context)
-
 
 # Singout views
 def singout_view(request):

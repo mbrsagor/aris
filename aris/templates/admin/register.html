@@ -24,6 +24,15 @@
             <div class="frm-tl">
               <h4>ARIS Register</h4>
               <span>The Accociation Of Removeing Ignorance From Society(ARIS)</span>
+              <!-- username already exit -->
+              {% if messages %}
+              <div class="messages text-right">
+                  {% for message in messages %}
+                  <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+                </div>
+                  {% endfor %}
+                  {% endif %}
+                  <!-- username already exit end -->
             </div>
             <form method="POST">
               {% csrf_token %}

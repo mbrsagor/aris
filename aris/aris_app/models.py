@@ -11,7 +11,6 @@ class Members(models.Model):
         return self.member
 
 
-
 # User Profile
 class Profile(models.Model):
     username = models.OneToOneField(User, on_delete = models.CASCADE)
@@ -25,7 +24,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username
-
 
 
 # project category
