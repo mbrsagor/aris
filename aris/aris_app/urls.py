@@ -48,7 +48,8 @@ urlpatterns = [
     path('instagram/', instragram_views, name = 'instragram_views'),
     path('dashboard/update-instagram/<int:id>/', updateInstragram, name = 'updateInstragram'),
     path('dashboard/delete-instagram/<int:id>/', deleteInstragram_views, name = 'deleteInstragram_views'),
-    path('all-instagram', allInstragram_views, name = 'allInstragram_views')
+    path('all-instagram', allInstragram_views, name = 'allInstragram_views'),
+    path('dashboard/delete-todo/<int:id>/', deleteTodoList, name = 'deleteTodoList'),
 
 ]
 

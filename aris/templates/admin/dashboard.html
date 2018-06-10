@@ -199,8 +199,9 @@
                         <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 375px;"><div class="to-do-wrp" style="overflow: hidden; width: auto; height: 375px;">
                             <div class="to-do-tp">
                                 <div class="add-tsk" style="display: block;">
-                                  {% csrf_token %}
-                                    <form class="brd-rd5">
+                                    <form method="POST" class="brd-rd5">
+                                       {% csrf_token %}
+                                       <span>Enter Your Todo List</span>
                                         {{ form.add_list }}
                                         <button class="blue-bg" type="submit">
                                             <i class="ion-forward"></i>
@@ -212,7 +213,9 @@
                               {% if show_todoList %}
                               {% for todo in show_todoList %}
                               <li>
-                                <h5>{{ todo.add_list }}</h5> <span>{{ todo.create_at }}</span> <a href="#" title=""><i class="ion-android-delete"></i></a>
+                                <h5>{{ todo.add_list }}</h5>
+                                <span>{{ todo.create_at }}</span>
+                                <a href="{% url 'deleteTodoList' todo.id %}" title="Delete"><i class="ion-android-delete"></i></a>
                               </li>
                               {% endfor %}
                               {% endif %}

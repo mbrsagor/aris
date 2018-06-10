@@ -105,7 +105,7 @@ def dashboard_views(request):
         if form.is_valid():
             instance = form.save(commit = False)
             instance.save()
-            return redirect(TodoList_Form)
+            return redirect(dashboard_views)
 
     show_todoList = Todolist.objects.all()
 
@@ -821,3 +821,12 @@ def allInstragram_views(request):
     }
     template_name = 'admin/allinstragaram.html'
     return render(request, template_name, context)
+
+
+
+# Delete todo list
+@login_required(login_url='singin_views')
+def deleteTodoList(request, id):
+    delete_todo_obj = get_object_or_404(Todolist, id = id)
+    delete_todo_obj.delete()
+    return redirect(dashboard_views)
