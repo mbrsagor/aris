@@ -27,30 +27,6 @@
                 </a>
             </h1>
         </div>
-        <div class="topbar-data">
-            <div class="usr-act">
-                <span>
-                    <img src="{% static 'images/resource/topbar-usr1.jpg' %}" alt="" />
-                    <i class="sts away"></i>
-                </span>
-                <div class="usr-inf">
-                    <div class="usr-thmb brd-rd50">
-                        <img class="brd-rd50" src="{% static 'images/resource/usr.jpg' %}" alt="" />
-                        <i class="sts away"></i>
-                        <a class="green-bg brd-rd5" href="#" title="">
-                            <i class="fa fa-envelope"></i>
-                        </a>
-                    </div>
-                    <h5>
-                        <a href="{% url 'singout_view' %}" title="">John Smith</a>
-                    </h5>
-                    <div class="usr-ft">
-                        <a class="btn-danger" href="{% url 'singout_view' %}" title="Logout">
-                            <i class="fa fa-sign-out"></i> Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- Topbar -->
 
@@ -129,27 +105,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class="has-drp">
-                    <a href="#" title="">
-                        <i class="ion-android-settings"></i>
-                        <span>Settings</span>
-                    </a>
-                    <ul class="sb-drp">
-                        <li>
-                            <a href="form-layouts.html" title="">Form Layouts</a>
-                        </li>
-                        <li>
-                            <a href="form-wizard.html" title="">Form Wizard</a>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="tables.html" title="">
                         <i class="ion-crop"></i> Tables</a>
-                </li>
-                <li>
-                    <a href="charts.html" title="">
-                        <i class="ion-podium"></i> Charts</a>
                 </li>
             </ul>
             <h4>Pages</h4>
@@ -211,6 +169,24 @@
                             <a href="#" title="">Bload Donor List</a>
                         </li>
                     </ul>
+                </li>
+                <li class="has-drp">
+                    <a href="#" title="">
+                        <i class="ion-android-settings"></i>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="sb-drp">
+                        <li>
+                            <a href="form-layouts.html" title="">Form Layouts</a>
+                        </li>
+                        <li>
+                            <a href="form-wizard.html" title="">Form Wizard</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'singout_view' %}" title="You may logout form here">
+                        <i class="ion-podium"></i> Logout</a>
                 </li>
             </ul>
         </nav>

@@ -98,12 +98,25 @@ def dashboard_views(request):
     # Total users count
     total_users = Profile.objects.count()
 
+    # Todo List
+    form = TodoList_Form()
+    if request.method == 'POST':
+        form = TodoList_Form(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            return redirect(TodoList_Form)
+
+    show_todoList = Todolist.objects.all()
+
     context = {
         'product_count' : product_count,
         'list_of_dononer' : list_of_dononer,
         'count_of_dononer' : count_of_dononer,
         'latest_project' : latest_project,
-        'total_users' : total_users
+        'total_users' : total_users,
+        'form' : form,
+        'show_todoList' : show_todoList
     }
     template_name = 'admin/dashboard.html'
     return render(request, template_name, context)

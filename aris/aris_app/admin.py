@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Members, Profile, Category, Product, BloodType, BloodDonor, AboutUs, Service, Portfolio, Team, Testimonial, Brand
+from .models import Members, Profile, Category, Product, BloodType, BloodDonor, AboutUs, Service, Portfolio, Team, Testimonial, Brand, Todolist
 
 # Register your models here.
 admin.site.register(Members)
@@ -14,3 +14,4 @@ admin.site.register(Portfolio)
 admin.site.register(Team)
 admin.site.register(Testimonial)
 admin.site.register(Brand)
+admin.site.register(Todolist)

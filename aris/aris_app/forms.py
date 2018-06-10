@@ -163,6 +163,13 @@ class Instragram_Form(forms.ModelForm):
 
 
 
+class TodoList_Form(forms.ModelForm):
+    class Meta:
+        model = Todolist
+        fields = '__all__'
+
+
+
 # Contact Form
 class Contact_Form(forms.Form):
     full_name = forms.CharField(required = True)

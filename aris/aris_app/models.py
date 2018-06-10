@@ -202,3 +202,13 @@ class Instragram(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+# Todo List
+class Todolist(models.Model):
+    add_list = models.CharField(max_length = 200)
+    create_at = models.DateField(auto_now_add = True)
+
+    def __str__(self):
+        return self.add_list

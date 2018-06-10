@@ -1835,15 +1835,6 @@ footer > span {float: right;}
     width: 100%;
 }
 .widget .td-lst > li {margin: 0;}
-.td-lst > li:before {
-    border: 1px solid #d7d7d7;
-    content: "";
-    height: 31px;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    width: 31px;
-}
 .td-lst > li:after {
     color: #ffffff;
     content: "\f122";

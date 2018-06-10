@@ -194,55 +194,35 @@
                     </div>
                 </div>
                 <div class="col-md-6 grid-item col-sm-12 col-lg-6">
-                    <div class="widget chat-wdgt pad50-40">
-                        <h4 class="widget-title blue-bg">Live Chat</h4>
-                        <div class="caht-wrp">
-                            <div class="chat-lst">
-                                <div class="chat-msg yur-msg">
-                                    <img class="brd-rd50" src="{% static 'images/resource/acti-thmb1.jpg' %}" alt="" />
-                                    <div class="msg-inf2">
-                                        <h5>John Doe</h5>
-                                        <span class="msg-tm">
-                                            <i class="ion-clock"></i> Today 2:10 pm</span>
-                                        <p>Aenean massa. Cum sociis natoque penatibus et mag nis dis parturient montes, nascetur
-                                            ridiculus mus. Do nec quam felis, ultricies nec.</p>
-                                    </div>
-                                </div>
-                                <div class="chat-msg frnd-msg">
-                                    <img class="brd-rd50" src="{% static 'images/resource/acti-thmb2.jpg' %}" alt="" />
-                                    <div class="msg-inf2">
-                                        <h5>Kim Smith</h5>
-                                        <span class="msg-tm">
-                                            <i class="ion-clock"></i> Today 2:10 pm</span>
-                                        <p>Aenean massa. Cum sociis natoque penatibus et mag nis dis parturient montes, nascetur
-                                            ridiculus mus. Do nec quam felis, ultricies nec.</p>
-                                    </div>
+                    <div class="widget to-do-lst pad50-40">
+                        <h4 class="widget-title">To Do list</h4>
+                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 375px;"><div class="to-do-wrp" style="overflow: hidden; width: auto; height: 375px;">
+                            <div class="to-do-tp">
+                                <div class="add-tsk" style="display: block;">
+                                  {% csrf_token %}
+                                    <form class="brd-rd5">
+                                        {{ form.add_list }}
+                                        <button class="blue-bg" type="submit">
+                                            <i class="ion-forward"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
-                            <form class="chat-frm">
-                                <textarea class="brd-rd5" placeholder="Message"></textarea>
-                                <button class="brd-rd5 blue-bg">Send Message</button>
-                                <ul class="snd-opts">
-                                    <li>
-                                        <label class="fileContainer">
-                                            <i class="ion-paperclip"></i>
-                                            <input type="file" />
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="fileContainer">
-                                            <i class="ion-android-camera"></i>
-                                            <input type="file" />
-                                        </label>
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
+                            <ul class="td-lst">
+                              {% if show_todoList %}
+                              {% for todo in show_todoList %}
+                              <li>
+                                <h5>{{ todo.add_list }}</h5> <span>{{ todo.create_at }}</span> <a href="#" title=""><i class="ion-android-delete"></i></a>
+                              </li>
+                              {% endfor %}
+                              {% endif %}
+                            </ul>
+                        </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 203.804px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
                     </div>
                 </div>
                 <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                     <div class="widget pad50-40">
-                        <h4 class="widget-title">New user List</h4>
+                        <h4 class="widget-title">New Agent List</h4>
 
 
                         <div class="act-pst-lst">
