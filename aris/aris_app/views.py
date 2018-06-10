@@ -149,10 +149,10 @@ def singup_views(request):
     if forms.is_valid():
         instance = forms.save(commit = False)
         # Register usename validation
-        try:
-             User.objects.get(username=username)
-        except User.DoesNotExist:
-             messages.add_message(request, messages.INFO, "Username already exists")
+        # try:
+        #      User.objects.get(username=username)
+        # except User.DoesNotExist:
+        #      messages.add_message(request, messages.INFO, "Username already exists")
         instance.save()
         return redirect(singin_views)
 
@@ -166,6 +166,14 @@ def singup_views(request):
 def singout_view(request):
     logout(request)
     return redirect(singin_views)
+
+
+
+# User Profile
+@login_required(login_url='singin_views')
+def profile_views(request):
+    pass
+
 
 
 

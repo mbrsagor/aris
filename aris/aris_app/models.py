@@ -11,16 +11,33 @@ class Members(models.Model):
         return self.member
 
 
+# Gender type
+class Gender(models.Model):
+    name = models.CharField(max_length = 10)
+    create_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name
+
+
+
 # User Profile
 class Profile(models.Model):
     username = models.OneToOneField(User, on_delete = models.CASCADE)
     email = models.EmailField(max_length=25)
     address = models.CharField(max_length = 30)
+    district = models.CharField(max_length = 30)
+    thana = models.CharField(max_length = 30)
+    union = models.CharField(max_length = 20)
+    bank_name = models.CharField(max_length = 25)
+    bank_count_no = models.IntegerField()
     contact_number = models.IntegerField()
     member_type = models.ForeignKey(Members, on_delete = models.CASCADE)
+    sex = models.ForeignKey(Gender, on_delete = models.CASCADE)
     profile_photo = models.ImageField(upload_to = "users")
-    create_at = models.DateTimeField( auto_now = True)
-    update_at = models.DateTimeField(auto_now_add = True)
+    create_at = models.DateTimeField(auto_now_add = True)
+    update_at= models.DateTimeField( auto_now = True)
+
 
     def __str__(self):
         return self.username

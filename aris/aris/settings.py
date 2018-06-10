@@ -117,7 +117,6 @@ STATICFILES_DIRS = [
 
 
 # Message Framework
-
 MESSAGE_TAGS = {
     messages.INFO: 'SUCCESS',
 }

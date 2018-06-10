@@ -37,11 +37,13 @@
             </span>
         </div>
         <nav class="custom-scrollbar">
+          {% if perms.user %}
             <ul class="drp-sec">
               <li>
                   <a href="{% url 'dashboard' %}" title="Dashboard"><i class="ion-home"></i>Dashboard </a>
               </li>
             </ul>
+          {% endif %}
             <ul class="drp-sec">
               <li class="has-drp">
                   <a href="#" title="">
@@ -64,7 +66,7 @@
                     </a>
                     <ul class="sb-drp">
                         <li>
-                            <a href="{% url 'bloodDonorList_views' %}" title="">Bload Donor List</a>
+                            <a href="{% url 'bloodDonorList_views' %}" title="Bload Donor List">Bload Donor List</a>
                         </li>
                         <li>
                             <a href="#" title="">Remove Donoer</a>
