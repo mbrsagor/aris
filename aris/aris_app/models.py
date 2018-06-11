@@ -118,7 +118,7 @@ class AboutUs(models.Model):
 # Service page section
 class Service(models.Model):
     service_title = models.CharField(max_length = 35)
-    service_icon = models.CharField(max_length = 20)
+    service_icon = models.CharField(max_length = 40)
     service_heading = models.CharField(max_length = 25)
     tab_first_id = models.CharField(max_length = 10, blank = True, null = True, unique = True)
     tab_second_id = models.CharField(max_length = 10, blank = True, null = True, unique = True)

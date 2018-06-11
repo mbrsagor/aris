@@ -172,7 +172,13 @@ def singout_view(request):
 # User Profile
 @login_required(login_url='singin_views')
 def profile_views(request):
-    pass
+
+    profile_obj = Profile.objects.all()
+    context = {
+        'profile_obj' : profile_obj
+    }
+    template_name = 'admin/profile.html'
+    return render(request, template_name, context)
 
 
 

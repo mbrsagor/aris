@@ -156,7 +156,7 @@
                     </a>
                     <ul class="sb-drp">
                         <li>
-                            <a href="profile.html" title="">Profile Page</a>
+                            <a href="{% url 'profile_views' %}" title="">Profile</a>
                         </li>
                         <li>
                             <a href="profile-edit.html" title="">Profile Edit</a>
@@ -188,7 +188,7 @@
                 </li>
                 <li>
                     <a href="{% url 'singout_view' %}" title="You may logout form here">
-                        <i class="ion-podium"></i> Logout</a>
+                        <i class="ion-key"></i> Logout</a>
                 </li>
             </ul>
         </nav>
