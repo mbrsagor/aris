@@ -182,6 +182,28 @@ def profile_views(request):
 
 
 
+# Add/Update Profile
+@login_required(login_url='singin_views')
+def addProfile_views(request):
+
+    form = UserProfile_Form()
+    if request.method == 'POST':
+        form = UserProfile_Form(request.POST or None, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit = False)
+            instance.save()
+            messages.add_message(request, messages.INFO, "Profile Updated Successfully")
+            return redirect(profile_views)
+        else:
+            messages.add_message(request, messages.INFO, "Profile Updated Failed")
+    context = {
+        'form' : form
+    }
+
+    template_name = 'admin/add-profile.html'
+    return render(request, template_name, context)
+
+
 
 # Total list of users
 @login_required(login_url='singin_views')

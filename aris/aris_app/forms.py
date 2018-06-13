@@ -90,6 +90,24 @@ class Portfolio_Form(forms.ModelForm):
 
 
 
+# User Porfile form
+class UserProfile_Form(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = '__all__'
+        widgets = {
+            'username' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'email' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'address' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'district' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'thana' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'union' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'bank_name' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'bank_count_no' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'member_type' : Select(attrs = {'class' : 'brd-rd30'}),
+            'sex' : Select(attrs = {'class' : 'brd-rd30'}),
+        }
+
 
 # Team Member section form
 class TeamMember_Form(forms.ModelForm):
@@ -121,9 +139,9 @@ class Testimonial_Form(forms.ModelForm):
 class Brand_Form(forms.ModelForm):
     class Meta:
         model = Brand
-        fields = ['title']
+        fields = '__all__'
         widgets = {
-            'title' : TextInput(attrs = {'class' : 'brd-rd30'})
+            'title' : TextInput(attrs = {'class' : 'brd-rd30'}),
         }
 
 

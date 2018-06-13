@@ -1,0 +1,88 @@
+{% extends 'app/base_admin.html' %}
+{% load static %}
+
+{% block titel %} Update Profile {% endblock %}
+
+{% block body %}
+
+<div class="widget pad50-65">
+      <div class="widget-title2">
+        <h4>Profile section page</h4>
+        <span>You may change or update your profile form here</span>
+      </div>
+      <form class="form-wrp" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mrg20">
+          <div class="col-md-2 col-sm-6 col-lg-2">
+            <p>Username</p>
+            {{form.username}}
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-4">
+            <p>Email</p>
+            {{form.email}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Address</p>
+            {{form.address}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>District</p>
+            {{form.district}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Thena</p>
+            {{form.thana}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Union</p>
+            {{form.union}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Bank Name</p>
+            {{form.bank_name}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Bank Account</p>
+            {{form.bank_count_no}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Contact Number</p>
+            {{form.contact_number}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Member Type</p>
+            {{form.member_type}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <p>Gender</p>
+            {{form.sex}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-lg-3">
+            <div class="file-upload-box">
+              <strong>File Input:</strong>
+              <div class="file-box">
+                <label class="fileContainer">
+                  <span class="blue-bg brd-rd5">Browse</span>
+                  {{form.service_image}}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i> Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+{% if messages %}
+<div class="messages text-right">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}
