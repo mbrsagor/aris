@@ -25,9 +25,9 @@ class Gender(models.Model):
 class Profile(models.Model):
     username = models.OneToOneField(User, on_delete = models.CASCADE)
     email = models.EmailField(max_length=25)
-    address = models.CharField(max_length = 30)
-    district = models.CharField(max_length = 30)
-    thana = models.CharField(max_length = 30)
+    address = models.CharField(max_length = 50)
+    district = models.CharField(max_length = 25)
+    thana = models.CharField(max_length = 25)
     union = models.CharField(max_length = 20)
     bank_name = models.CharField(max_length = 25)
     bank_count_no = models.IntegerField()

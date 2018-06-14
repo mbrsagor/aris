@@ -188,9 +188,10 @@ def addProfile_views(request):
 
     form = UserProfile_Form()
     if request.method == 'POST':
-        form = UserProfile_Form(request.POST or None, request.FILES)
+        form = UserProfile_Form(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit = False)
+            instance.user = request.user
             instance.save()
             messages.add_message(request, messages.INFO, "Profile Updated Successfully")
             return redirect(profile_views)
@@ -199,7 +200,6 @@ def addProfile_views(request):
     context = {
         'form' : form
     }
-
     template_name = 'admin/add-profile.html'
     return render(request, template_name, context)
 
