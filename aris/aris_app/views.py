@@ -173,7 +173,7 @@ def singout_view(request):
 @login_required(login_url='singin_views')
 def profile_views(request):
 
-    profile_obj = Profile.objects.all()
+    profile_obj = get_object_or_404(Profile, username = request.user)
     context = {
         'profile_obj' : profile_obj
     }

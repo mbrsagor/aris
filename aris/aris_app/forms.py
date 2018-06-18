@@ -95,8 +95,10 @@ class UserProfile_Form(forms.ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
+        # exclude = ['username']
         widgets = {
             'username' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            # 'profile_name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'email' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'address' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'district' : TextInput(attrs = {'class' : 'brd-rd30'}),
