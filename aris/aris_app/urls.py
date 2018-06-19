@@ -13,6 +13,7 @@ urlpatterns = [
     path('singout/', singout_view, name = 'singout_view'),
     path('dashboard/profile/', profile_views, name = 'profile_views'),
     path('dashboard/add-profile/', addProfile_views, name = 'addProfile_views'),
+    path('dashboard/edit-profile/<int:id>/', editProfile_views, name = 'editProfile_views'),
     path('users/', total_users, name = 'total_users'),
     path('add-item/', add_new_item, name = 'add_new_item'),
     path('show-project/', showProject_views, name = 'showProject_views'),

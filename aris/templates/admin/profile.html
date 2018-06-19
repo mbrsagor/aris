@@ -18,8 +18,7 @@
                 </span>
                 <div class="insta-inf">
                   <h2>
-                    <a href="#" title="">username: {{ profile_obj.username }}</a>
-                    <i class="fa fa-pencil edit-btn"></i>
+                    username: {{ profile_obj.username }}
                   </h2>
                 </div>
               </div>
@@ -100,6 +99,11 @@
                       <i class="fa fa-user"></i>
                       <strong>Referance Agent Name</strong>
                       <p>{{ profile_obj.update_at }}</p>
+                    </li>
+                    <li>
+                        <h2>
+                          <a href="{% url 'editProfile_views' user.id %}">Edit Profile</a>
+                        </h2>
                     </li>
                   </ul>
                 </div>

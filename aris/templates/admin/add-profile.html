@@ -1,7 +1,7 @@
 {% extends 'app/base_admin.html' %}
 {% load static %}
 
-{% block titel %} Update Profile {% endblock %}
+{% block titel %} Add Profile {% endblock %}
 
 {% block body %}
 
@@ -76,7 +76,7 @@
       </form>
     </div>
 
-
+<!-- Message Framework -->
 {% if messages %}
 <div class="messages text-right">
     {% for message in messages %}
@@ -84,5 +84,5 @@
     {% endfor %}
 </div>
 {% endif %}
-
+<!-- End Message Framework -->
 {% endblock %}

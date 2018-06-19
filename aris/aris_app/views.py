@@ -168,7 +168,6 @@ def singout_view(request):
     return redirect(singin_views)
 
 
-
 # User Profile
 @login_required(login_url='singin_views')
 def profile_views(request):
@@ -202,6 +201,28 @@ def addProfile_views(request):
     }
     template_name = 'admin/add-profile.html'
     return render(request, template_name, context)
+
+
+
+# Edit Profile
+@login_required(login_url='singin_views')
+def editProfile_views(request, id):
+
+    editProfile = get_object_or_404(Profile, id)
+    if request.method == 'POST':
+        form = UserProfile_Form(request.POST or None, request.FILES, instance = editProfile)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, "Profile updated Successfully")
+            return redirect(profile_views)
+        else:
+            messages.add_message(request, messages.INFO, "Profile updated Invalid")
+    context = {
+        'form' : form
+    }
+    template_name = 'admin/add-profile.html'
+    return render(request, template_name, context)
+
 
 
 
