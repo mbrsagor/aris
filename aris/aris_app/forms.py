@@ -9,24 +9,23 @@ from .models import *
 # User Register Forms
 class UserRegister(UserCreationForm):
 
+    # Reference username
+    class Meta:
+        model = Profile
+        fields = ('name')
+        widgets = {
+            'name': Select(attrs={'class':'form-control'}),
+        }
+
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
-    reference = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'}))
+    # reference = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'reference', 'password1', 'password2']
-
-    # user reference
-    # def save(self, commit=True):
-    #     user = super(UserCreationForm, self).save(commit=False)
-    #     user.reference = self.cleaned_data["reference"]
-    #     if commit:
-    #         user.save()
-    #     return user
-
+        fields = ['username', 'email', 'password1', 'password2']
 
 # Add new Item
 class AddItem(forms.ModelForm):

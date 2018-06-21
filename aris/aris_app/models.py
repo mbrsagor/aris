@@ -23,7 +23,7 @@ class Gender(models.Model):
 
 # User Profile
 class Profile(models.Model):
-    username = models.OneToOneField(User, on_delete = models.CASCADE)
+    name = models.OneToOneField(User, on_delete = models.CASCADE)
     # profile_name = models.CharField(max_length = 20)
     email = models.EmailField(max_length=25)
     address = models.CharField(max_length = 50)
