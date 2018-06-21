@@ -19,6 +19,14 @@ class UserRegister(UserCreationForm):
         model = User
         fields = ['username', 'email', 'reference', 'password1', 'password2']
 
+    # user reference
+    # def save(self, commit=True):
+    #     user = super(UserCreationForm, self).save(commit=False)
+    #     user.reference = self.cleaned_data["reference"]
+    #     if commit:
+    #         user.save()
+    #     return user
+
 
 # Add new Item
 class AddItem(forms.ModelForm):
