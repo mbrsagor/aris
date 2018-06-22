@@ -98,6 +98,7 @@ def dashboard_views(request):
     # Total users count
     total_users = Profile.objects.count()
 
+    profile_list = Profile.objects.all()
     # Todo List
     form = TodoList_Form()
     if request.method == 'POST':
@@ -116,7 +117,8 @@ def dashboard_views(request):
         'latest_project' : latest_project,
         'total_users' : total_users,
         'form' : form,
-        'show_todoList' : show_todoList
+        'show_todoList' : show_todoList,
+        'profile_list' : profile_list
     }
     template_name = 'admin/dashboard.html'
     return render(request, template_name, context)

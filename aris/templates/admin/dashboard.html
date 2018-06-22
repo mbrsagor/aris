@@ -226,27 +226,21 @@
                 <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                     <div class="widget pad50-40">
                         <h4 class="widget-title">New Agent List</h4>
-
-
+                        {% if profile_list %}
+                        {% for profile in profile_list %}
                         <div class="act-pst-lst">
                             <div class="act-pst">
-                                <img class="brd-rd50" src="{% static 'images/resource/acti-thmb1.jpg' %}" alt="" />
+                                <img class="brd-rd50" src="/media/{{ profile.profile_photo }}" alt="" />
                                 <div class="act-pst-inf">
                                     <div class="act-pst-inr">
-                                        <h5>
-                                            <a href="#" title="">Sadi Orlaf</a>
-                                        </h5>
+                                        <h5>{{ profile.name }}  </h5>
                                     </div>
-                                    <span class="spnd-tm">5 Min Ago</span>
-                                    <div class="act-pst-lk-stm">
-                                        <a class="brd-rd5 green-bg-hover" href="#" title="">
-                                            <i class="fa fa-trash-o"></i> Remove</a>
-                                    </div>
+                                    <span class="spnd-tm">{{ profile.create_at }}</span>
                                 </div>
                             </div>
                         </div>
-
-
+                    {% endfor %}
+                    {% endif %}
                     </div>
                 </div>
             </div>

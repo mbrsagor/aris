@@ -9,17 +9,9 @@ from .models import *
 # User Register Forms
 class UserRegister(UserCreationForm):
 
-    # Reference username
-    class Meta:
-        model = Profile
-        fields = ('name')
-        widgets = {
-            'name': Select(attrs={'class':'form-control'}),
-        }
-
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
-    # reference = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'}))
+    # name = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
 
@@ -27,7 +19,16 @@ class UserRegister(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-# Add new Item
+    # Reference username
+    # class Meta:
+    #     model = Profile
+    #     fields = '__all__'
+    #     widgets = {
+    #         'name': Select(attrs={'class':'form-control'}),
+    #     }
+
+
+# Add New Item/Product
 class AddItem(forms.ModelForm):
     class Meta:
         model = Product

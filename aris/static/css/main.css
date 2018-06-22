@@ -1520,6 +1520,8 @@ table.table-bordered th:last-child {border-right: 0 none;}
 .act-pst > img {
     float: left;
     margin-right: 20px;
+    width: 80px;
+    height: 80px;
 }
 .act-pst-inf {
     display: table;
