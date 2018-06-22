@@ -155,6 +155,7 @@ def singup_views(request):
         #      User.objects.get(username=username)
         # except User.DoesNotExist:
         #      messages.add_message(request, messages.INFO, "Username already exists")
+        instance.user = request.user
         instance.save()
         return redirect(singin_views)
 
