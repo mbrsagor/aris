@@ -12,8 +12,10 @@ class UserRegister(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
     OPTIONS = (
-            ("a", "A"),
-            ("b", "B"),
+            ("a", "mbr-sagor"),
+            ("b", "russel-mahmud"),
+            ("c", "saif-nirob"),
+            ("c", "zia-uddin"),
             )
     referance = forms.MultipleChoiceField(widget=forms.Select,choices=OPTIONS)
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
@@ -22,6 +24,9 @@ class UserRegister(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+        # widgets = {
+        #     'referance': TextInput(attrs={'class':'form-control'}),
+        # }
 
 
 # Add New Item/Product
