@@ -11,21 +11,17 @@ class UserRegister(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
-    usernames = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'}))
+    OPTIONS = (
+            ("a", "A"),
+            ("b", "B"),
+            )
+    referance = forms.MultipleChoiceField(widget=forms.Select,choices=OPTIONS)
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
 
     class Meta:
         model = User
-        fields = ['username', 'usernames', 'email', 'password1', 'password2']
-
-    # Reference username
-    # class Meta:
-    #     model = Profile
-    #     fields = '__all__'
-    #     widgets = {
-    #         'name': Select(attrs={'class':'form-control'}),
-    #     }
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 # Add New Item/Product
@@ -129,8 +125,6 @@ class TeamMember_Form(forms.ModelForm):
             'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'designation' : TextInput(attrs = {'class' : 'brd-rd30'}),
         }
-
-
 
 
 # Testimonial section form

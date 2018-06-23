@@ -150,11 +150,6 @@ def singup_views(request):
     forms = UserRegister(request.POST or None)
     if forms.is_valid():
         instance = forms.save(commit = False)
-        # Register usename validation
-        # try:
-        #      User.objects.get(username=username)
-        # except User.DoesNotExist:
-        #      messages.add_message(request, messages.INFO, "Username already exists")
         instance.user = request.user
         instance.save()
         return redirect(singin_views)
@@ -164,6 +159,8 @@ def singup_views(request):
     }
     template_name = 'admin/register.html'
     return render(request, template_name, context)
+
+
 
 # Singout views
 def singout_view(request):
