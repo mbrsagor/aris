@@ -23,7 +23,15 @@ class UserRegister(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'referance', 'password1', 'password2']
+
+    # Referance
+    def save(self, commit=True):
+        user = super(UserCreateForm, self).save(commit=False)
+        user.referance = self.cleaned_data["referance"]
+        if commit:
+            user.save()
+        return user
 
 
 # Add New Item/Product
