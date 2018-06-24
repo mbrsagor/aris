@@ -153,7 +153,6 @@ def singup_views(request):
         instance.user = request.user
         instance.save()
         return redirect(singin_views)
-
     context = {
         'forms' : forms
     }
@@ -172,7 +171,7 @@ def singout_view(request):
 @login_required(login_url='singin_views')
 def profile_views(request):
 
-    profile_obj = get_object_or_404(Profile, username = request.user)
+    profile_obj = get_object_or_404(Profile, name=request.user)
     context = {
         'profile_obj' : profile_obj
     }

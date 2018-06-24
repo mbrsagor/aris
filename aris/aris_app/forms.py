@@ -24,9 +24,6 @@ class UserRegister(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-        # widgets = {
-        #     'referance': TextInput(attrs={'class':'form-control'}),
-        # }
 
 
 # Add New Item/Product
@@ -105,10 +102,8 @@ class UserProfile_Form(forms.ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
-        # exclude = ['username']
         widgets = {
-            'username' : TextInput(attrs = {'class' : 'brd-rd30'}),
-            # 'profile_name' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'email' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'address' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'district' : TextInput(attrs = {'class' : 'brd-rd30'}),
@@ -116,6 +111,7 @@ class UserProfile_Form(forms.ModelForm):
             'union' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'bank_name' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'bank_count_no' : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'contact_number' : TextInput(attrs = {'class' : 'brd-rd30'}),
             'member_type' : Select(attrs = {'class' : 'brd-rd30'}),
             'sex' : Select(attrs = {'class' : 'brd-rd30'}),
         }
