@@ -39,7 +39,6 @@ class Profile(models.Model):
     create_at       = models.DateTimeField(auto_now_add = True)
     update_at       = models.DateTimeField( auto_now = True)
 
-
     def __str__(self):
         return self.email
 
@@ -91,7 +90,7 @@ class BloodDonor(models.Model):
     donoer_contact      = models.IntegerField()
     bolood_type         = models.ForeignKey(BloodType, on_delete = models.CASCADE)
     update_at           = models.TimeField( auto_now = True)
-    create_at           = models.DateTimeField( auto_now = True)
+    create_at           = models.DateTimeField( auto_now_add = True)
 
 
     def __str__(self):
