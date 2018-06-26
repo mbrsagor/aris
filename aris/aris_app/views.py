@@ -242,7 +242,6 @@ def showProject_views(request):
     return render(request, template_name, context)
 
 
-
 # Update Item
 @login_required(login_url='singin_views')
 def updateItem_views(request, id):
@@ -332,7 +331,6 @@ def updateAbout_views(request, id):
 # server page section
 @login_required(login_url='singin_views')
 def serverSection_views(request):
-
     form = Service_Form()
     if request.method == 'POST':
         form = Service_Form(request.POST or None, request.FILES)
@@ -346,7 +344,6 @@ def serverSection_views(request):
     context = {
         'form' : form
     }
-
     template_name = 'admin/service.html'
     return render(request, template_name, context)
 
@@ -371,7 +368,6 @@ def deleteService_views(request, id):
     return redirect(allService_views)
 
 
-
 # Update services
 @login_required(login_url='singin_views')
 def updateService_views(request, id):
@@ -393,7 +389,6 @@ def updateService_views(request, id):
     return render(request, template_name, context)
 
 
-
 # Portfolio views
 @login_required(login_url='singin_views')
 def portfolio_views(request):
@@ -412,7 +407,6 @@ def portfolio_views(request):
     }
     template_name = 'admin/add-portfolio.html'
     return render(request, template_name, context)
-
 
 
 
@@ -698,7 +692,6 @@ def allwPost_views(request):
 # update blog post
 @login_required(login_url='singin_views')
 def updatePost_views(request, id):
-
     update_post = get_object_or_404(Blog, id = id)
     if request.method == 'POST':
         form = BlogPost_Form(request.POST or None, request.FILES, instance = update_post)
