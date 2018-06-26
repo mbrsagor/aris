@@ -17,25 +17,18 @@ from django.contrib.auth.decorators import login_required
 def homepage_views(request):
     # about us section
     aboutus_obj     = AboutUs.objects.all()
-
     # service section
     service_sec_obj = Service.objects.all()
-
     # Portfolio
     portfolio_obj   = Portfolio.objects.all()
-
     # Team Member
     all_member_obj  = Team.objects.all()
-
     # Testimonial
     testimonail_obj = Testimonial.objects.all()
-
     # Brand
     brand_obj       = Brand.objects.all()
-
     # Blog Post
     blogPost_obj    = Blog.objects.all()
-
     # Instragram footer
     instragram_obj  = Instragram.objects.all()
 
@@ -193,7 +186,6 @@ def addProfile_views(request):
 # Edit Profile
 @login_required(login_url='singin_views')
 def editProfile_views(request, id):
-
     editProfile = get_object_or_404(Profile, id)
     if request.method == 'POST':
         form = UserProfile_Form(request.POST or None, request.FILES, instance = editProfile)
@@ -203,6 +195,8 @@ def editProfile_views(request, id):
             return redirect(profile_views)
         else:
             messages.add_message(request, messages.INFO, "Profile updated Invalid")
+    else:
+        form = UserProfile_Form(instance = editProfile)
     context = {
         'form' : form
     }
@@ -245,7 +239,6 @@ def add_new_item(request):
 # Show project admin
 @login_required(login_url='singin_views')
 def showProject_views(request):
-
     showProduct_obj = Product.objects.all()
     context = {
         'show_item' : showProduct_obj
@@ -275,11 +268,9 @@ def updateItem_views(request, id):
     return render(request, template_name, context)
 
 
-
 # delete items
 @login_required(login_url='singin_views')
 def itemDelete_views(request, id):
-
     delete_item = get_object_or_404(Product, id = id)
     delete_item.delete()
     return redirect(showProject_views)
@@ -289,7 +280,6 @@ def itemDelete_views(request, id):
 # blood donor views
 @login_required(login_url='singin_views')
 def bloodDonorList_views(request):
-
     blood_donor_obj = BloodDonor.objects.all()
     context = {
         'blood_donor_obj' : blood_donor_obj
@@ -298,21 +288,17 @@ def bloodDonorList_views(request):
     return render(request, template_name, context)
 
 
-
 # blood donor remove views
 @login_required(login_url='singin_views')
 def bloodDonorRemove(request, id):
-
     remove_donor = get_object_or_404(BloodDonor, id = id)
     remove_donor.delete()
     return redirect(bloodDonorList_views)
 
 
-
 # About us page
 @login_required(login_url='singin_views')
 def aboutus_views(request):
-
     form = AboutUs_Form()
     if request.method == 'POST':
         form = AboutUs_Form(request.POST or None, request.FILES)
@@ -327,7 +313,6 @@ def aboutus_views(request):
     }
     template_name = 'admin/about.html'
     return render(request, template_name, context)
-
 
 
 # Update or edit about us page
@@ -373,18 +358,15 @@ def serverSection_views(request):
     return render(request, template_name, context)
 
 
-
 # All Services
 @login_required(login_url='singin_views')
 def allService_views(request):
-
     all_service_obj = Service.objects.all()
     context = {
         'all_service_obj' :all_service_obj
     }
     template_name = 'admin/allservice.html'
     return render(request, template_name, context)
-
 
 
 # Delete Services
@@ -401,7 +383,6 @@ def deleteService_views(request, id):
 # Update services
 @login_required(login_url='singin_views')
 def updateService_views(request, id):
-
     update_service_obj = get_object_or_404(Service, id = id)
     if request.method == 'POST':
         form = Service_Form(request.POST or None, request.FILES, instance = update_service_obj)
@@ -424,7 +405,6 @@ def updateService_views(request, id):
 # Portfolio views
 @login_required(login_url='singin_views')
 def portfolio_views(request):
-
     form = Portfolio_Form()
     if request.method == 'POST':
         form = Portfolio_Form(request.POST or None, request.FILES)
@@ -456,11 +436,9 @@ def allportfolio_views(request):
     return render(request, template_name, context)
 
 
-
 # Update portfolio
 @login_required(login_url='singin_views')
 def updatePportoflio(request, id):
-
     update_portfolio = get_object_or_404(Portfolio, id = id)
     if request.method == 'POST':
         form = Portfolio_Form(request.POST or None, request.FILES,  instance = update_portfolio)

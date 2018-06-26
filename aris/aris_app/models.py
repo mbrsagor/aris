@@ -11,6 +11,7 @@ class Members(models.Model):
         return self.member
 
 
+
 # Gender type
 class Gender(models.Model):
     name        = models.CharField(max_length = 10)
