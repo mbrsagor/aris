@@ -76,7 +76,6 @@ def homepage_views(request):
 # Dashboard views
 @login_required(login_url='singin_views')
 def dashboard_views(request):
-
     # count of project
     product_count       = Product.objects.count()
     # count of bload dononer
@@ -96,9 +95,7 @@ def dashboard_views(request):
             instance = form.save(commit = False)
             instance.save()
             return redirect(dashboard_views)
-
     show_todoList = Todolist.objects.all()
-
     context = {
         'product_count'     : product_count,
         'list_of_dononer'   : list_of_dononer,
@@ -153,7 +150,6 @@ def singout_view(request):
 # User Profile
 @login_required(login_url='singin_views')
 def profile_views(request):
-
     profile_obj = get_object_or_404(Profile, name=request.user)
     context = {
         'profile_obj' : profile_obj
@@ -235,7 +231,6 @@ def add_new_item(request):
     return render(request, template_name, context)
 
 
-
 # Show project admin
 @login_required(login_url='singin_views')
 def showProject_views(request):
@@ -274,7 +269,6 @@ def itemDelete_views(request, id):
     delete_item = get_object_or_404(Product, id = id)
     delete_item.delete()
     return redirect(showProject_views)
-
 
 
 # blood donor views
@@ -318,7 +312,6 @@ def aboutus_views(request):
 # Update or edit about us page
 @login_required(login_url='singin_views')
 def updateAbout_views(request, id):
-
     updateAbout_obj = get_object_or_404(AboutUs, id = id)
     if request.method == 'POST':
         form = AboutUs_Form(request.POST, request.FILES, instance = updateAbout_obj)
@@ -372,7 +365,6 @@ def allService_views(request):
 # Delete Services
 @login_required(login_url='singin_views')
 def deleteService_views(request, id):
-
     delete_service_obj = get_object_or_404(Service, id = id)
     delete_service_obj.delete()
     messages.add_message(request, messages.INFO, "Service Delete Successfully")
@@ -427,7 +419,6 @@ def portfolio_views(request):
 # All Portfolio List
 @login_required(login_url='singin_views')
 def allportfolio_views(request):
-
     portfolio_list = Portfolio.objects.all()
     context = {
         'portfolio_list' : portfolio_list
@@ -500,7 +491,6 @@ def listOfAllMemeber_views(request):
 # update Team Member views
 @login_required(login_url='singin_views')
 def updateTeamMember(request, id):
-
     update_member = get_object_or_404(Team, id = id)
     if request.method == 'POST':
         form = TeamMember_Form(request.POST or None, request.FILES, instance = update_member)
@@ -523,7 +513,6 @@ def updateTeamMember(request, id):
 # Delete Member
 @login_required(login_url='singin_views')
 def deleteMember_views(request, id):
-
     deleteMember_obj = get_object_or_404(Team, id = id)
     deleteMember_obj.delete()
     messages.add_message(request, messages.INFO, "Member deleted successfully")
@@ -533,7 +522,6 @@ def deleteMember_views(request, id):
 # Testimonial page section
 @login_required(login_url='singin_views')
 def testimonial_views(request):
-
     form = Testimonial_Form()
     if request.method == 'POST':
         form = Testimonial_Form(request.POST or None, request.FILES)
@@ -791,7 +779,6 @@ def deleteInstragram_views(request, id):
 # All Instragram
 @login_required(login_url='singin_views')
 def allInstragram_views(request):
-
     all_instragaram = Instragram.objects.all()
     context = {
         'all_instragaram' : all_instragaram
