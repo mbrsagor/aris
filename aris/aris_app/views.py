@@ -13,32 +13,31 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 
-# homepage
-def homepage_views(request):
 
+def homepage_views(request):
     # about us section
-    aboutus_obj = AboutUs.objects.all()
+    aboutus_obj     = AboutUs.objects.all()
 
     # service section
     service_sec_obj = Service.objects.all()
 
     # Portfolio
-    portfolio_obj = Portfolio.objects.all()
+    portfolio_obj   = Portfolio.objects.all()
 
     # Team Member
-    all_member_obj = Team.objects.all()
+    all_member_obj  = Team.objects.all()
 
     # Testimonial
     testimonail_obj = Testimonial.objects.all()
 
     # Brand
-    brand_obj = Brand.objects.all()
+    brand_obj       = Brand.objects.all()
 
     # Blog Post
-    blogPost_obj = Blog.objects.all()
+    blogPost_obj    = Blog.objects.all()
 
     # Instragram footer
-    instragram_obj = Instragram.objects.all()
+    instragram_obj  = Instragram.objects.all()
 
     # Contact form
     if request.method == 'GET':
@@ -46,10 +45,10 @@ def homepage_views(request):
     else:
         form = Contact_Form(request.POST)
         if form.is_valid():
-            full_name = form.cleaned_data['full_name']
-            from_email = form.cleaned_data['from_email']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
+            full_name   = form.cleaned_data['full_name']
+            from_email  = form.cleaned_data['from_email']
+            subject     = form.cleaned_data['subject']
+            message     = form.cleaned_data['message']
 
             try:
                 send_mail(subject, "From: "+from_email+"\n Message: "+message, message, ['admin@sagor.me'])
@@ -65,22 +64,20 @@ def homepage_views(request):
         if forms.is_valid():
             forms.save()
             return redirect(homepage_views)
-
     context = {
-        'forms' : forms,
-        'aboutus_obj' : aboutus_obj,
-        'service_sec_obj' : service_sec_obj,
-        'portfolio_obj' : portfolio_obj,
-        'all_member_obj' : all_member_obj,
-        'testimonail_obj' : testimonail_obj,
-        'brand_obj' : brand_obj,
-        'blogPost_obj' : blogPost_obj,
-        'instragram_obj' : instragram_obj,
-        'form' : form
+        'forms'             : forms,
+        'aboutus_obj'       : aboutus_obj,
+        'service_sec_obj'   : service_sec_obj,
+        'portfolio_obj'     : portfolio_obj,
+        'all_member_obj'    : all_member_obj,
+        'testimonail_obj'   : testimonail_obj,
+        'brand_obj'         : brand_obj,
+        'blogPost_obj'      : blogPost_obj,
+        'instragram_obj'    : instragram_obj,
+        'form'              : form
     }
     template_name = 'front-end/index.html'
     return render(request, template_name, context)
-
 
 
 # Dashboard views
@@ -88,17 +85,16 @@ def homepage_views(request):
 def dashboard_views(request):
 
     # count of project
-    product_count = Product.objects.count()
+    product_count       = Product.objects.count()
     # count of bload dononer
-    count_of_dononer = BloodDonor.objects.count()
+    count_of_dononer    = BloodDonor.objects.count()
     # Bload dononer
-    list_of_dononer = BloodDonor.objects.all()
+    list_of_dononer     = BloodDonor.objects.all()
     # latest products
-    latest_project = Product.objects.all()
+    latest_project      = Product.objects.all()
     # Total users count
-    total_users = Profile.objects.count()
-
-    profile_list = Profile.objects.all()
+    total_users         = Profile.objects.count()
+    profile_list        = Profile.objects.all()
     # Todo List
     form = TodoList_Form()
     if request.method == 'POST':
@@ -111,42 +107,37 @@ def dashboard_views(request):
     show_todoList = Todolist.objects.all()
 
     context = {
-        'product_count' : product_count,
-        'list_of_dononer' : list_of_dononer,
-        'count_of_dononer' : count_of_dononer,
-        'latest_project' : latest_project,
-        'total_users' : total_users,
-        'form' : form,
-        'show_todoList' : show_todoList,
-        'profile_list' : profile_list
+        'product_count'     : product_count,
+        'list_of_dononer'   : list_of_dononer,
+        'count_of_dononer'  : count_of_dononer,
+        'latest_project'    : latest_project,
+        'total_users'       : total_users,
+        'form'              : form,
+        'show_todoList'     : show_todoList,
+        'profile_list'      : profile_list
     }
     template_name = 'admin/dashboard.html'
     return render(request, template_name, context)
 
 
-
 # User Login views
 def singin_views(request):
-
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        auth = authenticate(username = username, password = password)
+        auth     = authenticate(username = username, password = password)
 
         if auth is not None:
             login(request ,auth)
             return redirect(dashboard_views)
         else:
             messages.add_message(request, messages.INFO, "Username and Password doesn't Match")
-
     template_name = 'admin/login.html'
     return render(request, template_name)
 
 
-
 # User Register views
 def singup_views(request):
-
     forms = UserRegister(request.POST or None)
     if forms.is_valid():
         instance = forms.save(commit = False)
@@ -158,7 +149,6 @@ def singup_views(request):
     }
     template_name = 'admin/register.html'
     return render(request, template_name, context)
-
 
 
 # Singout views
@@ -179,11 +169,9 @@ def profile_views(request):
     return render(request, template_name, context)
 
 
-
 # Add/Update Profile
 @login_required(login_url='singin_views')
 def addProfile_views(request):
-
     form = UserProfile_Form()
     if request.method == 'POST':
         form = UserProfile_Form(request.POST, request.FILES)
@@ -200,7 +188,6 @@ def addProfile_views(request):
     }
     template_name = 'admin/add-profile.html'
     return render(request, template_name, context)
-
 
 
 # Edit Profile
@@ -223,8 +210,6 @@ def editProfile_views(request, id):
     return render(request, template_name, context)
 
 
-
-
 # Total list of users
 @login_required(login_url='singin_views')
 def total_users(request):
@@ -236,7 +221,6 @@ def total_users(request):
     }
     template_name = 'admin/list_of_users.html'
     return render(request, template_name, context)
-
 
 
 # Product/Item
@@ -284,8 +268,8 @@ def updateItem_views(request, id):
     else:
         forms = AddItem(instance = update_item)
     context = {
-        'forms' : forms,
-        'update_item' : update_item
+        'forms'         : forms,
+        'update_item'   : update_item
     }
     template_name = 'admin/add_project.html'
     return render(request, template_name, context)
@@ -360,7 +344,7 @@ def updateAbout_views(request, id):
     else:
         form = AboutUs_Form(instance = updateAbout_obj)
     context = {
-        'form' : form,
+        'form'  : form,
         'updateAbout_obj' : updateAbout_obj
     }
     template_name = 'admin/about.html'
@@ -498,18 +482,15 @@ def updatePportoflio(request, id):
 # Delete Portfolio
 @login_required(login_url='singin_views')
 def deletePortfolio(request, id):
-
     delete_portfolio = get_object_or_404(Portfolio, id = id)
     delete_portfolio.delete()
     messages.add_message(request, messages.INFO, "Porftolio Delted Successfully")
     return redirect(allportfolio_views)
 
 
-
 # Team Member section
 @login_required(login_url='singin_views')
 def teamMember_views(request):
-
     form = TeamMember_Form()
     if request.method == 'POST':
         form = TeamMember_Form(request.POST or None, request.FILES)
@@ -527,18 +508,15 @@ def teamMember_views(request):
     return render(request, template_name, context)
 
 
-
 # all Memeber list
 @login_required(login_url='singin_views')
 def listOfAllMemeber_views(request):
-
     all_member_obj = Team.objects.all()
     context = {
         'all_member_obj' : all_member_obj
     }
     template_name = 'admin/allmember.html'
     return render(request, template_name, context)
-
 
 
 # update Team Member views
@@ -557,7 +535,7 @@ def updateTeamMember(request, id):
     else:
         form = TeamMember_Form(instance = update_member)
     context = {
-        'form' : form,
+        'form'          :form,
         'update_member' : update_member
     }
     template_name = 'admin/add-temmeber.html'
@@ -572,8 +550,6 @@ def deleteMember_views(request, id):
     deleteMember_obj.delete()
     messages.add_message(request, messages.INFO, "Member deleted successfully")
     return redirect(listOfAllMemeber_views)
-
-
 
 
 # Testimonial page section
@@ -597,12 +573,9 @@ def testimonial_views(request):
     return render(request, template_name, context)
 
 
-
-
 # All testimonial
 @login_required(login_url='singin_views')
 def allTestimonial_views(request):
-
     all_testmonial_obj = Testimonial.objects.all()
     context = {
         'all_testmonial_obj' : all_testmonial_obj
@@ -611,22 +584,18 @@ def allTestimonial_views(request):
     return render(request, template_name, context)
 
 
-
 # Delete testmonial
 @login_required(login_url='singin_views')
 def testmonialDelete_views(request, id):
-
     delete_testmonial = get_object_or_404(Testimonial, id=id)
     delete_testmonial.delete()
     messages.add_message(request, messages.INFO, "Testimonial deleted successfully")
     return redirect(allTestimonial_views)
 
 
-
 # Update testmonial
 @login_required(login_url='singin_views')
 def updateTestmonial_views(request, id):
-
     update_testimonial = get_object_or_404(Testimonial, id=id)
     if request.method == 'POST':
         form = Testimonial_Form(request.POST or None, request.FILES, instance = update_testimonial)
@@ -646,11 +615,9 @@ def updateTestmonial_views(request, id):
     return render(request, template_name, context)
 
 
-
 # Brand Section
 @login_required(login_url='singin_views')
 def brand_views(request):
-
     form = Brand_Form()
     if request.method == 'POST':
         form = Brand_Form(request.POST or None, request.FILES)
@@ -670,12 +637,9 @@ def brand_views(request):
     return render(request, template_name, context)
 
 
-
-
 # Add Blog Post Category views
 @login_required(login_url='singin_views')
 def PostCategory_views(request):
-
     form = BlogCategory_Form()
     if request.method == 'POST':
         form = BlogCategory_Form(request.POST or None)
@@ -693,12 +657,9 @@ def PostCategory_views(request):
     return render(request, template_name, context)
 
 
-
-
 # List of Category
 @login_required(login_url='singin_views')
 def allCategory_views(request):
-
     blog_category = BlogCategory.objects.all()
     context ={
         'blog_category' : blog_category
@@ -707,11 +668,9 @@ def allCategory_views(request):
     return render(request, template_name, context)
 
 
-
 # Update Category views
 @login_required(login_url='singin_views')
 def updateCategory_veiws(request, id):
-
     updateBlog_category = get_object_or_404(BlogCategory, id = id)
     if request.method == 'POST':
         form = BlogCategory_Form(request.POST or None, instance = updateBlog_category)
@@ -730,23 +689,18 @@ def updateCategory_veiws(request, id):
     return render(request, template_name, context)
 
 
-
-
 # Delete Cateogry
 @login_required(login_url='singin_views')
 def deleteCategory_veiws(request, id):
-
     deleteBlog_category = get_object_or_404(BlogCategory, id = id)
     deleteBlog_category.delete()
     messages.add_message(request, messages.INFO, "Category deleted successfully")
     return redirect(allCategory_views)
 
 
-
 # Blog post views
 @login_required(login_url='singin_views')
 def blogPost_views(request):
-
     form = BlogPost_Form()
     if request.method == 'POST':
         form = BlogPost_Form(request.POST or None, request.FILES)
@@ -764,18 +718,15 @@ def blogPost_views(request):
     return render(request, template_name, context)
 
 
-
 # Display blog post
 @login_required(login_url='singin_views')
 def allwPost_views(request):
-
     allBlog_post = Blog.objects.all()
     context = {
         'allBlog_post' : allBlog_post
     }
     template_name = 'admin/allpost.html'
     return render(request, template_name, context)
-
 
 
 # update blog post
@@ -800,22 +751,18 @@ def updatePost_views(request, id):
     return render(request, template_name, context)
 
 
-
 # Delete blog post
 @login_required(login_url='singin_views')
 def deletePost_views(request, id):
-
     delete_post = get_object_or_404(Blog, id = id)
     delete_post.delete()
     messages.add_message(request, messages.INFO, "Post deleted successfully")
     return redirect(allwPost_views)
 
 
-
 #  Instragram footer
 @login_required(login_url='singin_views')
 def instragram_views(request):
-
     form = Instragram_Form()
     if request.method == 'POST':
         form = Instragram_Form(request.POST or None)
@@ -833,11 +780,9 @@ def instragram_views(request):
     return render(request, template_name, context)
 
 
-
 # Update Instragram
 @login_required(login_url='singin_views')
 def updateInstragram(request, id):
-
     instagram_update = get_object_or_404(Instragram, id = id)
     if request.method == 'POST':
         form = Instragram_Form(request.POST or None, instance = instagram_update)
@@ -856,7 +801,6 @@ def updateInstragram(request, id):
     return render(request, template_name, context)
 
 
-
 # delete Instragram
 @login_required(login_url='singin_views')
 def deleteInstragram_views(request, id):
@@ -864,7 +808,6 @@ def deleteInstragram_views(request, id):
     instagram_delete.delete()
     messages.add_message(request, messages.INFO, "photo deleted successfully")
     return redirect(instragram_views)
-
 
 
 # All Instragram
@@ -877,7 +820,6 @@ def allInstragram_views(request):
     }
     template_name = 'admin/allinstragaram.html'
     return render(request, template_name, context)
-
 
 
 # Delete todo list
