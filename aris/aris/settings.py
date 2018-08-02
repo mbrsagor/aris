@@ -123,8 +123,6 @@ MESSAGE_TAGS = {
     messages.INFO: 'SUCCESS',
 }
 
-
-
 # Mail using SMTP
 EMAIL_USE_TLS       = True
 EMAIL_HOST          ='smtp.gmail.com'

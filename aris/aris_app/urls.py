@@ -10,7 +10,7 @@ urlpatterns = [
     # admin templaates url
     path('dashboard/', dashboard_views, name ='dashboard'),
     path('singin/', singin_views, name = 'singin_views'),
-    path('singup/', singup_views, name = 'singup_views'),
+    path('add-agent', singup_views, name = 'singup_views'),
     path('singout/', singout_view, name = 'singout_view'),
     path('dashboard/profile/', profile_views, name = 'profile_views'),
     path('dashboard/add-profile/', addProfile_views, name = 'addProfile_views'),

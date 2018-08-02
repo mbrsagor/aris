@@ -29,7 +29,8 @@
             {% if messages %}
             <div style="color:#f00" class="messages">
                 {% for message in messages %}
-                <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+            </div>
                 {% endfor %}
             </div>
             {% endif %}
@@ -50,9 +51,6 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
                   <button class="green-bg brd-rd5" type="submit">Login Now</button>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-12">
-                  <a class="brd-rd5 blue-bg act-btn" href="{% url 'singup_views' %}" title="">Create An Account</a>
                 </div>
               </div>
             </form>

@@ -8,29 +8,16 @@ from .models import *
 
 # User Register Forms
 class UserRegister(UserCreationForm):
-    username    = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
-    email       = forms.CharField(widget=forms.TextInput(attrs={'class': 'brd-rd5'}))
-    OPTIONS     = (
-            ("a", "mbr-sagor"),
-            ("b", "russel-mahmud"),
-            ("c", "saif-nirob"),
-            ("c", "zia-uddin"),
-            )
-    referance = forms.MultipleChoiceField(widget=forms.Select,choices=OPTIONS)
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'brd-rd5'}))
+    username    = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email       = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    role_name   = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    phn_number  = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model  = User
-        fields = ['username', 'email', 'referance', 'password1', 'password2']
-
-    # Referance
-    def save(self, commit=True):
-        user = super(UserCreateForm, self).save(commit=False)
-        user.referance = self.cleaned_data["referance"]
-        if commit:
-            user.save()
-        return user
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 # Add New Item/Product

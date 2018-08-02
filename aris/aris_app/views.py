@@ -133,11 +133,12 @@ def singup_views(request):
         instance = forms.save(commit = False)
         instance.user = request.user
         instance.save()
-        return redirect(singin_views)
+        messages.add_message(request, messages.INFO, "Agent create successfully")
+        return redirect(singup_views)
     context = {
         'forms' : forms
     }
-    template_name = 'admin/register.html'
+    template_name = 'admin/add_agent.html'
     return render(request, template_name, context)
 
 
