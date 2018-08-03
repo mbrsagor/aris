@@ -142,6 +142,22 @@ def singup_views(request):
     return render(request, template_name, context)
 
 
+# Add Memeber
+def addMemeberViews(request):
+    forms = AddMemberFrom(request.POST or None)
+    if forms.is_valid():
+        instance = forms.save(commit = False)
+        instance.user = request.user
+        instance.save()
+        messages.add_message(request, messages.INFO, "Agent create successfully")
+        return redirect(singup_views)
+    context = {
+        'forms' : forms
+    }
+    template_name = 'admin/add-memeber.html'
+    return render(request, template_name, context)
+
+
 # Singout views
 def singout_view(request):
     logout(request)

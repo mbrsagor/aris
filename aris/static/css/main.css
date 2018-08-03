@@ -6705,3 +6705,7 @@ header.light-skin.hdr-bgclr2:before {
 }
 .side-header.expand-header.light-skin nav h4 {color: #444;}
 tspan {font-weight: 400;}
+
+.selection {
+  display: none !important;
+}

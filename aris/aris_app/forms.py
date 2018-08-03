@@ -20,6 +20,21 @@ class UserRegister(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
+
+# Add New Member Forms
+class AddMemberFrom(UserCreationForm):
+    username    = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email       = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    role_name   = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    phn_number  = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model  = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+
 # Add New Item/Product
 class AddItem(forms.ModelForm):
     class Meta:

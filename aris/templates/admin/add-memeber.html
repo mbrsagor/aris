@@ -3,7 +3,7 @@
 
 {% block titel %} ARIS || Dashboard {% endblock %}
 {% block body %}
-<h2>Add New Agent</h2> <br/>
+<h2>Add Member</h2> <br/>
 
 <form method="POST">
   {% csrf_token %}
@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-  <button style="margin-left:15px;" class="btn btn-success" type="submit">Add Agent</button>
+  <button style="margin-left:15px;" class="btn btn-success" type="submit">Add Member</button>
 </form>
 <br/><br/><br/>
 {% if messages %}
