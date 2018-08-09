@@ -10,12 +10,16 @@
         <h4>Profile section page</h4>
         <span>You may change or update your profile form here</span>
       </div>
+      {% if form.errors %}
+    <p style="color: red;">
+        Please correct the error{{ form.errors|pluralize }} below.
+    </p>
+{% endif %}
       <form class="form-wrp" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row mrg20">
           <div class="col-md-2 col-sm-6 col-lg-2">
-            <p>Username</p>
-            {{form.name}}
+            <input type="hidden" name="name" value="{{request.user.id}}">
           </div>
           <div class="col-md-4 col-sm-6 col-lg-4">
             <p>Email</p>
@@ -59,7 +63,7 @@
           </div>
           <div class="col-md-3 col-sm-6 col-lg-3">
             <div class="file-upload-box">
-              <strong>File Input:</strong>
+              <strong>Photo:</strong>
               <div class="file-box">
                 <label class="fileContainer">
                   <span class="blue-bg brd-rd5">Browse</span>

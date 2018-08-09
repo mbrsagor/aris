@@ -8,9 +8,10 @@
 <form method="POST">
   {% csrf_token %}
   <div class="row">
+    <input type="hidden" name="userid" value="{{userid}}">
     <div class="col-lg-6">
       <div class="col-md-12 col-sm-12 col-lg-12">
-        <p>username</p>
+        <p>Username</p>
         {{forms.username}}
       </div>
       <div class="col-md-12 col-sm-12 col-lg-12">
@@ -35,6 +36,10 @@
         <p>Confirm Password</p>
         {{forms.password2}}
       </div>
+      <div class="col-md-12 col-sm-12 col-lg-12">
+        <p>Hand Type</p>
+        {{forms.hand_type}}
+      </div>
     </div>
   </div>
   <button style="margin-left:15px;" class="btn btn-success" type="submit">Add Member</button>
@@ -47,4 +52,5 @@
 </div>
     {% endfor %}
     {% endif %}
+    {{ u.username }}
 {% endblock %}

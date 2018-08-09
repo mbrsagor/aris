@@ -20,8 +20,10 @@ class UserRegister(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-
-# Add New Member Forms
+HAND_TYPE= [
+    (1, 'Right Hand'),
+    (2, 'Left Hand'),
+    ]
 class AddMemberFrom(UserCreationForm):
     username    = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     email       = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -29,10 +31,13 @@ class AddMemberFrom(UserCreationForm):
     phn_number  = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     password1   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2   = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    hand_type   = forms.CharField(widget=forms.Select(attrs={'class': 'form-control'},choices=HAND_TYPE))
 
+   
+    
     class Meta:
         model  = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2','hand_type']
 
 
 # Add New Item/Product
@@ -111,7 +116,7 @@ class UserProfile_Form(forms.ModelForm):
         model   = Profile
         fields  = '__all__'
         widgets = {
-            'name'          : TextInput(attrs = {'class' : 'brd-rd30'}),
+            'name'          : Select(attrs = {'class' : 'brd-rd30'}),
             'email'         : TextInput(attrs = {'class' : 'brd-rd30'}),
             'address'       : TextInput(attrs = {'class' : 'brd-rd30'}),
             'district'      : TextInput(attrs = {'class' : 'brd-rd30'}),

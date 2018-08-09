@@ -21,6 +21,22 @@ class Gender(models.Model):
         return self.name
 
 
+class MemberInformation(models.Model):
+    user           = models.ForeignKey(User,on_delete = models.CASCADE)  
+    agent_id       = models.IntegerField(default=0)
+    hand_type      = models.IntegerField(default=0)
+    create_at      = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.user
+
+class AgentInformation(models.Model):
+    user           = models.OneToOneField(User, on_delete = models.CASCADE)
+    agent_type     = models.IntegerField(default=1)
+    create_at      = models.DateTimeField(auto_now_add = True)
+
+    
+
 
 # User Profile
 class Profile(models.Model):
@@ -66,6 +82,7 @@ class Product(models.Model):
     create_at       = models.DateTimeField( auto_now = True)
     update_at       = models.DateTimeField(auto_now_add = True)
 
+    
     def __str__(self):
         return self.name
 

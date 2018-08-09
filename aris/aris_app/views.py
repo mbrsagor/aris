@@ -133,6 +133,9 @@ def singup_views(request):
         instance = forms.save(commit = False)
         instance.user = request.user
         instance.save()
+        obj = User.objects.latest('id')
+        Agent=AgentInformation(user_id=obj.id)
+        Agent.save()
         messages.add_message(request, messages.INFO, "Agent create successfully")
         return redirect(singup_views)
     context = {
@@ -143,18 +146,38 @@ def singup_views(request):
 
 
 # Add Memeber
-def addMemeberViews(request):
+def addMemeberViews(request,id):
+    u = AgentInformation.objects.all()
     forms = AddMemberFrom(request.POST or None)
+   
     if forms.is_valid():
         instance = forms.save(commit = False)
         instance.user = request.user
         instance.save()
-        messages.add_message(request, messages.INFO, "Agent create successfully")
+        agent_id=request.POST.get('userid')
+        obj = User.objects.latest('id')
+        member=MemberInformation(user_id=obj.id,agent_id=agent_id,hand_type=request.POST.get('hand_type'))
+        member.save()
+        messages.add_message(request, messages.INFO, "Member create successfully")
         return redirect(singup_views)
     context = {
-        'forms' : forms
+        'userid':id,
+        'forms' : forms,
+        'u'     : u,
     }
+  #  user=User.objects.delete(id=11)
+    # print(u)
     template_name = 'admin/add-memeber.html'
+    return render(request, template_name, context)
+# Add Memeber
+def viewMember(request,id):
+    members = MemberInformation.objects.filter(agent_id=id)
+    print(members.query)
+    context = {
+    
+        'members'     : members
+    }
+    template_name = 'admin/list_of_members.html'
     return render(request, template_name, context)
 
 
@@ -175,20 +198,22 @@ def profile_views(request):
     return render(request, template_name, context)
 
 
-# Add/Update Profile
+# Add Profile
 @login_required(login_url='singin_views')
 def addProfile_views(request):
     form = UserProfile_Form()
     if request.method == 'POST':
         form = UserProfile_Form(request.POST, request.FILES)
+        # print(form.is_valid(), form.errors, type(form.errors))
         if form.is_valid():
+            cd = form.cleaned_data 
             instance = form.save(commit = False)
             instance.user = request.user
             instance.save()
             messages.add_message(request, messages.INFO, "Profile Updated Successfully")
             return redirect(profile_views)
         else:
-            messages.add_message(request, messages.INFO, "Profile Updated Failed")
+            messages.add_message(request, messages.INFO, "Profile Updadfdfted Failed")
     context = {
         'form' : form
     }
@@ -220,7 +245,7 @@ def editProfile_views(request, id):
 # Total list of users
 @login_required(login_url='singin_views')
 def total_users(request):
-    profile_obj = Profile.objects.all()
+    profile_obj = AgentInformation.objects.all()
     forms = UserRegister()
     context = {
         'forms': forms,

@@ -3,7 +3,8 @@
 
 {% block titel %} ARIS || Dashboard {% endblock %}
 {% block body %}
-<h2>Total List of Users</h2> <br/>
+<h2>Total List of Agents</h2> <br/>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -12,17 +13,20 @@
             <th>Address</th>
             <th>Member Type</th>
             <th>Contact Number</th>
+            <th>Member Creation</th>
+            <th>View Member</th>
         </tr>
     </thead>
     <tbody>
       {% for user in profile_obj %}
         <tr>
-            <th scope="row">{{user.username}}</th>
-            <td>{{user.email}}</td>
-            <td>{{user.address}}</td>
+            <th scope="row">{{user.user.username}}</th>
+            <td>{{user.user.email}}</td>
+            <td>{{user.user.address}}</td>
+            <td>{{user.user.username}}</td>
             <td>{{user.username}}</td>
-            <td>{{user.username}}</td>
-        </tr>
+            <td><a href="{% url 'addMemeberViews' user.id %}" class="btn btn-info xs" role="button">Add Member</a></td>
+            <td><a href="{% url 'viewMember' user.id %}" class="btn btn-info xs" role="button">View Member</a></td>
         {% endfor %}
     </tbody>
 </table>
