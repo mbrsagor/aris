@@ -9,8 +9,7 @@
     <thead>
         <tr>
             <th>Username</th>
-            <th>Email</th>
-            <th>Address</th>
+            <th style="text-align:center">Email</th>
             <th>Hand Type</th>
         </tr>
     </thead>
@@ -18,12 +17,11 @@
       {% for member in members %}
         <tr>
             <th scope="row">{{member.user.username}}</th>
-            <td>{{member.user.email}}</td>
-            <td>{{member.user.address}}</td>
+            <td style="text-align:center">{{member.user.email}}</td>
             <td>{% ifequal  member.hand_type 2 %}
-                   Right hand              
+                   Right hand
                 {% else %}
-                   Left Hand 
+                   Left Hand
                 {% endifequal %}
             </td>
         {% endfor %}

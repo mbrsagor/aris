@@ -25,7 +25,7 @@
                             <span>
                                 <i class="counter">{{ total_users }}</i>
                             </span>
-                            <h5>Total Member</h5>
+                            <h5>Total User</h5>
                         </div>
                         <span>
                             <i class="ion-ios-stopwatch"></i> Updated: 05:14pm</span>
@@ -198,6 +198,7 @@
                         <h4 class="widget-title">To Do list</h4>
                         <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 375px;"><div class="to-do-wrp" style="overflow: hidden; width: auto; height: 375px;">
                             <div class="to-do-tp">
+                              {% if perms.user %}
                                 <div class="add-tsk" style="display: block;">
                                     <form method="POST" class="brd-rd5">
                                        {% csrf_token %}
@@ -208,6 +209,7 @@
                                         </button>
                                     </form>
                                 </div>
+                              {% endif %}
                             </div>
                             <ul class="td-lst">
                               {% if show_todoList %}
@@ -215,7 +217,7 @@
                               <li>
                                 <h5>{{ todo.add_list }}</h5>
                                 <span>{{ todo.create_at }}</span>
-                                <a href="{% url 'deleteTodoList' todo.id %}" title="Delete"><i class="ion-android-delete"></i></a>
+                                {% if perms.user %}<a href="{% url 'deleteTodoList' todo.id %}" title="Delete"><i class="ion-android-delete"></i></a> {% endif %}
                               </li>
                               {% endfor %}
                               {% endif %}

@@ -18,7 +18,7 @@
           <th>Blood Village</th>
           <th>Date & Time</th>
           <th>Address</th>
-          <th>Delete</th>
+          {% if perms.user %}<th>Delete</th> {% endif %}
       </tr>
   </thead>
   <tbody>
@@ -34,7 +34,7 @@
           <td>{{blood_donor.dononer_village}}</td>
           <td>{{blood_donor.create_at}}</td>
           <td>{{blood_donor.dononer_address}}</td>
-          <td><a href="{% url 'bloodDonorRemove' blood_donor.id %}">Delete</a></td>
+          {% if perms.user %}<td><a href="{% url 'bloodDonorRemove' blood_donor.id %}">Delete</a></td>{% endif %}
       </tr>
       {% endfor %}
       {% endif %}

@@ -28,6 +28,7 @@
                 <h4>  {{item.name}}  </h4>
                 <span class="price">$ {{item.price}}</span>
                 <div class="items_update">
+                  {% if perms.user %}
                   <div class="row">
                     <div class="col-lg-6">
                       <h4><a href="{% url 'updateItem_views' item.id %}">Update</a></h4>
@@ -36,6 +37,7 @@
                       <h4><a href="{% url 'itemDelete_views' item.id %}">Delete</a></h4>
                     </div>
                   </div>
+                  {% endif %}
                 </div>
               </div>
             </div>

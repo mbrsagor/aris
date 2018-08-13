@@ -27,6 +27,9 @@
                 </a>
             </h1>
         </div>
+        <div class="userNameHeader">
+          <h3>{{user.username}}</h3>
+        </div>
     </div>
     <!-- Topbar -->
 
@@ -51,9 +54,11 @@
                       <span>eCommerce</span>
                   </a>
                   <ul class="sb-drp">
+                    {% if perms.user %}
                     <li>
                         <a href="{% url 'add_new_item' %}" title="Add New Item">Add New Item</a>
                     </li>
+                    {% endif %}
                       <li>
                           <a href="{% url 'showProject_views' %}" title="All Products">List of item</a>
                       </li>
@@ -68,11 +73,9 @@
                         <li>
                             <a href="{% url 'bloodDonorList_views' %}" title="Bload Donor List">Bload Donor List</a>
                         </li>
-                        <li>
-                            <a href="#" title="">Remove Donoer</a>
-                        </li>
                     </ul>
                 </li>
+                {% if perms.user %}
                 <li class="has-drp">
                     <a href="#" title="">
                         <i class="ion-fireball"></i>
@@ -144,6 +147,7 @@
                         </li>
                     </ul>
                 </li>
+                {% endif %}
                 <li class="has-drp">
                     <a href="#" title="">
                         <i class="ion-android-contact"></i>
@@ -156,14 +160,13 @@
                         <li>
                             <a href="{% url 'addProfile_views' %}" title="">Profile Edit</a>
                         </li>
-                        <li>
-                            <a href="{% url 'total_users' %}" title="">Total Member List</a>
-                        </li>
+                        {% if perms.user %}
                         <li>
                             <a href="{% url 'singup_views' %}" title="">Add New Agent</a>
                         </li>
+                        {% endif %}
                         <li>
-                            <a href="#" title="">Total List of Agent</a>
+                            <a href="{% url 'total_users' %}" title="">Total List of Agent</a>
                         </li>
                     </ul>
                 </li>

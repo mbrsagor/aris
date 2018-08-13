@@ -387,6 +387,11 @@ textarea {resize: none;}
 .items_update {
   margin-top: 45px;
 }
+.userNameHeader h3 {
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 30px;
+}
 
 /*===== Cross Browser Compatibility =====*/
 a,
