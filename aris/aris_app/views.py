@@ -149,7 +149,7 @@ def singup_views(request):
 def addMemeberViews(request,id):
     u = AgentInformation.objects.all()
     forms = AddMemberFrom(request.POST or None)
-   
+
     if forms.is_valid():
         instance = forms.save(commit = False)
         instance.user = request.user
@@ -174,7 +174,7 @@ def viewMember(request,id):
     members = MemberInformation.objects.filter(agent_id=id)
     print(members.query)
     context = {
-    
+
         'members'     : members
     }
     template_name = 'admin/list_of_members.html'
@@ -206,7 +206,7 @@ def addProfile_views(request):
         form = UserProfile_Form(request.POST, request.FILES)
         # print(form.is_valid(), form.errors, type(form.errors))
         if form.is_valid():
-            cd = form.cleaned_data 
+            cd = form.cleaned_data
             instance = form.save(commit = False)
             instance.user = request.user
             instance.save()
@@ -245,7 +245,11 @@ def editProfile_views(request, id):
 # Total list of users
 @login_required(login_url='singin_views')
 def total_users(request):
-    profile_obj = AgentInformation.objects.all()
+    if request.user.is_superuser == True:
+        profile_obj = AgentInformation.objects.all()
+    else:
+        profile_obj = AgentInformation.objects.filter(user_id = request.user.id)
+    # print(request.user.is_superuser)
     forms = UserRegister()
     context = {
         'forms': forms,
