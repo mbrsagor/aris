@@ -131,6 +131,6 @@ EMAIL_HOST_PASSWORD = '**********'
 EMAIL_PORT          = 587
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
