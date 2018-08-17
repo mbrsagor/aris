@@ -1,5 +1,6 @@
 Django==2.0.6
 pillow==5.2.0
+psycopg2==2.7.5
 astroid==1.6.4
 backports.functools-lru-cache==1.5
 configparser==3.5.0
