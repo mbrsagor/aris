@@ -6,6 +6,7 @@ simple village community web-app
 ### Dependancies
 
  - Python 3.6
+ - postgres
  - Django 2.0.6
 
 
@@ -25,5 +26,4 @@ pip3 install -r requirements.text
 ./manage.py migrate
 ./manage.py migrate createsuperuser
 ./manage.py runserver or python3 manage.py runserver
-
 ```
